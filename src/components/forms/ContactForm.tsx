@@ -6,7 +6,6 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
@@ -19,31 +18,54 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 
+// Validación mejorada con sanitización
 const contactFormSchema = z.object({
   nombre: z
     .string()
     .min(1, 'El nombre es obligatorio')
     .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .max(100, 'El nombre no puede exceder 100 caracteres')
+    .regex(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/, 'El nombre solo puede contener letras y espacios')
     .refine((val) => val.trim().split(' ').length >= 2, {
       message: 'Ingrese su nombre completo (nombre y apellido)',
-    }),
+    })
+    .transform((val) => val.trim().replace(/\s+/g, ' ')), // Sanitización
   email: z
     .string()
     .min(1, 'El email es obligatorio')
-    .email('Ingrese un email válido'),
+    .email('Ingrese un email válido')
+    .max(254, 'El email no puede exceder 254 caracteres')
+    .toLowerCase()
+    .transform((val) => val.trim()), // Sanitización
   telefono: z
     .string()
     .min(1, 'El teléfono es obligatorio')
     .min(7, 'El teléfono debe tener al menos 7 dígitos')
-    .regex(/^[0-9+\-\s]+$/, 'Ingrese solo números, +, - y espacios'),
-  empresa: z.string().min(1, 'La empresa/organización es obligatoria'),
+    .max(20, 'El teléfono no puede exceder 20 caracteres')
+    .regex(/^[0-9+\-\s()]+$/, 'Formato de teléfono inválido')
+    .transform((val) => val.trim().replace(/\s+/g, ' ')), // Sanitización
+  empresa: z
+    .string()
+    .min(1, 'La empresa/organización es obligatoria')
+    .max(200, 'El nombre de la empresa no puede exceder 200 caracteres')
+    .transform((val) => val.trim().replace(/\s+/g, ' ')), // Sanitización
   asunto: z.string().min(1, 'Seleccione un asunto'),
   mensaje: z
     .string()
     .min(1, 'El mensaje es obligatorio')
-    .min(20, 'El mensaje debe tener al menos 20 caracteres'),
-  ubicacion: z.string().optional(),
-  tipoCultivo: z.string().optional(),
+    .min(20, 'El mensaje debe tener al menos 20 caracteres')
+    .max(2000, 'El mensaje no puede exceder 2000 caracteres')
+    .transform((val) => val.trim().replace(/\s+/g, ' ')), // Sanitización
+  ubicacion: z
+    .string()
+    .max(100, 'La ubicación no puede exceder 100 caracteres')
+    .optional()
+    .transform((val) => val ? val.trim().replace(/\s+/g, ' ') : val), // Sanitización
+  tipoCultivo: z
+    .string()
+    .max(100, 'El tipo de cultivo no puede exceder 100 caracteres')
+    .optional()
+    .transform((val) => val ? val.trim().replace(/\s+/g, ' ') : val), // Sanitización
   aceptaPolitica: z.boolean().refine((val) => val === true, {
     message: 'Debe aceptar la política de privacidad',
   }),
@@ -72,16 +94,26 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
       tipoCultivo: '',
       aceptaPolitica: false,
     },
+    mode: 'onChange', // Validación en tiempo real
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
     try {
-      // Simulamos el envío del formulario
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Simulación de envío con mejor manejo de errores
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Simulación de posible error de red
+          if (Math.random() > 0.9) {
+            reject(new Error('Error de red'));
+          } else {
+            resolve(true);
+          }
+        }, 1000 + Math.random() * 2000);
+      });
       
-      console.log('Datos del formulario:', data);
+      console.log('Datos del formulario (sanitizados):', data);
       
       toast({
         title: "¡Mensaje enviado exitosamente!",
@@ -90,9 +122,10 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
       
       form.reset();
     } catch (error) {
+      console.error('Error al enviar formulario:', error);
       toast({
         title: "Error al enviar el mensaje",
-        description: "Por favor, intente nuevamente o contáctenos directamente.",
+        description: "Por favor, verifique su conexión a internet e intente nuevamente.",
         variant: "destructive",
       });
     } finally {
@@ -111,7 +144,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
   if (variant === 'simple') {
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -120,9 +153,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                 <FormItem>
                   <FormLabel>Nombre Completo *</FormLabel>
                   <FormControl>
-                    <Input placeholder="Su nombre completo" {...field} />
+                    <Input 
+                      placeholder="Juan Pérez" 
+                      {...field} 
+                      autoComplete="name"
+                      aria-describedby="nombre-error"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="nombre-error" />
                 </FormItem>
               )}
             />
@@ -134,9 +172,15 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                 <FormItem>
                   <FormLabel>Email *</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="su.email@ejemplo.com" {...field} />
+                    <Input 
+                      type="email" 
+                      placeholder="juan@ejemplo.com" 
+                      {...field} 
+                      autoComplete="email"
+                      aria-describedby="email-error"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="email-error" />
                 </FormItem>
               )}
             />
@@ -149,9 +193,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Teléfono *</FormLabel>
                 <FormControl>
-                  <Input placeholder="(+591) 12345678" {...field} />
+                  <Input 
+                    placeholder="(+591) 12345678" 
+                    {...field} 
+                    autoComplete="tel"
+                    aria-describedby="telefono-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="telefono-error" />
               </FormItem>
             )}
           />
@@ -165,11 +214,16 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                 <FormControl>
                   <Textarea 
                     placeholder="Describa brevemente su consulta..."
-                    className="min-h-[100px]"
+                    className="min-h-[100px] resize-none"
                     {...field} 
+                    aria-describedby="mensaje-error"
+                    maxLength={2000}
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="mensaje-error" />
+                <p className="text-xs text-gray-500 mt-1">
+                  {field.value.length}/2000 caracteres
+                </p>
               </FormItem>
             )}
           />
@@ -183,13 +237,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
+                    aria-describedby="politica-error"
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
                   <FormLabel className="text-sm">
                     Acepto la política de privacidad y el tratamiento de mis datos personales *
                   </FormLabel>
-                  <FormMessage />
+                  <FormMessage id="politica-error" />
                 </div>
               </FormItem>
             )}
@@ -199,9 +254,15 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
             type="submit" 
             className="w-full bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold"
             disabled={isSubmitting}
+            aria-describedby={isSubmitting ? "enviando-mensaje" : undefined}
           >
             {isSubmitting ? 'Enviando...' : 'Enviar Consulta'}
           </Button>
+          {isSubmitting && (
+            <p id="enviando-mensaje" className="sr-only">
+              Enviando su consulta, por favor espere...
+            </p>
+          )}
         </form>
       </Form>
     );
@@ -209,7 +270,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
@@ -218,9 +279,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Nombre Completo *</FormLabel>
                 <FormControl>
-                  <Input placeholder="Su nombre completo" {...field} />
+                  <Input 
+                    placeholder="Juan Pérez" 
+                    {...field} 
+                    autoComplete="name"
+                    aria-describedby="nombre-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="nombre-error" />
               </FormItem>
             )}
           />
@@ -232,9 +298,15 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Correo Electrónico *</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="su.email@ejemplo.com" {...field} />
+                  <Input 
+                    type="email" 
+                    placeholder="juan@ejemplo.com" 
+                    {...field} 
+                    autoComplete="email"
+                    aria-describedby="email-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="email-error" />
               </FormItem>
             )}
           />
@@ -248,9 +320,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Teléfono *</FormLabel>
                 <FormControl>
-                  <Input placeholder="(+591) 12345678" {...field} />
+                  <Input 
+                    placeholder="(+591) 12345678" 
+                    {...field} 
+                    autoComplete="tel"
+                    aria-describedby="telefono-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="telefono-error" />
               </FormItem>
             )}
           />
@@ -262,9 +339,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Empresa/Organización *</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nombre de su empresa" {...field} />
+                  <Input 
+                    placeholder="Nombre de su empresa" 
+                    {...field} 
+                    autoComplete="organization"
+                    aria-describedby="empresa-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="empresa-error" />
               </FormItem>
             )}
           />
@@ -278,7 +360,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormLabel>Asunto *</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger aria-describedby="asunto-error">
                     <SelectValue placeholder="Seleccione el motivo de su consulta" />
                   </SelectTrigger>
                 </FormControl>
@@ -290,7 +372,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                   ))}
                 </SelectContent>
               </Select>
-              <FormMessage />
+              <FormMessage id="asunto-error" />
             </FormItem>
           )}
         />
@@ -303,9 +385,13 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Ubicación del Proyecto</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ciudad, departamento" {...field} />
+                  <Input 
+                    placeholder="Santa Cruz, Bolivia" 
+                    {...field} 
+                    aria-describedby="ubicacion-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="ubicacion-error" />
               </FormItem>
             )}
           />
@@ -317,9 +403,13 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormItem>
                 <FormLabel>Tipo de Cultivo</FormLabel>
                 <FormControl>
-                  <Input placeholder="Soja, maíz, trigo, etc." {...field} />
+                  <Input 
+                    placeholder="Soja, maíz, trigo, etc." 
+                    {...field} 
+                    aria-describedby="tipoCultivo-error"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage id="tipoCultivo-error" />
               </FormItem>
             )}
           />
@@ -334,11 +424,16 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
               <FormControl>
                 <Textarea 
                   placeholder="Describa su proyecto, necesidades o consulta en detalle..."
-                  className="min-h-[120px]"
+                  className="min-h-[120px] resize-none"
                   {...field} 
+                  aria-describedby="mensaje-error"
+                  maxLength={2000}
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage id="mensaje-error" />
+              <p className="text-xs text-gray-500 mt-1">
+                {field.value.length}/2000 caracteres
+              </p>
             </FormItem>
           )}
         />
@@ -352,13 +447,14 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
                 <Checkbox
                   checked={field.value}
                   onCheckedChange={field.onChange}
+                  aria-describedby="politica-error"
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
                 <FormLabel className="text-sm">
                   Acepto la política de privacidad y el tratamiento de mis datos personales *
                 </FormLabel>
-                <FormMessage />
+                <FormMessage id="politica-error" />
               </div>
             </FormItem>
           )}
@@ -368,9 +464,16 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
           type="submit" 
           className="w-full bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold"
           disabled={isSubmitting}
+          aria-describedby={isSubmitting ? "enviando-mensaje" : undefined}
         >
           {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
         </Button>
+
+        {isSubmitting && (
+          <p id="enviando-mensaje" className="sr-only">
+            Enviando su mensaje, por favor espere...
+          </p>
+        )}
 
         <p className="text-xs text-gray-500 text-center">
           * Campos obligatorios. Nos pondremos en contacto con usted en un plazo máximo de 24 horas.

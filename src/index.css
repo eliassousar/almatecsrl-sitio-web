@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,27 +78,55 @@
     @apply bg-background text-foreground;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
+    font-display: swap; /* Mejora la carga de fuentes */
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.3;
+    font-display: swap; /* Mejora la carga de fuentes */
   }
 
   /* Enhanced typography for better readability */
   p {
-    max-width: 70ch;
+    max-width: 75ch; /* Optimizado para mejor legibilidad */
+  }
+
+  /* Optimización de imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Mejora la performance de animaciones */
+  * {
+    box-sizing: border-box;
   }
 
   /* Smooth transitions for all interactive elements */
   button, a, .interactive {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Enhanced focus states for accessibility */
-  button:focus-visible, a:focus-visible {
+  button:focus-visible, 
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
     outline: 2px solid hsl(var(--almatec-yellow));
     outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -125,13 +155,41 @@
   .shadow-almatec-lg {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
   }
+
+  /* Optimización de performance */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Clases para mejor responsive design */
+  .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-fluid {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-fluid {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
 }
 
 /* Enhanced animations and microinteractions */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -142,7 +200,7 @@
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -153,11 +211,20 @@
 @keyframes slideInFromRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 
@@ -173,28 +240,21 @@
   animation: slideInFromRight 0.6s ease-out forwards;
 }
 
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* Interactive elements */
 .button-primary {
-  @apply bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  @apply bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus:ring-2 focus:ring-almatec-yellow/20;
 }
 
 .button-secondary {
-  @apply border-2 border-almatec-yellow text-almatec-yellow hover:bg-almatec-yellow hover:text-almatec-black font-medium px-6 py-3 rounded-lg transition-all duration-300;
+  @apply border-2 border-almatec-yellow text-almatec-yellow hover:bg-almatec-yellow hover:text-almatec-black font-medium px-6 py-3 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-almatec-yellow/20;
 }
 
 .card-hover {
   @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
-}
-
-/* Focus states for better accessibility */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid hsl(var(--almatec-yellow));
-  outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /* Smooth scrolling behavior */
@@ -202,7 +262,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Optimizado para diferentes navegadores */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -218,6 +278,12 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--almatec-dark-gray));
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--almatec-yellow)) #f1f1f1;
 }
 
 /* Form enhancements */
@@ -262,4 +328,41 @@ html {
 
 .prose-enhanced p {
   @apply text-gray-700 leading-relaxed mb-4 max-w-prose;
+}
+
+/* Performance optimization - Critical CSS */
+.above-fold {
+  contain: layout style paint;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
 }

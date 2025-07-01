@@ -1,10 +1,11 @@
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -13,72 +14,94 @@ const WhatsAppButton = () => {
     tipoConsulta: ''
   });
 
-  const handleDirectWhatsApp = () => {
+  const handleDirectWhatsApp = useCallback(() => {
     const phoneNumber = "+59177028610";
-    const message = "Hola, me interesa conocer más sobre las soluciones agrícolas de Almatec SRL";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+    const message = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agrícolas de Almatec SRL");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Mejor manejo de ventanas emergentes
+    const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow) {
+      // Fallback si el popup es bloqueado
+      window.location.href = whatsappUrl;
+    }
+  }, []);
 
-  const handleConsultaSubmit = () => {
+  const handleConsultaSubmit = useCallback(() => {
+    if (!consultaData.nombre.trim() || !consultaData.tipoConsulta) {
+      return;
+    }
+
     const phoneNumber = "+59177028610";
     const tipoTexto = consultaData.tipoConsulta === 'silos-gsi' ? 'silos GSI' :
                      consultaData.tipoConsulta === 'sistemas-secado' ? 'sistemas de secado' :
-                     consultaData.tipoConsulta === 'servicios-tecnicos' ? 'servicios técnicos' : 'consulta general';
+                     consultaData.tipoConsulta === 'servicios-tecnicos' ? 'servicios técnicos' :
+                     consultaData.tipoConsulta === 'cotizacion' ? 'una cotización' : 'consulta general';
     
-    const message = `Hola, soy ${consultaData.nombre}. Estoy interesado en conocer más sobre ${tipoTexto} de Almatec SRL.`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const message = encodeURIComponent(`Hola, soy ${consultaData.nombre.trim()}. Estoy interesado en conocer más sobre ${tipoTexto} de Almatec SRL.`);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
-    window.open(whatsappUrl, '_blank');
+    const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow) {
+      window.location.href = whatsappUrl;
+    }
+    
     setIsDialogOpen(false);
     setConsultaData({ nombre: '', tipoConsulta: '' });
-  };
+  }, [consultaData]);
+
+  const handleInputChange = useCallback((field: string, value: string) => {
+    setConsultaData(prev => ({ ...prev, [field]: value }));
+  }, []);
+
+  const isFormValid = consultaData.nombre.trim().length > 0 && consultaData.tipoConsulta.length > 0;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999]">
+    <div className="fixed bottom-6 right-6 z-[9999]" role="complementary" aria-label="Botón de contacto por WhatsApp">
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
           <Button
-            className="w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0"
+            className="w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 focus:ring-4 focus:ring-[#25D366]/30"
             size="icon"
+            aria-label="Abrir chat de WhatsApp"
+            title="Contactar por WhatsApp"
           >
             <div className="flex flex-col items-center justify-center">
-              <svg
-                className="w-6 h-6 mb-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.586z"/>
-              </svg>
+              <MessageCircle className="w-6 h-6 mb-1" aria-hidden="true" />
               <span className="text-xs font-medium">Chat</span>
             </div>
           </Button>
         </DialogTrigger>
         
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md" aria-describedby="whatsapp-dialog-description">
           <DialogHeader>
             <DialogTitle className="text-almatec-dark-gray">Consulta por WhatsApp</DialogTitle>
-            <DialogDescription>
-              Complete los datos para una consulta personalizada
+            <DialogDescription id="whatsapp-dialog-description">
+              Complete los datos para una consulta personalizada por WhatsApp
             </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-4">
             <div>
-              <Label htmlFor="nombre">Su nombre</Label>
+              <Label htmlFor="nombre-whatsapp">Su nombre *</Label>
               <Input
-                id="nombre"
+                id="nombre-whatsapp"
                 placeholder="Ingrese su nombre"
                 value={consultaData.nombre}
-                onChange={(e) => setConsultaData({...consultaData, nombre: e.target.value})}
+                onChange={(e) => handleInputChange('nombre', e.target.value)}
+                maxLength={100}
+                autoComplete="name"
+                aria-required="true"
               />
             </div>
             
             <div>
-              <Label htmlFor="tipoConsulta">Tipo de consulta</Label>
-              <Select onValueChange={(value) => setConsultaData({...consultaData, tipoConsulta: value})}>
-                <SelectTrigger>
+              <Label htmlFor="tipo-consulta">Tipo de consulta *</Label>
+              <Select 
+                onValueChange={(value) => handleInputChange('tipoConsulta', value)}
+                value={consultaData.tipoConsulta}
+              >
+                <SelectTrigger id="tipo-consulta" aria-required="true">
                   <SelectValue placeholder="Seleccione el tipo de consulta" />
                 </SelectTrigger>
                 <SelectContent>
@@ -94,8 +117,9 @@ const WhatsAppButton = () => {
             <div className="flex space-x-2">
               <Button 
                 onClick={handleConsultaSubmit} 
-                disabled={!consultaData.nombre || !consultaData.tipoConsulta}
-                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white"
+                disabled={!isFormValid}
+                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Enviar consulta personalizada por WhatsApp"
               >
                 Enviar por WhatsApp
               </Button>
@@ -103,6 +127,7 @@ const WhatsAppButton = () => {
                 onClick={handleDirectWhatsApp} 
                 variant="outline"
                 className="flex-1"
+                aria-label="Contacto directo por WhatsApp"
               >
                 Contacto directo
               </Button>
