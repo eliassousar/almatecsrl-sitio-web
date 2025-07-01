@@ -94,7 +94,7 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-3">
               <a 
-                href="https://www.facebook.com/almatecagronegocios" 
+                href="https://www.facebook.com/almatecscz/?locale=es_LA" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
@@ -103,7 +103,7 @@ const Footer = () => {
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.instagram.com/almatecagronegocios" 
+                href="https://www.instagram.com/almatecsrl/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
@@ -112,7 +112,7 @@ const Footer = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.linkedin.com/company/almatec-agronegocios" 
+                href="https://www.linkedin.com/company/almatec-srl/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
@@ -121,7 +121,7 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.youtube.com/@almatecagronegocios" 
+                href="https://www.youtube.com/@GSI.americadelsur" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
