@@ -1,5 +1,3 @@
-
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -74,20 +72,13 @@ const SobreNosotros = () => {
               </h2>
               <div className="space-y-8">
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
-                  Almatec SRL nació en 2010 con la visión de transformar el sector agrícola boliviano mediante 
-                  soluciones tecnológicas de clase mundial. Fundada por profesionales con amplia experiencia 
-                  en el sector agroindustrial, nuestra empresa rápidamente se posicionó como referente en 
-                  sistemas de almacenamiento y manejo de granos.
+                  Almatec SRL es una empresa boliviana —con base operativa en Santa Cruz y cobertura en los nueve departamentos del país— dedicada a suministrar soluciones llave en mano para la poscosecha de granos. Desde hace más de dos décadas somos representantes oficiales de GSI® Grain Systems, líder mundial en almacenamiento, secado y manejo de granos, una alianza que nos permite acercar a los productores locales tecnología probada a escala global.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
-                  A lo largo de nuestra trayectoria, hemos establecido alianzas estratégicas con líderes 
-                  mundiales como GSI, permitiéndonos ofrecer tecnología de vanguardia adaptada a las 
-                  necesidades específicas del mercado boliviano.
+                  Integramos todos los eslabones críticos del proceso: estudios de suelo, obra civil, montajes eléctricos, instalación de silos metálicos, secadoras de flujo continuo, cintas y elevadores, además de sistemas de monitoreo de temperatura e inventario. Cada proyecto se dimensiona según el cultivo y los planes de crecimiento del cliente, garantizando compatibilidad entre equipos y máxima eficiencia operativa.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
-                  Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura 
-                  agrícola nacional, con proyectos implementados en los principales centros productivos del 
-                  país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
+                  Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura agrícola nacional, con proyectos implementados en los principales centros productivos del país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
                 </p>
               </div>
             </div>
@@ -231,4 +222,3 @@ const SobreNosotros = () => {
 };
 
 export default SobreNosotros;
-
