@@ -26,13 +26,8 @@ const SobreNosotros = () => {
       icon: "🎯"
     },
     {
-      title: "Responsabilidad social",
-      description: "Contribuimos al desarrollo sostenible de las comunidades agrícolas bolivianas",
-      icon: "🌱"
-    },
-    {
       title: "Experiencia comprobada",
-      description: "Más de una década de trayectoria exitosa en el mercado agrícola boliviano",
+      description: "Más de dos décadas de trayectoria exitosa en el mercado agrícola boliviano",
       icon: "📈"
     }
   ];
