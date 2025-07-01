@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { supabase } from '@/integrations/supabase/client';
 import {
   Form,
   FormControl,
@@ -79,9 +79,30 @@ const QuoteForm = () => {
     setIsSubmitting(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Enviar datos a Supabase
+      const { error } = await supabase
+        .from('quote_requests')
+        .insert({
+          nombre: data.nombre,
+          email: data.email,
+          telefono: data.telefono,
+          empresa: data.empresa,
+          tipo_producto: data.tipoProducto,
+          ubicacion_proyecto: data.ubicacionProyecto,
+          fecha_estimada: data.fechaEstimada || null,
+          capacidad_requerida: data.capacidadRequerida || null,
+          tipo_cultivo: data.tipoCultivo || null,
+          condiciones_ambientales: data.condicionesAmbientales || null,
+          energia_disponible: data.energiaDisponible || null,
+          presupuesto_aproximado: data.presupuestoAproximado || null,
+          comentarios_adicionales: data.comentariosAdicionales || null,
+        });
+
+      if (error) {
+        throw error;
+      }
       
-      console.log('Datos de cotización:', data);
+      console.log('Solicitud de cotización enviada exitosamente a Supabase');
       
       toast({
         title: "¡Solicitud de cotización enviada!",
@@ -91,6 +112,7 @@ const QuoteForm = () => {
       form.reset();
       setCurrentStep(1);
     } catch (error) {
+      console.error('Error al enviar solicitud de cotización:', error);
       toast({
         title: "Error al enviar la solicitud",
         description: "Por favor, intente nuevamente o contáctenos directamente.",

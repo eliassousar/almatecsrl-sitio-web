@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import {
   Form,
   FormControl,
@@ -101,19 +101,26 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
     setIsSubmitting(true);
     
     try {
-      // Simulación de envío con mejor manejo de errores
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // Simulación de posible error de red
-          if (Math.random() > 0.9) {
-            reject(new Error('Error de red'));
-          } else {
-            resolve(true);
-          }
-        }, 1000 + Math.random() * 2000);
-      });
+      // Enviar datos a Supabase
+      const { error } = await supabase
+        .from('contact_inquiries')
+        .insert({
+          nombre: data.nombre,
+          email: data.email,
+          telefono: data.telefono,
+          empresa: data.empresa,
+          asunto: data.asunto,
+          mensaje: data.mensaje,
+          ubicacion: data.ubicacion || null,
+          tipo_cultivo: data.tipoCultivo || null,
+          acepta_politica: data.aceptaPolitica,
+        });
+
+      if (error) {
+        throw error;
+      }
       
-      console.log('Datos del formulario (sanitizados):', data);
+      console.log('Consulta enviada exitosamente a Supabase');
       
       toast({
         title: "¡Mensaje enviado exitosamente!",
@@ -122,7 +129,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
       
       form.reset();
     } catch (error) {
-      console.error('Error al enviar formulario:', error);
+      console.error('Error al enviar consulta:', error);
       toast({
         title: "Error al enviar el mensaje",
         description: "Por favor, verifique su conexión a internet e intente nuevamente.",

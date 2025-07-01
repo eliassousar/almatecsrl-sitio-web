@@ -9,7 +9,108 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      contact_inquiries: {
+        Row: {
+          acepta_politica: boolean
+          asunto: string
+          created_at: string
+          email: string
+          empresa: string
+          id: string
+          mensaje: string
+          nombre: string
+          telefono: string
+          tipo_cultivo: string | null
+          ubicacion: string | null
+          updated_at: string
+        }
+        Insert: {
+          acepta_politica?: boolean
+          asunto: string
+          created_at?: string
+          email: string
+          empresa: string
+          id?: string
+          mensaje: string
+          nombre: string
+          telefono: string
+          tipo_cultivo?: string | null
+          ubicacion?: string | null
+          updated_at?: string
+        }
+        Update: {
+          acepta_politica?: boolean
+          asunto?: string
+          created_at?: string
+          email?: string
+          empresa?: string
+          id?: string
+          mensaje?: string
+          nombre?: string
+          telefono?: string
+          tipo_cultivo?: string | null
+          ubicacion?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      quote_requests: {
+        Row: {
+          capacidad_requerida: string | null
+          comentarios_adicionales: string | null
+          condiciones_ambientales: string | null
+          created_at: string
+          email: string
+          empresa: string
+          energia_disponible: string | null
+          fecha_estimada: string | null
+          id: string
+          nombre: string
+          presupuesto_aproximado: string | null
+          telefono: string
+          tipo_cultivo: string | null
+          tipo_producto: string
+          ubicacion_proyecto: string
+          updated_at: string
+        }
+        Insert: {
+          capacidad_requerida?: string | null
+          comentarios_adicionales?: string | null
+          condiciones_ambientales?: string | null
+          created_at?: string
+          email: string
+          empresa: string
+          energia_disponible?: string | null
+          fecha_estimada?: string | null
+          id?: string
+          nombre: string
+          presupuesto_aproximado?: string | null
+          telefono: string
+          tipo_cultivo?: string | null
+          tipo_producto: string
+          ubicacion_proyecto: string
+          updated_at?: string
+        }
+        Update: {
+          capacidad_requerida?: string | null
+          comentarios_adicionales?: string | null
+          condiciones_ambientales?: string | null
+          created_at?: string
+          email?: string
+          empresa?: string
+          energia_disponible?: string | null
+          fecha_estimada?: string | null
+          id?: string
+          nombre?: string
+          presupuesto_aproximado?: string | null
+          telefono?: string
+          tipo_cultivo?: string | null
+          tipo_producto?: string
+          ubicacion_proyecto?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
