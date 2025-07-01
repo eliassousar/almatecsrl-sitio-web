@@ -41,7 +41,7 @@ const Home = () => {
       icon: "📅"
     },
     {
-      title: "Representantes oficiales GSI",
+      title: "Tecnología GSI",
       description: "Somos distribuidores autorizados de GSI, líder mundial en soluciones de almacenamiento agrícola.",
       icon: "🏆"
     },
@@ -172,8 +172,8 @@ const Home = () => {
       </section>
 
       {/* Nuestras Soluciones */}
-      <section className="py-20 bg-almatec-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-spacing bg-almatec-white">
+        <div className="container mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
               Nuestras Soluciones
@@ -185,7 +185,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {solutions.map((solution, index) => (
-              <Card key={index} className={`hover:shadow-xl transition-all duration-300 hover:scale-105 ${solution.featured ? 'ring-2 ring-almatec-yellow shadow-lg' : ''}`}>
+              <Card key={index} className={`card-elegant ${solution.featured ? 'ring-2 ring-almatec-yellow shadow-lg' : ''}`}>
                 <CardHeader className="p-0">
                   <AspectRatio ratio={16 / 9}>
                     <img 
@@ -216,8 +216,8 @@ const Home = () => {
       </section>
 
       {/* ¿Por qué elegirnos? */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
               ¿Por Qué Elegirnos?
@@ -292,8 +292,8 @@ const Home = () => {
       </section>
 
       {/* Contacto Rápido */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
             <div>
               <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-8 tracking-wide">
