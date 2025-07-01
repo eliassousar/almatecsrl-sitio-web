@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from '../ui/scroll-to-top';
 import WhatsAppButton from '../ui/whatsapp-button';
+import LiveChat from '../ui/live-chat';
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
       </main>
       <Footer />
       <ScrollToTop />
+      <LiveChat />
       <WhatsAppButton />
     </div>
   );

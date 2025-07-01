@@ -1,109 +1,107 @@
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { 
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import QuoteForm from '@/components/forms/QuoteForm';
 
 const Servicios = () => {
   const servicios = [
     {
-      title: "Asesoría Técnica",
-      description: "Consultoría especializada para el diseño y planificación de proyectos agrícolas",
+      id: "asesoria-tecnica",
+      title: "Asesoría Técnica Especializada",
       icon: "🎯",
-      detalles: [
-        "Análisis de necesidades específicas del cliente",
-        "Diseño de soluciones personalizadas",
-        "Estudios de factibilidad técnica y económica",
-        "Recomendaciones de ubicación y capacidad",
-        "Planificación de fases de implementación"
+      description: "Nuestro equipo de ingenieros especializados evalúa sus necesidades específicas y condiciones locales para diseñar la solución óptima para su operación.",
+      detalles: "El servicio incluye análisis de requerimientos, estudios de viabilidad, planificación de capacidad y recomendaciones técnicas personalizadas. Trabajamos con usted desde la conceptualización hasta la implementación final.",
+      proceso: [
+        "Evaluación inicial de necesidades y condiciones del sitio",
+        "Análisis técnico y diseño de la solución óptima",
+        "Elaboración de propuesta técnica detallada",
+        "Acompañamiento durante la implementación"
+      ],
+      beneficios: [
+        "Soluciones personalizadas según sus necesidades específicas",
+        "Optimización de recursos y presupuesto",
+        "Reducción de riesgos en la implementación",
+        "Garantía de funcionamiento óptimo del sistema"
       ]
     },
     {
-      title: "Instalación",
-      description: "Montaje profesional con equipos especializados y personal certificado",
+      id: "instalacion",
+      title: "Instalación Profesional",
       icon: "🔧",
-      detalles: [
-        "Equipo técnico altamente capacitado",
-        "Supervisión continua de calidad",
-        "Cumplimiento de normas de seguridad",
-        "Pruebas de funcionamiento completas",
-        "Documentación técnica detallada"
+      description: "Contamos con equipos de instalación altamente capacitados con amplia experiencia en proyectos de diversa escala.",
+      detalles: "Garantizamos un montaje profesional que cumple con todos los estándares de calidad y seguridad, asegurando el funcionamiento óptimo de su sistema desde el primer día.",
+      proceso: [
+        "Preparación del sitio y verificación de condiciones",
+        "Montaje de estructuras principales y sistemas auxiliares",
+        "Instalación de equipos electromecánicos y controles",
+        "Pruebas de funcionamiento y puesta en marcha",
+        "Capacitación al personal operativo"
+      ],
+      beneficios: [
+        "Instalación por personal certificado y experimentado",
+        "Cumplimiento de estándares internacionales de seguridad",
+        "Garantía de calidad en todos los trabajos realizados",
+        "Soporte técnico durante la puesta en marcha"
       ]
     },
     {
-      title: "Mantenimiento",
-      description: "Programas de mantenimiento preventivo y correctivo para máximo rendimiento",
+      id: "mantenimiento",
+      title: "Mantenimiento Preventivo y Correctivo",
       icon: "⚙️",
-      detalles: [
-        "Mantenimiento preventivo programado",
-        "Servicio de emergencia 24/7",
-        "Repuestos originales GSI",
-        "Diagnósticos técnicos avanzados",
-        "Reportes detallados de estado"
+      description: "Ofrecemos programas de mantenimiento preventivo y correctivo para maximizar la vida útil de sus equipos.",
+      detalles: "Nuestros técnicos certificados realizan inspecciones regulares y servicios programados adaptados a sus necesidades específicas, previniendo costosas interrupciones operativas.",
+      proceso: [
+        "Inspección técnica completa de equipos y sistemas",
+        "Mantenimiento preventivo según cronograma establecido",
+        "Atención de emergencias y reparaciones correctivas",
+        "Elaboración de reportes técnicos y recomendaciones"
+      ],
+      beneficios: [
+        "Máxima disponibilidad operativa de sus equipos",
+        "Reducción significativa de costos de reparación",
+        "Extensión de la vida útil de la inversión",
+        "Respuesta rápida ante emergencias técnicas"
       ]
     },
     {
-      title: "Capacitación",
-      description: "Entrenamiento especializado para operación óptima de equipos",
+      id: "capacitacion",
+      title: "Capacitación y Entrenamiento",
       icon: "📚",
-      detalles: [
-        "Cursos teóricos y prácticos",
-        "Certificación de operadores",
-        "Manuales de operación en español",
-        "Simulaciones de situaciones reales",
-        "Seguimiento post-capacitación"
+      description: "Programas de capacitación integral para el personal operativo y técnico de su empresa.",
+      detalles: "Nuestros especialistas brindan entrenamiento teórico y práctico sobre operación, mantenimiento básico y mejores prácticas para optimizar el rendimiento de sus sistemas.",
+      proceso: [
+        "Evaluación de necesidades de capacitación",
+        "Desarrollo de programa de entrenamiento personalizado",
+        "Sesiones teóricas y prácticas en sitio",
+        "Evaluación y certificación del personal"
+      ],
+      beneficios: [
+        "Personal altamente capacitado y certificado",
+        "Operación eficiente y segura de los equipos",
+        "Reducción de errores operativos",
+        "Autonomía en mantenimiento básico"
       ]
     },
     {
-      title: "Soporte Post-venta",
-      description: "Acompañamiento continuo y soporte técnico especializado",
-      icon: "📞",
-      detalles: [
-        "Línea directa de soporte técnico",
-        "Asistencia remota especializada",
-        "Actualizaciones de software",
-        "Garantía extendida disponible",
-        "Programa de mejoras continuas"
+      id: "soporte-postventa",
+      title: "Soporte Post-Venta",
+      icon: "🛠️",
+      description: "Servicio de soporte técnico continuo para garantizar el óptimo funcionamiento de su inversión.",
+      detalles: "Ofrecemos asistencia técnica telefónica, suministro de repuestos originales y actualizaciones tecnológicas para mantener sus sistemas siempre actualizados y funcionando al máximo rendimiento.",
+      proceso: [
+        "Registro del equipo en nuestro sistema de soporte",
+        "Monitoreo remoto y asistencia técnica",
+        "Suministro de repuestos y actualizaciones",
+        "Soporte técnico especializado 24/7"
+      ],
+      beneficios: [
+        "Tranquilidad y respaldo permanente",
+        "Acceso garantizado a repuestos originales",
+        "Actualizaciones tecnológicas disponibles",
+        "Soporte técnico especializado cuando lo necesite"
       ]
-    }
-  ];
-
-  const procesoTrabajo = [
-    {
-      step: "01",
-      title: "Consulta Inicial",
-      description: "Evaluamos sus necesidades y objetivos específicos"
-    },
-    {
-      step: "02", 
-      title: "Análisis y Diseño",
-      description: "Desarrollamos la solución técnica más adecuada"
-    },
-    {
-      step: "03",
-      title: "Planificación",
-      description: "Creamos cronograma detallado y plan de implementación"
-    },
-    {
-      step: "04",
-      title: "Implementación",
-      description: "Ejecutamos el proyecto con supervisión continua"
-    },
-    {
-      step: "05",
-      title: "Entrega y Capacitación",
-      description: "Entregamos el proyecto y capacitamos a su equipo"
-    },
-    {
-      step: "06",
-      title: "Soporte Continuo",
-      description: "Brindamos mantenimiento y soporte a largo plazo"
     }
   ];
 
@@ -123,59 +121,88 @@ const Servicios = () => {
           <div className="max-w-4xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight">
               Nuestros 
-              <span className="text-almatec-yellow"> Servicios</span>
+              <span className="text-almatec-yellow">Servicios</span>
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Servicios integrales para maximizar el rendimiento de sus equipos agrícolas
+              Soluciones integrales para optimizar su producción agrícola
             </p>
           </div>
         </div>
       </section>
 
-      {/* Listado de Servicios con Acordeones */}
-      <section className="py-16 bg-almatec-white">
+      {/* Servicios Principales */}
+      <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
-              Servicios Especializados
+          <div className="text-center mb-16">
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+              Nuestros Servicios
             </h2>
-            <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Ofrecemos una gama completa de servicios para acompañar su proyecto desde el diseño hasta la operación
+            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Ofrecemos un servicio integral que abarca desde la asesoría inicial hasta el soporte post-venta, 
+              garantizando el éxito de su proyecto agrícola.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {servicios.map((servicio, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg">
-                  <AccordionTrigger className="px-6 py-4 hover:bg-gray-50">
-                    <div className="flex items-center space-x-4 text-left">
+                <AccordionItem key={servicio.id} value={servicio.id} className="border border-gray-200 rounded-lg">
+                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-gray-50 rounded-lg">
+                    <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-almatec-yellow rounded-full flex items-center justify-center text-2xl">
                         {servicio.icon}
                       </div>
                       <div>
-                        <h3 className="font-montserrat font-semibold text-almatec-dark-gray text-lg">
+                        <h3 className="font-montserrat font-semibold text-xl text-almatec-dark-gray">
                           {servicio.title}
                         </h3>
-                        <p className="font-open-sans text-gray-600 text-sm">
+                        <p className="font-open-sans text-gray-600 mt-1">
                           {servicio.description}
                         </p>
                       </div>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-6">
-                    <div className="pt-4 border-t border-gray-100">
-                      <h4 className="font-montserrat font-medium text-almatec-dark-gray mb-3">
-                        ¿Qué incluye este servicio?
-                      </h4>
-                      <ul className="space-y-2">
-                        {servicio.detalles.map((detalle, detalleIndex) => (
-                          <li key={detalleIndex} className="flex items-start space-x-2">
-                            <span className="text-almatec-yellow mt-1">•</span>
-                            <span className="font-open-sans text-gray-600 text-sm">{detalle}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="space-y-6">
+                      <p className="font-open-sans text-gray-700 leading-relaxed">
+                        {servicio.detalles}
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <h4 className="font-montserrat font-semibold text-almatec-dark-gray mb-3">
+                            Proceso de Trabajo:
+                          </h4>
+                          <ol className="space-y-2">
+                            {servicio.proceso.map((paso, idx) => (
+                              <li key={idx} className="flex items-start space-x-3">
+                                <span className="bg-almatec-yellow text-almatec-black rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">
+                                  {idx + 1}
+                                </span>
+                                <span className="font-open-sans text-gray-700 text-sm">
+                                  {paso}
+                                </span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-montserrat font-semibold text-almatec-dark-gray mb-3">
+                            Beneficios Clave:
+                          </h4>
+                          <ul className="space-y-2">
+                            {servicio.beneficios.map((beneficio, idx) => (
+                              <li key={idx} className="flex items-start space-x-3">
+                                <span className="text-almatec-yellow text-lg">✓</span>
+                                <span className="font-open-sans text-gray-700 text-sm">
+                                  {beneficio}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -185,111 +212,112 @@ const Servicios = () => {
         </div>
       </section>
 
-      {/* Proceso de Trabajo */}
-      <section className="py-16 bg-gray-50">
+      {/* Proceso General de Trabajo */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
+          <div className="text-center mb-16">
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
               Nuestro Proceso de Trabajo
             </h2>
-            <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Una metodología probada que garantiza el éxito de cada proyecto
+            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Un enfoque estructurado para garantizar el éxito de su proyecto
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {procesoTrabajo.map((paso, index) => (
-              <Card key={index} className="relative hover:shadow-lg transition-shadow">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="font-montserrat font-bold text-almatec-black text-lg">{paso.step}</span>
-                  </div>
-                  <CardTitle className="font-montserrat text-almatec-dark-gray">{paso.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="font-open-sans text-gray-600">{paso.description}</p>
-                </CardContent>
-                {index < procesoTrabajo.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-almatec-yellow"></div>
-                  </div>
-                )}
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonio de Servicio */}
-      <section className="py-16 bg-almatec-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Card className="bg-gray-50">
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <span className="text-6xl text-almatec-yellow">"</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Paso 1: Asesoría Inicial */}
+            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardHeader className="pb-4">
+                <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl">🤝</span>
                 </div>
-                <p className="font-open-sans text-lg text-gray-700 leading-relaxed mb-6 italic">
-                  El servicio de Almatec superó nuestras expectativas. Desde la consulta inicial hasta 
-                  la puesta en marcha, su equipo técnico demostró profesionalismo y conocimiento 
-                  excepcional. Nuestro sistema GSI funciona perfectamente y el soporte post-venta 
-                  es incomparable.
+                <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">Asesoría Inicial</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-open-sans text-gray-600 leading-relaxed">
+                  Entendemos sus necesidades y objetivos para ofrecerle la mejor solución.
                 </p>
-                <div className="flex items-center justify-center space-x-4">
-                  <div className="w-12 h-12 bg-almatec-yellow rounded-full flex items-center justify-center">
-                    <span className="font-montserrat font-bold text-almatec-black">JM</span>
-                  </div>
-                  <div className="text-left">
-                    <p className="font-montserrat font-semibold text-almatec-dark-gray">Juan Morales</p>
-                    <p className="font-open-sans text-sm text-gray-600">Gerente General, Cooperativa El Palmar</p>
-                  </div>
+              </CardContent>
+            </Card>
+
+            {/* Paso 2: Diseño y Planificación */}
+            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardHeader className="pb-4">
+                <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl">📐</span>
                 </div>
+                <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">Diseño y Planificación</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-open-sans text-gray-600 leading-relaxed">
+                  Creamos un plan detallado que se ajusta a sus requerimientos y presupuesto.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Paso 3: Implementación */}
+            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardHeader className="pb-4">
+                <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl">🛠️</span>
+                </div>
+                <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">Implementación</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-open-sans text-gray-600 leading-relaxed">
+                  Nuestro equipo experto se encarga de la instalación y puesta en marcha de su sistema.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Paso 4: Soporte Continuo */}
+            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardHeader className="pb-4">
+                <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl">📞</span>
+                </div>
+                <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">Soporte Continuo</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-open-sans text-gray-600 leading-relaxed">
+                  Ofrecemos mantenimiento y soporte técnico para asegurar el óptimo rendimiento a largo plazo.
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Solicitar Servicio */}
-      <section className="py-16 bg-almatec-dark-gray text-almatec-white">
+      {/* Formulario de Solicitud de Cotización */}
+      <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
-                ¿Necesita Alguno de Nuestros Servicios?
-              </h2>
-              <p className="font-open-sans text-lg text-gray-300 mb-8 leading-relaxed">
-                Contáctenos para recibir asesoría personalizada y conocer cómo podemos 
-                ayudarle a optimizar sus operaciones agrícolas.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <span className="text-almatec-yellow">✓</span>
-                  <span className="font-open-sans">Evaluación gratuita de necesidades</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-almatec-yellow">✓</span>
-                  <span className="font-open-sans">Propuesta técnica personalizada</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-almatec-yellow">✓</span>
-                  <span className="font-open-sans">Garantía en todos nuestros servicios</span>
-                </div>
-              </div>
-              <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
-                <Link to="/contacto">Solicitar Servicio</Link>
-              </Button>
-            </div>
-            <div>
-              <AspectRatio ratio={4 / 3}>
-                <img 
-                  src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Servicios Almatec"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
-                />
-              </AspectRatio>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+              Solicite una Cotización
+            </h2>
+            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Complete nuestro formulario detallado para recibir una cotización personalizada 
+              de nuestros productos y servicios.
+            </p>
           </div>
+
+          <QuoteForm />
+        </div>
+      </section>
+
+      {/* CTA de Contacto */}
+      <section className="py-20 bg-almatec-dark-gray text-almatec-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-8 tracking-wide">
+            ¿Listo para Transformar su Producción Agrícola?
+          </h2>
+          <p className="font-open-sans text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Contáctenos hoy mismo para descubrir cómo nuestras soluciones pueden optimizar su operación 
+            y aumentar su rentabilidad.
+          </p>
+          <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
+            <Link to="/contacto">Contactar Ahora</Link>
+          </Button>
         </div>
       </section>
     </div>
