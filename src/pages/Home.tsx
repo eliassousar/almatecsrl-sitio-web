@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -308,13 +307,13 @@ const Home = () => {
                   <div className="w-12 h-12 bg-almatec-yellow rounded-full flex items-center justify-center">
                     <span className="text-almatec-black text-xl">📞</span>
                   </div>
-                  <span className="font-open-sans text-lg">(+591) 3 326206</span>
+                  <span className="font-open-sans text-lg">(+591) 77028610</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-almatec-yellow rounded-full flex items-center justify-center">
                     <span className="text-almatec-black text-xl">📧</span>
                   </div>
-                  <span className="font-open-sans text-lg">pabloarteaga@almatec.net</span>
+                  <span className="font-open-sans text-lg">edson_gsi@hotmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-almatec-yellow rounded-full flex items-center justify-center">

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -21,11 +20,11 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const handlePhoneClick = () => {
-    window.location.href = 'tel:+59133326206';
+    window.location.href = 'tel:+59177028610';
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:pabloarteaga@almatec.net';
+    window.location.href = 'mailto:edson_gsi@hotmail.com';
   };
 
   return (
@@ -91,14 +90,14 @@ const Header = () => {
                     className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
                   >
                     <Phone className="h-4 w-4" />
-                    <span className="font-open-sans text-sm">(+591) 3 326206</span>
+                    <span className="font-open-sans text-sm">(+591) 77028610</span>
                   </button>
                   <button
                     onClick={handleEmailClick}
                     className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full"
                   >
                     <Mail className="h-4 w-4" />
-                    <span className="font-open-sans text-sm">pabloarteaga@almatec.net</span>
+                    <span className="font-open-sans text-sm">edson_gsi@hotmail.com</span>
                   </button>
                 </div>
 
