@@ -77,6 +77,59 @@ const Home = () => {
     }
   ];
 
+  const clients = [
+    {
+      name: "ADM",
+      logoUrl: "https://logo.clearbit.com/adm.com",
+      alt: "ADM Logo"
+    },
+    {
+      name: "Cargill",
+      logoUrl: "https://logo.clearbit.com/cargill.com",
+      alt: "Cargill Logo"
+    },
+    {
+      name: "Agro Campo",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Agro+Campo",
+      alt: "Agro Campo Logo"
+    },
+    {
+      name: "Coop. Colinas",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Coop.+Colinas",
+      alt: "Cooperativa Colinas Logo"
+    },
+    {
+      name: "Grupo Hilagro",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Grupo+Hilagro",
+      alt: "Grupo Hilagro Logo"
+    },
+    {
+      name: "Neuland Ltda.",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Neuland+Ltda.",
+      alt: "Neuland Ltda. Logo"
+    },
+    {
+      name: "Cultivatto",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Cultivatto",
+      alt: "Cultivatto Logo"
+    },
+    {
+      name: "Transagro",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Transagro",
+      alt: "Transagro Logo"
+    },
+    {
+      name: "D'Italia S.A.",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=D%27Italia+S.A.",
+      alt: "D'Italia S.A. Logo"
+    },
+    {
+      name: "Raúl Peña Ltda.",
+      logoUrl: "https://via.placeholder.com/160x96/f5f5f5/666666?text=Ra%C3%BAl+Pe%C3%B1a+Ltda.",
+      alt: "Raúl Peña Ltda. Logo"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -236,6 +289,46 @@ const Home = () => {
                 <p className="font-open-sans text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nuestros Clientes */}
+      <section className="py-20 bg-almatec-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+              Nuestros Clientes
+            </h2>
+            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Empresas líderes del sector agrícola boliviano confían en nuestras soluciones GSI
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            {clients.map((client, index) => (
+              <div 
+                key={index} 
+                className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group"
+              >
+                <img
+                  src={client.logoUrl}
+                  alt={client.alt}
+                  className="max-h-24 max-w-40 object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  loading="lazy"
+                  aria-label={client.name}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="font-open-sans text-lg text-gray-600 mb-6">
+              ¿Su empresa necesita soluciones de almacenamiento agrícola?
+            </p>
+            <Button asChild className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
+              <Link to="/contacto">Únase a Nuestros Clientes</Link>
+            </Button>
           </div>
         </div>
       </section>
