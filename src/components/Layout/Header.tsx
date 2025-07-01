@@ -30,28 +30,6 @@ const Header = () => {
 
   return (
     <header className="bg-almatec-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      {/* Top Contact Bar - Hidden on mobile */}
-      <div className="hidden lg:block bg-almatec-dark-gray text-almatec-white py-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center space-x-6 text-sm">
-            <button
-              onClick={handlePhoneClick}
-              className="flex items-center space-x-2 hover:text-almatec-yellow transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              <span>(+591) 3 326206</span>
-            </button>
-            <button
-              onClick={handleEmailClick}
-              className="flex items-center space-x-2 hover:text-almatec-yellow transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-              <span>pabloarteaga@almatec.net</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
