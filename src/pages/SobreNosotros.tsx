@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -46,7 +45,7 @@ const SobreNosotros = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80')"
+            backgroundImage: "url('/lovable-uploads/f0fd3940-aa55-435d-9beb-a7cbe240500c.png')"
           }}
         ></div>
         
