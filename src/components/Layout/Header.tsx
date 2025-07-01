@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,6 @@ const Header = () => {
     { name: 'Productos y Soluciones', path: '/productos' },
     { name: 'Servicios', path: '/servicios' },
     { name: 'Proyectos Realizados', path: '/proyectos' },
-    { name: 'Contacto', path: '/contacto' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
