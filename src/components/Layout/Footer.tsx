@@ -94,28 +94,36 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-3">
               <a 
-                href="#" 
+                href="https://www.facebook.com/almatecagronegocios" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/almatecagronegocios" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/almatec-agronegocios" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@almatecagronegocios" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
                 aria-label="YouTube"
               >
