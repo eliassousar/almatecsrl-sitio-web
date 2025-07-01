@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import ContactForm from '@/components/forms/ContactForm';
 
 const Home = () => {
   const solutions = [
@@ -259,15 +260,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contáctenos Preview */}
-      <section className="py-16 bg-almatec-dark-gray text-almatec-white">
+      {/* Formulario de Contacto Rápido */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
+              <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-6">
                 ¿Listo para Potenciar su Producción?
               </h2>
-              <p className="font-open-sans text-lg text-gray-300 mb-8 leading-relaxed">
+              <p className="font-open-sans text-lg text-gray-600 mb-8 leading-relaxed">
                 Contáctenos hoy mismo para conocer cómo nuestras soluciones GSI pueden optimizar 
                 sus operaciones agrícolas y maximizar su rentabilidad.
               </p>
@@ -278,7 +279,7 @@ const Home = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-almatec-yellow">📧</span>
-                  <span className="font-open-sans">edson_gsi@hotmail.com</span>
+                  <span className="font-open-sans">pabloarteaga@almatec.net</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-almatec-yellow">📍</span>
@@ -286,18 +287,23 @@ const Home = () => {
                 </div>
               </div>
               <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
-                <Link to="/contacto">Contactar Ahora</Link>
+                <Link to="/contacto">Ver Información Completa</Link>
               </Button>
             </div>
-            <div>
-              <AspectRatio ratio={4 / 3}>
-                <img 
-                  src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Contacto Almatec"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
-                />
-              </AspectRatio>
-            </div>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
+                  Consulta Rápida
+                </CardTitle>
+                <CardDescription>
+                  Envíenos su consulta y nos pondremos en contacto con usted
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ContactForm variant="simple" />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

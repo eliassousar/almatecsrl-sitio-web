@@ -1,11 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import ContactForm from '@/components/forms/ContactForm';
 
 const Contacto = () => {
   return (
@@ -95,57 +91,8 @@ const Contacto = () => {
                   Complete el formulario y nos pondremos en contacto con usted a la brevedad posible.
                 </p>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="nombre">Nombre Completo *</Label>
-                    <Input id="nombre" placeholder="Su nombre completo" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Correo Electrónico *</Label>
-                    <Input id="email" type="email" placeholder="su.email@ejemplo.com" />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="telefono">Teléfono *</Label>
-                    <Input id="telefono" placeholder="(+591) 12345678" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="empresa">Empresa</Label>
-                    <Input id="empresa" placeholder="Nombre de su empresa" />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="asunto">Asunto *</Label>
-                  <Input id="asunto" placeholder="Motivo de su consulta" />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="mensaje">Mensaje *</Label>
-                  <Textarea 
-                    id="mensaje" 
-                    placeholder="Describa su proyecto, necesidades o consulta en detalle..."
-                    className="min-h-[120px]"
-                  />
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Checkbox id="politica" />
-                  <Label htmlFor="politica" className="text-sm text-gray-600">
-                    Acepto la política de privacidad y el tratamiento de mis datos personales
-                  </Label>
-                </div>
-
-                <Button className="w-full bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
-                  Enviar Mensaje
-                </Button>
-
-                <p className="text-xs text-gray-500 text-center">
-                  * Campos obligatorios. Nos pondremos en contacto con usted en un plazo máximo de 24 horas.
-                </p>
+              <CardContent>
+                <ContactForm variant="full" />
               </CardContent>
             </Card>
 
@@ -271,12 +218,18 @@ const Contacto = () => {
             Para consultas urgentes o emergencias técnicas, contáctenos directamente por teléfono
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
+            <button 
+              onClick={() => window.location.href = 'tel:+59133326206'}
+              className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 rounded-md transition-colors inline-flex items-center justify-center"
+            >
               📞 Llamar Ahora
-            </Button>
-            <Button variant="outline" size="lg" className="border-almatec-white text-almatec-white hover:bg-almatec-white hover:text-almatec-black">
+            </button>
+            <button 
+              onClick={() => window.open('https://wa.me/+59177028610?text=Hola, tengo una consulta urgente sobre los servicios de Almatec SRL', '_blank')}
+              className="border border-almatec-white text-almatec-white hover:bg-almatec-white hover:text-almatec-black px-8 py-3 rounded-md transition-colors inline-flex items-center justify-center"
+            >
               📱 WhatsApp
-            </Button>
+            </button>
           </div>
         </div>
       </section>

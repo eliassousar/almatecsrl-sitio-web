@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, Phone, Mail } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
@@ -20,8 +20,39 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+59133326206';
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:pabloarteaga@almatec.net';
+  };
+
   return (
     <header className="bg-almatec-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      {/* Top Contact Bar - Hidden on mobile */}
+      <div className="hidden lg:block bg-almatec-dark-gray text-almatec-white py-2">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end items-center space-x-6 text-sm">
+            <button
+              onClick={handlePhoneClick}
+              className="flex items-center space-x-2 hover:text-almatec-yellow transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              <span>(+591) 3 326206</span>
+            </button>
+            <button
+              onClick={handleEmailClick}
+              className="flex items-center space-x-2 hover:text-almatec-yellow transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span>pabloarteaga@almatec.net</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -71,6 +102,24 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
               <div className="flex flex-col space-y-4 mt-8">
+                {/* Mobile Contact Links */}
+                <div className="border-b border-gray-200 pb-4 mb-4">
+                  <button
+                    onClick={handlePhoneClick}
+                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span className="font-open-sans text-sm">(+591) 3 326206</span>
+                  </button>
+                  <button
+                    onClick={handleEmailClick}
+                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span className="font-open-sans text-sm">pabloarteaga@almatec.net</span>
+                  </button>
+                </div>
+
                 {navItems.map((item) => (
                   <Link
                     key={item.path}

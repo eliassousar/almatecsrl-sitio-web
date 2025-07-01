@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from '../ui/scroll-to-top';
+import WhatsAppButton from '../ui/whatsapp-button';
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,6 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
       </main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
     </div>
   );
 };
