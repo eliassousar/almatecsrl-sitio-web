@@ -1,80 +1,285 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Contacto = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h1 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6">
-            Contacto
-          </h1>
-          <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto">
-            Estamos aquí para ayudarte con tus proyectos agrícolas
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-almatec-dark-gray to-almatec-black text-almatec-white">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80')"
+          }}
+        ></div>
+        
+        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <div className="max-w-4xl">
+            <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight">
+              <span className="text-almatec-yellow">Contáctenos</span>
+            </h1>
+            <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
+              Estamos aquí para ayudarle con sus proyectos agrícolas. Converse con nuestros especialistas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Información de Contacto Rápida */}
+      <section className="py-16 bg-almatec-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📞</span>
+                </div>
+                <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Teléfonos</h3>
+                <div className="space-y-1">
+                  <p className="font-open-sans text-gray-600">(+591) 3 326206</p>
+                  <p className="font-open-sans text-gray-600">77028610</p>
+                  <p className="font-open-sans text-gray-600">78007220</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📧</span>
+                </div>
+                <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Correos</h3>
+                <div className="space-y-1">
+                  <p className="font-open-sans text-gray-600">edson_gsi@hotmail.com</p>
+                  <p className="font-open-sans text-gray-600">pabloarteaga@almatec.net</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🕒</span>
+                </div>
+                <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Horario</h3>
+                <div className="space-y-1">
+                  <p className="font-open-sans text-gray-600">Lunes a Viernes</p>
+                  <p className="font-open-sans text-gray-600">8:00 - 18:00</p>
+                  <p className="font-open-sans text-gray-600">Sábados: 8:00 - 12:00</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Formulario de Contacto y Información Detallada */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            
+            {/* Formulario de Contacto */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
+                  Formulario de Contacto
+                </CardTitle>
+                <p className="font-open-sans text-gray-600">
+                  Complete el formulario y nos pondremos en contacto con usted a la brevedad posible.
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="nombre">Nombre Completo *</Label>
+                    <Input id="nombre" placeholder="Su nombre completo" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Correo Electrónico *</Label>
+                    <Input id="email" type="email" placeholder="su.email@ejemplo.com" />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="telefono">Teléfono *</Label>
+                    <Input id="telefono" placeholder="(+591) 12345678" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="empresa">Empresa</Label>
+                    <Input id="empresa" placeholder="Nombre de su empresa" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="asunto">Asunto *</Label>
+                  <Input id="asunto" placeholder="Motivo de su consulta" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="mensaje">Mensaje *</Label>
+                  <Textarea 
+                    id="mensaje" 
+                    placeholder="Describa su proyecto, necesidades o consulta en detalle..."
+                    className="min-h-[120px]"
+                  />
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="politica" />
+                  <Label htmlFor="politica" className="text-sm text-gray-600">
+                    Acepto la política de privacidad y el tratamiento de mis datos personales
+                  </Label>
+                </div>
+
+                <Button className="w-full bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
+                  Enviar Mensaje
+                </Button>
+
+                <p className="text-xs text-gray-500 text-center">
+                  * Campos obligatorios. Nos pondremos en contacto con usted en un plazo máximo de 24 horas.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Información de Contacto Detallada */}
+            <div className="space-y-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
+                    Información de Contacto
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
+                      📍 Dirección
+                    </h3>
+                    <p className="font-open-sans text-gray-600 leading-relaxed">
+                      Av. Cristo Redentor - Entre 4to y 5to Anillo<br />
+                      Comercial Plaza Norte Oficina Nro. 46<br />
+                      Santa Cruz de la Sierra, Bolivia
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
+                      📞 Teléfonos
+                    </h3>
+                    <div className="space-y-1">
+                      <p className="font-open-sans text-gray-600">Oficina: (+591) 3 326206</p>
+                      <p className="font-open-sans text-gray-600">Móvil 1: 77028610</p>
+                      <p className="font-open-sans text-gray-600">Móvil 2: 78007220</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
+                      📧 Correos Electrónicos
+                    </h3>
+                    <div className="space-y-1">
+                      <p className="font-open-sans text-gray-600">Comercial: edson_gsi@hotmail.com</p>
+                      <p className="font-open-sans text-gray-600">Técnico: pabloarteaga@almatec.net</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
+                      🌐 Sitio Web
+                    </h3>
+                    <p className="font-open-sans text-gray-600">www.almatec.net</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
+                      🕒 Horario de Atención
+                    </h3>
+                    <div className="space-y-1">
+                      <p className="font-open-sans text-gray-600">Lunes a Viernes: 8:00 - 18:00</p>
+                      <p className="font-open-sans text-gray-600">Sábados: 8:00 - 12:00</p>
+                      <p className="font-open-sans text-gray-600">Domingos: Cerrado</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Imagen de la oficina */}
+              <Card>
+                <CardContent className="p-0">
+                  <AspectRatio ratio={16 / 9}>
+                    <img 
+                      src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                      alt="Oficina Almatec"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </AspectRatio>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mapa Placeholder */}
+      <section className="py-16 bg-almatec-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
+              Nuestra Ubicación
+            </h2>
+            <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
+              Encuéntrenos fácilmente en el corazón comercial de Santa Cruz de la Sierra
+            </p>
+          </div>
+
+          <Card className="max-w-4xl mx-auto">
+            <CardContent className="p-0">
+              <AspectRatio ratio={16 / 9}>
+                <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">📍</span>
+                    </div>
+                    <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">
+                      Mapa Interactivo
+                    </h3>
+                    <p className="font-open-sans text-gray-600 text-sm">
+                      El mapa interactivo será implementado en la siguiente fase del proyecto
+                    </p>
+                  </div>
+                </div>
+              </AspectRatio>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* CTA de Contacto Rápido */}
+      <section className="py-16 bg-almatec-dark-gray text-almatec-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
+            ¿Tiene una Consulta Urgente?
+          </h2>
+          <p className="font-open-sans text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Para consultas urgentes o emergencias técnicas, contáctenos directamente por teléfono
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
+              📞 Llamar Ahora
+            </Button>
+            <Button variant="outline" size="lg" className="border-almatec-white text-almatec-white hover:bg-almatec-white hover:text-almatec-black">
+              📱 WhatsApp
+            </Button>
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <Card>
-            <CardHeader>
-              <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
-                Información de Contacto
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <h3 className="font-montserrat font-semibold text-almatec-yellow mb-2">Dirección</h3>
-                <p className="font-open-sans text-gray-600">
-                  Av. Cristo Redentor - Entre 4to y 5to Anillo<br />
-                  Comercial Plaza Norte Oficina Nro. 46<br />
-                  Santa Cruz de la Sierra, Bolivia
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-montserrat font-semibold text-almatec-yellow mb-2">Teléfonos</h3>
-                <p className="font-open-sans text-gray-600">
-                  (+ 591) - 3 326206<br />
-                  77028610<br />
-                  78007220
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-montserrat font-semibold text-almatec-yellow mb-2">Correos Electrónicos</h3>
-                <p className="font-open-sans text-gray-600">
-                  edson_gsi@hotmail.com<br />
-                  pabloarteaga@almatec.net
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-montserrat font-semibold text-almatec-yellow mb-2">Sitio Web</h3>
-                <p className="font-open-sans text-gray-600">
-                  www.almatec.net
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
-                Formulario de Contacto
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="font-open-sans text-gray-600 mb-6">
-                El formulario de contacto será implementado en la siguiente fase del proyecto.
-              </p>
-              <Button className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
-                Próximamente
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
