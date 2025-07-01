@@ -90,7 +90,7 @@ const Home = () => {
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80')"
+                    backgroundImage: "url('/lovable-uploads/7a7c4c77-d016-4c07-8227-bedc452e90d8.png')"
                   }}
                 ></div>
                 <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
@@ -115,7 +115,7 @@ const Home = () => {
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80')"
+                    backgroundImage: "url('/lovable-uploads/7a7c4c77-d016-4c07-8227-bedc452e90d8.png')"
                   }}
                 ></div>
                 <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
@@ -143,7 +143,7 @@ const Home = () => {
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"
+                    backgroundImage: "url('/lovable-uploads/7a7c4c77-d016-4c07-8227-bedc452e90d8.png')"
                   }}
                 ></div>
                 <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
