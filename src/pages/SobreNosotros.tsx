@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -92,7 +93,7 @@ const SobreNosotros = () => {
             <div>
               <AspectRatio ratio={4 / 3}>
                 <img 
-                  src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="/lovable-uploads/fa89e05e-4726-4a5f-b6e4-d2eee416394a.png" 
                   alt="Historia de Almatec"
                   className="w-full h-full object-cover rounded-lg shadow-xl"
                 />
