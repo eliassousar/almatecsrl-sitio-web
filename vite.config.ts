@@ -32,14 +32,8 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // Optimizar el tamaño del bundle
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: mode === 'production',
-        drop_debugger: mode === 'production',
-      },
-    },
+    // Usar esbuild para minificación (más rápido y incluido por defecto)
+    minify: mode === 'production' ? 'esbuild' : false,
     // Configurar el límite de tamaño de chunk
     chunkSizeWarningLimit: 1000,
   },
