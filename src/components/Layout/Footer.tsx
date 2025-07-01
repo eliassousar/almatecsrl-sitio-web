@@ -1,4 +1,5 @@
 
+
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -24,11 +25,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>(+591) 3 326206</span>
+                <span>(+591) 77028610</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>pabloarteaga@almatec.net</span>
+                <span>edson_gsi@hotmail.com</span>
               </div>
             </div>
           </div>
@@ -60,11 +61,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contacto" className="text-gray-300 hover:text-almatec-yellow transition-colors">
-                  Contacto
-                </Link>
-              </li>
-              <li>
                 <Link to="/faq" className="text-gray-300 hover:text-almatec-yellow transition-colors">
                   FAQ
                 </Link>
@@ -87,7 +83,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Media & Newsletter */}
+          {/* Social Media */}
           <div className="space-y-4">
             <h4 className="text-lg font-montserrat font-semibold text-almatec-yellow">
               Síguenos
@@ -130,17 +126,6 @@ const Footer = () => {
                 <Youtube className="w-4 h-4" />
               </a>
             </div>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-300">
-                Reciba actualizaciones sobre tecnología agrícola
-              </p>
-              <Link 
-                to="/contacto" 
-                className="inline-block bg-almatec-yellow text-almatec-black px-4 py-2 rounded text-sm font-medium hover:bg-almatec-yellow/90 transition-colors"
-              >
-                Suscribirse al Newsletter
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -172,3 +157,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
