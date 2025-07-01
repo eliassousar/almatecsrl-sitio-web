@@ -59,14 +59,14 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
             <div className="w-12 h-12 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/54043837-d68a-4a6c-a2cc-4034d777c95f.png" 
+                src="/lovable-uploads/4636726b-0882-42cd-827f-edf9bd0df859.png" 
                 alt="Almatec Agronegocios Logo" 
                 className="w-12 h-12 object-contain"
               />
             </div>
             <div className="flex flex-col">
               <span className="font-montserrat font-bold text-almatec-dark-gray text-lg">ALMATEC</span>
-              <span className="text-xs text-almatec-dark-gray -mt-1 opacity-80">AGRONEGOCIOS</span>
+              <span className="text-xs text-almatec-dark-gray -mt-1.5 opacity-70">AGRONEGOCIOS</span>
             </div>
           </Link>
 
