@@ -3,9 +3,7 @@ import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../ui/breadcrumb-nav';
-import ScrollToTop from '../ui/scroll-to-top';
 import WhatsAppButton from '../ui/whatsapp-button';
-import LiveChat from '../ui/live-chat';
 
 interface LayoutProps {
   children: ReactNode;
@@ -20,8 +18,6 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
-      <ScrollToTop />
-      <LiveChat />
       <WhatsAppButton />
     </div>
   );

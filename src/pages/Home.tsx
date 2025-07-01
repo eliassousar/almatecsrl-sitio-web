@@ -1,10 +1,10 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import ContactForm from '@/components/forms/ContactForm';
-import NewsletterForm from '@/components/forms/NewsletterForm';
 
 const Home = () => {
   const solutions = [
@@ -99,9 +99,6 @@ const Home = () => {
                       Soluciones de almacenamiento agrícola de 
                       <span className="text-almatec-yellow"> clase mundial</span>
                     </h1>
-                    <p className="font-open-sans text-xl md:text-2xl mb-4 text-gray-200 max-w-3xl leading-relaxed">
-                      Representantes oficiales de silos GSI en Bolivia desde 2010
-                    </p>
                     <p className="font-open-sans text-lg mb-8 text-gray-300 max-w-3xl leading-relaxed">
                       Ofrecemos sistemas completos de almacenamiento, secado y manejo de granos con tecnología de vanguardia para maximizar la productividad de su operación agrícola.
                     </p>
@@ -289,62 +286,6 @@ const Home = () => {
           <div className="text-center mt-12">
             <Button asChild className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
               <Link to="/proyectos">Ver Todos los Proyectos</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <NewsletterForm variant="inline" />
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram Feed Simulado */}
-      <section className="py-16 bg-almatec-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4 tracking-wide">
-              Síguenos en Instagram
-            </h2>
-            <p className="font-open-sans text-lg text-gray-600">
-              Descubre nuestros proyectos más recientes y novedades del sector agrícola
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[
-              "https://images.unsplash.com/photo-1500076656116-558758c991c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-              "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-            ].map((image, index) => (
-              <div 
-                key={index} 
-                className="aspect-square cursor-pointer group overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
-                onClick={() => window.open('https://instagram.com/almatec_srl', '_blank')}
-              >
-                <img 
-                  src={image} 
-                  alt={`Proyecto agrícola ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Button 
-              onClick={() => window.open('https://instagram.com/almatec_srl', '_blank')}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full"
-            >
-              📷 Ver más en Instagram
             </Button>
           </div>
         </div>
