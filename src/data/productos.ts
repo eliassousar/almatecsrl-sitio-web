@@ -35,7 +35,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 3,
     name: "Roscas Barredoras",
     description: "Las roscas barredoras de GSI ofrecen la tecnología que su propiedad necesita para almacenar granos de manera segura y lograr mejores resultados. Son capaces de auxiliar en la descarga de silos y brindan agilidad, eficiencia y robustez, minimizando el acceso del operador al interior de los silos.",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/8b70f38c-5c2b-4e4c-8fcd-e0135e9d31a7.png",
     specs: [
       "Tecnología avanzada para descarga eficiente",
       "Mayor seguridad al minimizar el acceso del operador al interior",
