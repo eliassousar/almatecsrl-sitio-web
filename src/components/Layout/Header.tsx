@@ -35,8 +35,8 @@ const Header = () => {
           {/* Logo Principal */}
           <Link to="/" className="hover:opacity-90 transition-opacity">
             <img 
-              src="/lovable-uploads/LOGO-PRINCIPAL.png" 
-              alt="Logo Principal" 
+              src="/lovable-uploads/ada82ee8-b830-4cf2-aee9-66ac37c5c2e5.png" 
+              alt="Almatec Agronegocios Logo" 
               className="h-12 w-auto max-w-[250px] object-contain"
             />
           </Link>
