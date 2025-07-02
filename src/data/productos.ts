@@ -91,7 +91,7 @@ export const productosSecado: Producto[] = [
     id: 7,
     name: "Portable Dryers",
     description: "Las secadoras portátiles GSI ofrecen flexibilidad y eficiencia para el secado de granos en diferentes ubicaciones. Son ideales para operaciones que requieren movilidad y un secado rápido y efectivo.",
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/9fb7021e-e36f-406c-bf46-205a18fa659c.png",
     specs: [
       "Flexibilidad y movilidad",
       "Secado rápido y efectivo",
