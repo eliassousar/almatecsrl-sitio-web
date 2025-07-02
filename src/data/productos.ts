@@ -161,7 +161,7 @@ export const productosManejo: Producto[] = [
     id: 12,
     name: "Máquina de Prelimpieza",
     description: "Las máquinas de prelimpieza de GSI separan las impurezas de todo tipo de granos, mejorando la calidad del producto almacenado y reduciendo riesgos de contaminación durante el almacenamiento.",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/2d924d1b-1e2d-4145-8f7c-a101eb817498.png",
     specs: [
       "Separación eficiente de impurezas",
       "Compatible con diversos tipos de granos",
