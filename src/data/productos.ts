@@ -120,7 +120,7 @@ export const productosManejo: Producto[] = [
     id: 9,
     name: "Elevadores",
     description: "Fabricados con componentes de alta calidad y construcción robusta, los elevadores de granos GSI cuentan con alta durabilidad, operación continua y la mejor relación costo-beneficio para su producción.",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/78866758-f51a-4f00-942d-d37f9de1a6c0.png",
     specs: [
       "Componentes de alta calidad",
       "Construcción robusta",
