@@ -11,7 +11,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 1,
     name: "Silos de Fondo Plano EVO 50",
     description: "Para cumplir con las diversas aplicaciones requeridas, GSI ofrece una completa línea de silos de almacenamiento ventilados de fondo plano. Esta línea abarca capacidades desde 90 m³ hasta 41.165 m³, adaptándose a las necesidades específicas de cada productor.",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.png",
     specs: [
       "Capacidades desde 90 m³ hasta 41.165 m³",
       "Sistema de ventilación integrado",
