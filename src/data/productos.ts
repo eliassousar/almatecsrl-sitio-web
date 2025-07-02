@@ -104,7 +104,7 @@ export const productosSecado: Producto[] = [
     id: 8,
     name: "TopDry",
     description: "El sistema TopDry de GSI combina el secado y el almacenamiento en una sola unidad, ofreciendo una solución compacta y eficiente para el manejo de granos. Permite secar y enfriar el grano antes de almacenarlo, optimizando el proceso.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/5455be7f-63a4-40ec-9625-1b637a5f7c88.png",
     specs: [
       "Combina secado y almacenamiento en una unidad",
       "Solución compacta y eficiente",
