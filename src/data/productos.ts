@@ -64,7 +64,7 @@ export const productosSecado: Producto[] = [
     id: 5,
     name: "Process Dryer",
     description: "Secadora de granos con tecnología original GSI y sistema de secado continuo con flujo de aire cruzado, proporciona granos secos con calidad superior. Fue desarrollada para trabajar con diferentes tipos de granos, ya sea con fines comerciales o para la producción de semillas.",
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/d1e07e63-b4f8-48b3-9a56-1baef2ced2e9.png",
     specs: [
       "Tecnología original GSI",
       "Sistema de secado continuo con flujo de aire cruzado",
