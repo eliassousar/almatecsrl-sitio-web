@@ -78,7 +78,7 @@ export const productosSecado: Producto[] = [
     id: 6,
     name: "Sistema de Aireación y Ventiladores",
     description: "Los sistemas de aireación de los silos GSI se dimensionan de acuerdo al producto almacenado y a la tasa de aireación (flujo de aire) necesaria para la conservación del grano. Se encuentran disponibles sistemas de aireación de canal y de piso 100% perforado.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/e35fc5b9-1b54-4cb1-81e6-bc564e15499b.png",
     specs: [
       "Dimensionamiento personalizado según el producto almacenado",
       "Adaptación a la tasa de aireación necesaria",
