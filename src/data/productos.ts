@@ -134,7 +134,7 @@ export const productosManejo: Producto[] = [
     id: 10,
     name: "Transportadores de Cadena",
     description: "Los transportadores de cadena GSI son extremadamente eficientes para el transporte de los granos en forma horizontal o vertical en la planta almacenadora, optimizando el flujo de material y reduciendo tiempos de operación.",
-    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/8f3ff249-d04c-490d-992d-74aa1b0b272b.png",
     specs: [
       "Alta eficiencia en el transporte de granos",
       "Versatilidad para transporte horizontal o vertical",
