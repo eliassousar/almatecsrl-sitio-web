@@ -32,19 +32,13 @@ const Header = () => {
       {/* Main Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/4636726b-0882-42cd-827f-edf9bd0df859.png" 
-                alt="Almatec Agronegocios Logo" 
-                className="w-12 h-12 object-contain"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-montserrat font-bold text-almatec-dark-gray text-lg">ALMATEC</span>
-              <span className="text-xs text-almatec-dark-gray -mt-1.5 opacity-70">AGRONEGOCIOS</span>
-            </div>
+          {/* Logo Principal */}
+          <Link to="/" className="hover:opacity-90 transition-opacity">
+            <img 
+              src="/lovable-uploads/LOGO-PRINCIPAL.png" 
+              alt="Logo Principal" 
+              className="h-12 w-auto max-w-[250px] object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
