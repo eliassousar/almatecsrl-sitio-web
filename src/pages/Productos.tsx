@@ -42,6 +42,19 @@ const Productos = () => {
         "Mejora la eficiencia operativa",
         "Compatible con los sistemas de silos GSI"
       ]
+    },
+    {
+      id: 4,
+      name: "Esparcidor de Granos",
+      description: "El esparcidor de granos GSI asegura una distribución uniforme del grano dentro del silo, optimizando el espacio de almacenamiento y mejorando la aireación. Esto contribuye a una mejor conservación del grano y a la prevención de puntos calientes.",
+      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      specs: [
+        "Distribución uniforme del grano",
+        "Optimización del espacio de almacenamiento",
+        "Mejora la aireación",
+        "Contribuye a la conservación del grano",
+        "Previene puntos calientes"
+      ]
     }
   ];
 
@@ -71,6 +84,32 @@ const Productos = () => {
         "Disponible en sistemas de canal y de piso 100% perforado",
         "Diseñado para la óptima conservación del grano",
         "Compatible con los sistemas de silos GSI"
+      ]
+    },
+    {
+      id: 6,
+      name: "Portable Dryers",
+      description: "Las secadoras portátiles GSI ofrecen flexibilidad y eficiencia para el secado de granos en diferentes ubicaciones. Son ideales para operaciones que requieren movilidad y un secado rápido y efectivo.",
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      specs: [
+        "Flexibilidad y movilidad",
+        "Secado rápido y efectivo",
+        "Ideal para diferentes ubicaciones",
+        "Construcción robusta y duradera",
+        "Fácil de operar y mantener"
+      ]
+    },
+    {
+      id: 7,
+      name: "TopDry",
+      description: "El sistema TopDry de GSI combina el secado y el almacenamiento en una sola unidad, ofreciendo una solución compacta y eficiente para el manejo de granos. Permite secar y enfriar el grano antes de almacenarlo, optimizando el proceso.",
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      specs: [
+        "Combina secado y almacenamiento en una unidad",
+        "Solución compacta y eficiente",
+        "Secado y enfriamiento del grano antes del almacenamiento",
+        "Optimiza el proceso de manejo de granos",
+        "Reduce la necesidad de equipos adicionales"
       ]
     }
   ];
