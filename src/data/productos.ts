@@ -48,7 +48,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 4,
     name: "Esparcidor de Granos",
     description: "El esparcidor de granos GSI asegura una distribución uniforme del grano dentro del silo, optimizando el espacio de almacenamiento y mejorando la aireación. Esto contribuye a una mejor conservación del grano y a la prevención de puntos calientes.",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/b1109187-68a8-45ef-b7c0-959aed07cfe3.png",
     specs: [
       "Distribución uniforme del grano",
       "Optimización del espacio de almacenamiento",
