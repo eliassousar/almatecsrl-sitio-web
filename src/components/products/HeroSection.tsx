@@ -7,7 +7,7 @@ const HeroSection = () => (
           <img 
             src="/lovable-uploads/81b02445-b13e-4bdc-ae29-94746fd5f7d8.png" 
             alt="GSI Logo" 
-            className="h-12 md:h-16 inline-block"
+            className="h-20 md:h-24 inline-block"
           />
           PARA EL SECTOR AGRÍCOLA
         </h1>
