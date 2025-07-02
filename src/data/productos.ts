@@ -23,7 +23,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 2,
     name: "Silos de Fondo Cónico EVO 50",
     description: "Los silos de fondo cónico EVO 50 de GSI ofrecen mayor agilidad en la descarga, optimizando el flujo de granos y reduciendo tiempos de operación. Su diseño cónico facilita la descarga completa del producto almacenado.",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/bb0c281c-6e9a-48ed-b2ab-bc5a3251358d.png",
     specs: [
       "Diseño cónico que facilita la descarga completa",
       "Mayor eficiencia en el manejo de granos",
