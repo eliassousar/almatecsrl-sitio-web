@@ -147,7 +147,7 @@ export const productosManejo: Producto[] = [
     id: 11,
     name: "Cintas/Correas Transportadoras",
     description: "La tecnología aplicada en los mayores proyectos de almacenamiento globales llega a usted a través de dos líneas de cintas/correas GSI. Estos modelos emplean una solución inteligente, silenciosa y versátil para el transporte de granos horizontal e inclinado en distancias cortas, medias y largas.",
-    image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/f3419807-79a8-4523-9743-9cb6795e00db.png",
     specs: [
       "Tecnología de nivel mundial",
       "Solución inteligente y silenciosa",
