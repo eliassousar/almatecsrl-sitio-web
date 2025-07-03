@@ -148,7 +148,7 @@ const Home = () => {
                 <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
                   <div className="max-w-4xl text-almatec-white">
                     <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight tracking-wide">
-                      Soluciones de almacenamiento agrícola de 
+                      Soluciones de almacenamiento de 
                       <span className="text-almatec-yellow"> clase mundial</span>
                     </h1>
                     <p className="font-open-sans text-lg mb-8 text-gray-300 max-w-3xl leading-relaxed">
