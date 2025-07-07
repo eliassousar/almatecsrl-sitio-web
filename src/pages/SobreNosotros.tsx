@@ -86,7 +86,7 @@ const SobreNosotros = () => {
               <span className="text-almatec-yellow"> Almatec SRL</span>
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl leading-relaxed">
-              Líderes en soluciones agrícolas con más de una década de experiencia en el mercado boliviano
+              Líderes en soluciones agroindustriales con más de dos décadas de experiencia en el mercado boliviano
             </p>
           </div>
         </div>
