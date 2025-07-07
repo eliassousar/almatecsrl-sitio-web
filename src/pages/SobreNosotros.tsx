@@ -2,6 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const SobreNosotros = () => {
   const valores = [
@@ -11,7 +18,7 @@ const SobreNosotros = () => {
       icon: "🏆"
     },
     {
-      title: "Innovación constante",
+      title: "Innovación constante", 
       description: "Buscamos continuamente nuevas tecnologías y métodos para mejorar nuestras soluciones",
       icon: "💡"
     },
@@ -29,6 +36,33 @@ const SobreNosotros = () => {
       title: "Experiencia comprobada",
       description: "Más de dos décadas de trayectoria exitosa en el mercado agrícola boliviano",
       icon: "📈"
+    }
+  ];
+
+  const representantes = [
+    {
+      name: "GSI",
+      logo: "/lovable-uploads/gsi-logo.png" // Placeholder path - will need actual logo
+    },
+    {
+      name: "Marca 2",
+      logo: "/lovable-uploads/marca2-logo.png" // Placeholder path - will need actual logo
+    },
+    {
+      name: "Marca 3", 
+      logo: "/lovable-uploads/marca3-logo.png" // Placeholder path - will need actual logo
+    },
+    {
+      name: "Marca 4",
+      logo: "/lovable-uploads/marca4-logo.png" // Placeholder path - will need actual logo
+    },
+    {
+      name: "Marca 5",
+      logo: "/lovable-uploads/marca5-logo.png" // Placeholder path - will need actual logo
+    },
+    {
+      name: "Marca 6",
+      logo: "/lovable-uploads/marca6-logo.png" // Placeholder path - will need actual logo
     }
   ];
 
@@ -159,40 +193,51 @@ const SobreNosotros = () => {
         </div>
       </section>
 
-      {/* Alianzas Estratégicas */}
+      {/* Representantes para Bolivia */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
-              Alianzas Estratégicas
+              Representantes para Bolivia
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Trabajamos con los mejores para ofrecer soluciones de calidad mundial
+              Trabajamos con las mejores marcas mundiales para ofrecer soluciones de calidad superior
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="text-center shadow-xl">
-              <CardHeader className="pb-8">
-                <div className="w-32 h-32 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-8">
-                  <span className="font-montserrat font-bold text-almatec-black text-4xl">GSI</span>
-                </div>
-                <CardTitle className="font-montserrat text-3xl text-almatec-dark-gray tracking-wide">
-                  Representantes Oficiales de GSI
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="font-open-sans text-xl text-gray-600 mb-8 leading-relaxed">
-                  Como representantes oficiales de GSI en Bolivia, ofrecemos acceso a la tecnología 
-                  líder mundial en sistemas de almacenamiento de granos, respaldados por más de 40 años 
-                  de innovación y excelencia en la industria. GSI es sinónimo de calidad, durabilidad 
-                  y eficiencia en soluciones de almacenamiento agrícola.
-                </p>
-                <Button asChild className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
-                  <Link to="/productos">Ver Productos GSI</Link>
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {representantes.map((representante, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                    <div className="p-4">
+                      <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white h-32 flex items-center justify-center">
+                        <CardContent className="flex items-center justify-center p-6 h-full w-full">
+                          {representante.name === "GSI" ? (
+                            <div className="text-center">
+                              <span className="font-montserrat font-bold text-almatec-dark-gray text-3xl">GSI</span>
+                              <p className="text-sm text-gray-500 mt-2">Grain Systems</p>
+                            </div>
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
+                              <span className="text-gray-400 font-medium">{representante.name}</span>
+                            </div>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
         </div>
       </section>
