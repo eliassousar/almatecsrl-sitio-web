@@ -15,7 +15,7 @@ const Home = () => {
     },
     {
       title: "Sistemas de almacenamiento",
-      description: "Soluciones integrales que incluyen silos, transportadores y sistemas de control para gestionar eficientemente sus operaciones agrícolas.",
+      description: "Soluciones integrales que incluyen silos, transportadores y sistemas de control para gestionar eficientemente sus operaciones agroindustriales.",
       image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       featured: false
     },
@@ -36,12 +36,12 @@ const Home = () => {
   const whyChooseUs = [
     {
       title: "Experiencia comprobada",
-      description: "Más de una década brindando soluciones agrícolas de alta calidad en todo el territorio boliviano.",
+      description: "Más de dos décadas brindando soluciones agroindustriales de alta calidad en todo el territorio boliviano.",
       icon: "📅"
     },
     {
       title: "Tecnología GSI",
-      description: "Somos distribuidores autorizados de GSI, líder mundial en soluciones de almacenamiento agrícola.",
+      description: "Somos distribuidores autorizados de GSI, líder mundial en soluciones de almacenamiento agroindustrial.",
       icon: "🏆"
     },
     {
@@ -152,7 +152,7 @@ const Home = () => {
                       <span className="text-almatec-yellow"> clase mundial</span>
                     </h1>
                     <p className="font-open-sans text-lg mb-8 text-gray-300 max-w-3xl leading-relaxed">
-                      Ofrecemos sistemas completos de almacenamiento, secado y manejo de granos con tecnología de vanguardia para maximizar la productividad de su operación agrícola.
+                      Ofrecemos sistemas completos de almacenamiento, secado y manejo de granos con tecnología de vanguardia para maximizar la productividad de su operación agroindustrial.
                     </p>
                     <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
                       <Link to="/productos">Conozca Nuestras Soluciones</Link>
@@ -180,7 +180,7 @@ const Home = () => {
                       Líderes en sistemas de almacenamiento y manejo de granos con la confianza de la marca GSI.
                     </p>
                     <p className="font-open-sans text-lg mb-8 text-gray-300 max-w-3xl leading-relaxed">
-                      Más de una década de experiencia implementando soluciones agrícolas de clase mundial en todo el territorio nacional.
+                      Más de una década de experiencia implementando soluciones agroindustriales de clase mundial en todo el territorio nacional.
                     </p>
                     <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
                       <Link to="/sobre-nosotros">Conocer Más</Link>
@@ -208,7 +208,7 @@ const Home = () => {
                       Equipo técnico especializado para la implementación de proyectos de gran escala.
                     </p>
                     <p className="font-open-sans text-lg mb-8 text-gray-300 max-w-3xl leading-relaxed">
-                      Desde el diseño hasta la puesta en marcha, acompañamos cada etapa de su proyecto agrícola con profesionalismo y excelencia técnica.
+                      Desde el diseño hasta la puesta en marcha, acompañamos cada etapa de su proyecto agroindustrial con profesionalismo y excelencia técnica.
                     </p>
                     <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
                       <Link to="/servicios">Ver Servicios</Link>
@@ -275,7 +275,7 @@ const Home = () => {
               ¿Por Qué Elegirnos?
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Somos su mejor aliado para implementar soluciones agrícolas de calidad mundial en Bolivia
+              Somos su mejor aliado para implementar soluciones agroindustriales de calidad mundial en tu región.
             </p>
           </div>
 
@@ -301,7 +301,7 @@ const Home = () => {
               Nuestros Clientes
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Empresas líderes del sector agrícola boliviano confían en nuestras soluciones GSI
+              Empresas líderes del sector agroindustrial boliviano confían en nuestras soluciones GSI
             </p>
           </div>
 
@@ -324,7 +324,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <p className="font-open-sans text-lg text-gray-600 mb-6">
-              ¿Su empresa necesita soluciones de almacenamiento agrícola?
+              ¿Su empresa necesita soluciones de almacenamiento de granos?
             </p>
             <Button asChild className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
               <Link to="/contacto">Únase a Nuestros Clientes</Link>
@@ -341,7 +341,7 @@ const Home = () => {
               Proyectos Destacados
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Algunos de nuestros proyectos más exitosos en el sector agrícola boliviano
+              Algunos de nuestros proyectos más exitosos en el sector agroindustrial boliviano
             </p>
           </div>
 
@@ -393,7 +393,7 @@ const Home = () => {
               </h2>
               <p className="font-open-sans text-xl text-gray-600 mb-10 leading-relaxed">
                 Contáctenos hoy mismo para conocer cómo nuestras soluciones GSI pueden optimizar 
-                sus operaciones agrícolas y maximizar su rentabilidad.
+                sus operaciones agroindustriales y maximizar su rentabilidad.
               </p>
               <div className="space-y-6 mb-10">
                 <div className="flex items-center space-x-4">
