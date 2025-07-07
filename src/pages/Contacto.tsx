@@ -156,19 +156,6 @@ const Contacto = () => {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Imagen de la oficina */}
-              <Card>
-                <CardContent className="p-0">
-                  <AspectRatio ratio={16 / 9}>
-                    <img 
-                      src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                      alt="Oficina Almatec"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </AspectRatio>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
