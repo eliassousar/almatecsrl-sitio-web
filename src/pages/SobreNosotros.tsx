@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -42,7 +43,7 @@ const SobreNosotros = () => {
   const representantes = [
     {
       name: "GSI",
-      logo: "/lovable-uploads/gsi-logo.png" // Placeholder path - will need actual logo
+      logo: "/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png"
     },
     {
       name: "Marca 2",
@@ -220,10 +221,11 @@ const SobreNosotros = () => {
                       <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white h-32 flex items-center justify-center">
                         <CardContent className="flex items-center justify-center p-6 h-full w-full">
                           {representante.name === "GSI" ? (
-                            <div className="text-center">
-                              <span className="font-montserrat font-bold text-almatec-dark-gray text-3xl">GSI</span>
-                              <p className="text-sm text-gray-500 mt-2">Grain Systems</p>
-                            </div>
+                            <img 
+                              src="/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png" 
+                              alt="GSI Logo"
+                              className="max-w-full max-h-full object-contain"
+                            />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
                               <span className="text-gray-400 font-medium">{representante.name}</span>
