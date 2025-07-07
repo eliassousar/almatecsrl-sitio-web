@@ -50,8 +50,8 @@ const SobreNosotros = () => {
       logo: "/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png"
     },
     {
-      name: "Marca 3", 
-      logo: "/lovable-uploads/marca3-logo.png" // Placeholder path - will need actual logo
+      name: "COIMMA", 
+      logo: "/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.png"
     },
     {
       name: "Marca 4",
@@ -230,6 +230,12 @@ const SobreNosotros = () => {
                             <img 
                               src="/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png" 
                               alt="SAUR Logo"
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          ) : representante.name === "COIMMA" ? (
+                            <img 
+                              src="/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.png" 
+                              alt="COIMMA Logo"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : (
