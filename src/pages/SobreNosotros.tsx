@@ -46,8 +46,8 @@ const SobreNosotros = () => {
       logo: "/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png"
     },
     {
-      name: "Marca 2",
-      logo: "/lovable-uploads/marca2-logo.png" // Placeholder path - will need actual logo
+      name: "SAUR",
+      logo: "/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png"
     },
     {
       name: "Marca 3", 
@@ -224,6 +224,12 @@ const SobreNosotros = () => {
                             <img 
                               src="/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png" 
                               alt="GSI Logo"
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          ) : representante.name === "SAUR" ? (
+                            <img 
+                              src="/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png" 
+                              alt="SAUR Logo"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : (
