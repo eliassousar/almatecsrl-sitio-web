@@ -174,7 +174,7 @@ const Contacto = () => {
         </div>
       </section>
 
-      {/* Mapa Placeholder */}
+      {/* Mapa con enlace funcional */}
       <section className="py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -189,19 +189,24 @@ const Contacto = () => {
           <Card className="max-w-4xl mx-auto">
             <CardContent className="p-0">
               <AspectRatio ratio={16 / 9}>
-                <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                <a 
+                  href="https://maps.app.goo.gl/kHZ2LP4FBZwmb9FC9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer group"
+                >
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <span className="text-2xl">📍</span>
                     </div>
                     <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">
-                      Mapa Interactivo
+                      Ver en Google Maps
                     </h3>
                     <p className="font-open-sans text-gray-600 text-sm">
-                      El mapa interactivo será implementado en la siguiente fase del proyecto
+                      Haga clic para abrir nuestra ubicación en Google Maps
                     </p>
                   </div>
-                </div>
+                </a>
               </AspectRatio>
             </CardContent>
           </Card>
