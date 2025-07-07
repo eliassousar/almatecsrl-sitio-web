@@ -76,18 +76,16 @@ const Contacto = () => {
         </div>
       </section>
 
-      {/* Formulario de Contacto y Información Detallada */}
+      {/* Formulario de Contacto */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            
-            {/* Formulario de Contacto */}
+          <div className="max-w-2xl mx-auto">
             <Card>
               <CardHeader>
-                <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
+                <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray text-center">
                   Formulario de Contacto
                 </CardTitle>
-                <p className="font-open-sans text-gray-600">
+                <p className="font-open-sans text-gray-600 text-center">
                   Complete el formulario y nos pondremos en contacto con usted a la brevedad posible.
                 </p>
               </CardHeader>
@@ -95,68 +93,6 @@ const Contacto = () => {
                 <ContactForm variant="full" />
               </CardContent>
             </Card>
-
-            {/* Información de Contacto Detallada */}
-            <div className="space-y-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-montserrat text-2xl text-almatec-dark-gray">
-                    Información de Contacto
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
-                      📍 Dirección
-                    </h3>
-                    <p className="font-open-sans text-gray-600 leading-relaxed">
-                      Av. Cristo Redentor - Entre 4to y 5to Anillo<br />
-                      Comercial Plaza Norte Oficina Nro. 46<br />
-                      Santa Cruz de la Sierra, Bolivia
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
-                      📞 Teléfonos
-                    </h3>
-                    <div className="space-y-1">
-                      <p className="font-open-sans text-gray-600">Oficina: (+591) 3 326206</p>
-                      <p className="font-open-sans text-gray-600">Móvil 1: 77028610</p>
-                      <p className="font-open-sans text-gray-600">Móvil 2: 78007220</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
-                      📧 Correos Electrónicos
-                    </h3>
-                    <div className="space-y-1">
-                      <p className="font-open-sans text-gray-600">Comercial: edson_gsi@hotmail.com</p>
-                      <p className="font-open-sans text-gray-600">Técnico: pabloarteaga@almatec.net</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
-                      🌐 Sitio Web
-                    </h3>
-                    <p className="font-open-sans text-gray-600">www.almatec.net</p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-almatec-yellow mb-3 flex items-center">
-                      🕒 Horario de Atención
-                    </h3>
-                    <div className="space-y-1">
-                      <p className="font-open-sans text-gray-600">Lunes a Viernes: 8:00 - 18:00</p>
-                      <p className="font-open-sans text-gray-600">Sábados: 8:00 - 12:00</p>
-                      <p className="font-open-sans text-gray-600">Domingos: Cerrado</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
