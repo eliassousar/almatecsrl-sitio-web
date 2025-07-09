@@ -9,7 +9,7 @@ const HeroSection = () => (
             alt="GSI Logo" 
             className="h-12 md:h-16"
           />
-          <span>PARA EL SECTOR AGRÍCOLA</span>
+          <span>PARA EL SECTOR AGROINDUSTRIAL</span>
         </h1>
       </div>
     </div>

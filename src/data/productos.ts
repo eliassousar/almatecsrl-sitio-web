@@ -127,7 +127,7 @@ export const productosManejo: Producto[] = [
       "Alta durabilidad",
       "Operación continua",
       "Excelente relación costo-beneficio",
-      "Diseñados para uso intensivo en operaciones agrícolas"
+      "Diseñados para uso intensivo en operaciones agroindustriales"
     ]
   },
   {

@@ -21,7 +21,7 @@ const Home = () => {
               Soluciones Integrales para el Agro
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Impulsamos la productividad agrícola con tecnología de punta y servicios especializados.
+              Impulsamos la productividad agroindustrial con tecnología de punta y servicios especializados.
             </p>
             <div className="mt-10">
               <Button size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg">
@@ -40,7 +40,7 @@ const Home = () => {
               Nuestros Servicios
             </h2>
             <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Ofrecemos una amplia gama de servicios diseñados para optimizar su producción agrícola.
+              Ofrecemos una amplia gama de servicios diseñados para optimizar su producción agroindustrial.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -90,17 +90,17 @@ const Home = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
-                  Automatización Agrícola
+                  Automatización Agroindustrial
                 </CardTitle>
                 <CardDescription className="font-open-sans text-gray-600">
-                  Soluciones de automatización para optimizar procesos y reducir costos en la producción agrícola.
+                  Soluciones de automatización para optimizar procesos y reducir costos en la producción agroindustrial.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
                     src="https://images.unsplash.com/photo-1606765497444-04645c9a5764?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80"
-                    alt="Automatización Agrícola"
+                    alt="Automatización Agroindustrial"
                     className="object-cover rounded-md"
                   />
                 </AspectRatio>
@@ -123,7 +123,7 @@ const Home = () => {
               Lo que dicen nuestros clientes
             </h2>
             <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Experiencias de clientes que han transformado su producción agrícola con nuestras soluciones.
+              Experiencias de clientes que han transformado su producción agroindustrial con nuestras soluciones.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

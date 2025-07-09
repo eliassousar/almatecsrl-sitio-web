@@ -22,7 +22,7 @@ const Contacto = () => {
               <span className="text-almatec-yellow">Contáctenos</span>
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Estamos aquí para ayudarle con sus proyectos agrícolas. Converse con nuestros especialistas.
+              Estamos aquí para ayudarle con sus proyectos agroindustriales. Converse con nuestros especialistas.
             </p>
           </div>
         </div>

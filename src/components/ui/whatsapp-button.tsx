@@ -16,7 +16,7 @@ const WhatsAppButton = () => {
 
   const handleDirectWhatsApp = useCallback(() => {
     const phoneNumber = "+59177028610";
-    const message = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agrícolas de Almatec SRL");
+    const message = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
     // Mejor manejo de ventanas emergentes

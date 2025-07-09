@@ -37,7 +37,7 @@ const Proyectos = () => {
       ubicacion: "Montero, Santa Cruz",
       tipo: "silos",
       año: "2023",
-      descripcion: "Proyecto de 6 silos GSI de alta capacidad para cooperativa agrícola, incluyendo sistema de ventilación avanzado y monitoreo digital de temperatura y humedad.",
+      descripcion: "Proyecto de 6 silos GSI de alta capacidad para cooperativa agroindustrial, incluyendo sistema de ventilación avanzado y monitoreo digital de temperatura y humedad.",
       imagen: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       cliente: "Cooperativa El Palmar",
       capacidad: "24,000 ton",
@@ -150,7 +150,7 @@ const Proyectos = () => {
               <span className="text-almatec-yellow"> Realizados</span>
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Conoce algunos de nuestros proyectos más exitosos en el sector agrícola boliviano
+              Conoce algunos de nuestros proyectos más exitosos en el sector agroindustrial boliviano
             </p>
           </div>
         </div>
@@ -379,7 +379,7 @@ const Proyectos = () => {
           </h2>
           <p className="font-open-sans text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             Permítanos ayudarle a desarrollar una solución a medida que transforme 
-            sus operaciones agrícolas como lo hemos hecho con nuestros clientes.
+            sus operaciones agroindustriales como lo hemos hecho con nuestros clientes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">

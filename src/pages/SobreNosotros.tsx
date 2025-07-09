@@ -35,7 +35,7 @@ const SobreNosotros = () => {
     },
     {
       title: "Experiencia comprobada",
-      description: "Más de dos décadas de trayectoria exitosa en el mercado agrícola boliviano",
+      description: "Más de dos décadas de trayectoria exitosa en el mercado agroindustrial boliviano",
       icon: "📈"
     }
   ];
@@ -108,7 +108,7 @@ const SobreNosotros = () => {
                   Integramos todos los eslabones críticos del proceso: estudios de suelo, obra civil, montajes eléctricos, instalación de silos metálicos, secadoras de flujo continuo, cintas y elevadores, además de sistemas de monitoreo de temperatura e inventario. Cada proyecto se dimensiona según el cultivo y los planes de crecimiento del cliente, garantizando compatibilidad entre equipos y máxima eficiencia operativa.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
-                  Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura agrícola nacional, con proyectos implementados en los principales centros productivos del país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
+                  Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura agroindustrial nacional, con proyectos implementados en los principales centros productivos del país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
                 </p>
               </div>
             </div>
@@ -155,7 +155,7 @@ const SobreNosotros = () => {
               <CardContent>
                 <p className="font-open-sans text-gray-600 leading-relaxed text-center text-lg">
                   Ser reconocidos como el socio estratégico preferido en soluciones de almacenamiento 
-                  y procesamiento agrícola en Bolivia, destacándonos por la excelencia técnica, 
+                  y procesamiento agroindustrial en Bolivia, destacándonos por la excelencia técnica, 
                   innovación y compromiso con el éxito de nuestros clientes.
                 </p>
               </CardContent>
@@ -270,7 +270,7 @@ const SobreNosotros = () => {
           </h2>
           <p className="font-open-sans text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
             Contáctenos para conocer cómo podemos ayudarle a implementar las mejores 
-            soluciones agrícolas para su proyecto.
+            soluciones agroindustriales para su proyecto.
           </p>
           <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 text-lg transition-all duration-300 hover:scale-105">
             <Link to="/contacto">Contactar Ahora</Link>

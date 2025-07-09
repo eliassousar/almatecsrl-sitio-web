@@ -33,7 +33,7 @@ const PoliticaPrivacidad = () => {
                 1. Información que Recopilamos
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                En Almatec SRL recopilamos información que usted nos proporciona voluntariamente a través de nuestros formularios de contacto, incluyendo nombre, email, teléfono, empresa y detalles específicos sobre sus proyectos agrícolas. También recopilamos información técnica básica sobre su navegación para mejorar nuestros servicios.
+                En Almatec SRL recopilamos información que usted nos proporciona voluntariamente a través de nuestros formularios de contacto, incluyendo nombre, email, teléfono, empresa y detalles específicos sobre sus proyectos agroindustriales. También recopilamos información técnica básica sobre su navegación para mejorar nuestros servicios.
               </p>
             </section>
 
@@ -47,7 +47,7 @@ const PoliticaPrivacidad = () => {
               <ul className="list-disc pl-6 text-gray-700 space-y-1">
                 <li>Responder a sus consultas sobre nuestros productos y servicios</li>
                 <li>Proporcionar cotizaciones personalizadas para proyectos de silos GSI</li>
-                <li>Enviar información relevante sobre soluciones agrícolas</li>
+                <li>Enviar información relevante sobre soluciones agroindustriales</li>
                 <li>Mejorar nuestros servicios y experiencia web</li>
                 <li>Cumplir con obligaciones legales y regulatorias</li>
               </ul>

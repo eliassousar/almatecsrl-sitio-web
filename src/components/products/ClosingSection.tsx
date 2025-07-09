@@ -8,12 +8,12 @@ const ClosingSection = () => (
         SOLUCIONES PERSONALIZADAS PARA SU OPERACIÓN
       </h2>
       <p className="font-open-sans text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-        En Almatec SRL entendemos que cada operación agrícola tiene necesidades específicas. Nuestro equipo técnico 
+        En Almatec SRL entendemos que cada operación agroindustrial tiene necesidades específicas. Nuestro equipo técnico 
         especializado está preparado para asesorarle en la selección de los equipos GSI más adecuados para su proyecto, 
         garantizando la máxima eficiencia y rentabilidad.
       </p>
       <p className="font-open-sans text-xl text-almatec-yellow mb-8 max-w-3xl mx-auto">
-        Contáctenos para una consulta personalizada y descubra cómo las soluciones GSI pueden transformar su operación agrícola.
+        Contáctenos para una consulta personalizada y descubra cómo las soluciones GSI pueden transformar su operación agroindustrial.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">

@@ -41,12 +41,12 @@ const servicios = [
   },
   {
     title: "Asesoramiento Técnico",
-    description: "Consultoría especializada para la gestión eficiente de sus operaciones agrícolas.",
+    description: "Consultoría especializada para la gestión eficiente de sus operaciones agroindustriales.",
     icon: Users,
     details: [
       "Análisis de procesos y optimización de recursos",
       "Capacitación de personal",
-      "Implementación de buenas prácticas agrícolas",
+      "Implementación de buenas prácticas agroindustriales",
       "Soporte técnico continuo"
     ]
   }
@@ -106,7 +106,7 @@ const Servicios = () => {
             Nuestros Servicios
           </h1>
           <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ofrecemos una amplia gama de servicios para optimizar sus operaciones agrícolas, desde la instalación de silos hasta el asesoramiento técnico especializado.
+            Ofrecemos una amplia gama de servicios para optimizar sus operaciones agroindustriales, desde la instalación de silos hasta el asesoramiento técnico especializado.
           </p>
         </div>
       </section>

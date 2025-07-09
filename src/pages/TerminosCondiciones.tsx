@@ -42,7 +42,7 @@ const TerminosCondiciones = () => {
                 2. Descripción del Servicio
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                Almatec SRL es una empresa especializada en soluciones de almacenamiento agrícola, representante oficial de silos GSI en Bolivia. Este sitio web proporciona información sobre nuestros productos, servicios y permite la comunicación con nuestro equipo comercial y técnico.
+                Almatec SRL es una empresa especializada en soluciones de almacenamiento agroindustrial, representante oficial de silos GSI en Bolivia. Este sitio web proporciona información sobre nuestros productos, servicios y permite la comunicación con nuestro equipo comercial y técnico.
               </p>
             </section>
 

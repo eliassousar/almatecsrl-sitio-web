@@ -16,7 +16,7 @@ const Footer = () => {
               Almatec SRL
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Especialistas en soluciones de almacenamiento agrícola y representantes oficiales de silos GSI en Bolivia.
+              Especialistas en soluciones de almacenamiento agroindustrial y representantes oficiales de silos GSI en Bolivia.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
