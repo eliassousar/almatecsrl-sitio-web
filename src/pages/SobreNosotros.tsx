@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Award, Lightbulb, Shield, Target, TrendingUp } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -15,27 +16,27 @@ const SobreNosotros = () => {
     {
       title: "Excelencia técnica",
       description: "Nos comprometemos con los más altos estándares de calidad en cada proyecto que emprendemos",
-      icon: "🏆"
+      icon: Award
     },
     {
       title: "Innovación constante", 
       description: "Buscamos continuamente nuevas tecnologías y métodos para mejorar nuestras soluciones",
-      icon: "💡"
+      icon: Lightbulb
     },
     {
       title: "Integridad",
       description: "Actuamos con honestidad y transparencia en todas nuestras relaciones comerciales",
-      icon: "🤝"
+      icon: Shield
     },
     {
       title: "Compromiso con el cliente",
       description: "El éxito de nuestros clientes es nuestra principal motivación y medida de logro",
-      icon: "🎯"
+      icon: Target
     },
     {
       title: "Experiencia comprobada",
       description: "Más de dos décadas de trayectoria exitosa en el mercado agroindustrial boliviano",
-      icon: "📈"
+      icon: TrendingUp
     }
   ];
 
@@ -185,25 +186,28 @@ const SobreNosotros = () => {
               className="w-full"
             >
               <CarouselContent className="-ml-4">
-                {valores.map((valor, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                    <Card className="h-80 flex flex-col hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <CardHeader className="flex-shrink-0 text-center pb-4">
-                        <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                          <span className="text-2xl">{valor.icon}</span>
-                        </div>
-                        <CardTitle className="font-montserrat text-almatec-dark-gray text-lg tracking-wide leading-tight">
-                          {valor.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex-1 flex items-center justify-center px-4">
-                        <p className="font-open-sans text-gray-600 leading-relaxed text-center text-sm">
-                          {valor.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
+                {valores.map((valor, index) => {
+                  const IconComponent = valor.icon;
+                  return (
+                    <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                      <Card className="h-80 flex flex-col hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <CardHeader className="flex-shrink-0 text-center pb-4">
+                          <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                            <IconComponent className="w-8 h-8 text-almatec-dark-gray" />
+                          </div>
+                          <CardTitle className="font-montserrat text-almatec-dark-gray text-lg tracking-wide leading-tight">
+                            {valor.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex items-center justify-center px-4">
+                          <p className="font-open-sans text-gray-600 leading-relaxed text-center text-sm">
+                            {valor.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
               <CarouselPrevious className="left-2" />
               <CarouselNext className="right-2" />
