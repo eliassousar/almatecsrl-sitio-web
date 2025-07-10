@@ -178,7 +178,7 @@ export const productosBalanzas: Producto[] = [
   {
     id: 13,
     name: "Balanza Camionera Metálica",
-    description: "Las balanzas camioneras metálicas de Coimma están diseñadas para el pesaje preciso de vehículos pesados en la industria agrícola. Construidas con materiales de alta resistencia, ofrecen durabilidad excepcional y precisión confiable para el pesaje de granos y productos agrícolas.",
+    description: "Totalmente modular, compuesto por una estructura metálica (acero). Construido según las normas ABNT para carga móvil en puentes de carretera. Fabricado con un estricto control de calidad utilizando materias primas y componentes electrónicos de primera calidad. Disponible en varias capacidades, de 40.000 a 200.000 kg, con plataformas de 12 a 60 m. Versiones: SP = sobre el suelo con rampa; SE = semiempotrado sin rampa y totalmente empotrado.",
     image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.png",
     specs: [
       "Construcción metálica robusta y duradera",
