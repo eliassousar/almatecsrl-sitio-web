@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -90,17 +91,17 @@ const Home = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
-                  Automatización Agroindustrial
+                  Manejo de Granos
                 </CardTitle>
                 <CardDescription className="font-open-sans text-gray-600">
-                  Soluciones de automatización para optimizar procesos y reducir costos en la producción agroindustrial.
+                  Soluciones integrales para el manejo eficiente de granos, desde el transporte hasta el procesamiento final.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
                     src="https://images.unsplash.com/photo-1606765497444-04645c9a5764?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80"
-                    alt="Automatización Agroindustrial"
+                    alt="Manejo de Granos"
                     className="object-cover rounded-md"
                   />
                 </AspectRatio>
