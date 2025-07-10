@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -164,7 +163,7 @@ const SobreNosotros = () => {
         </div>
       </section>
 
-      {/* Nuestros Valores - Ahora como Carrusel */}
+      {/* Nuestros Valores - Carrusel Mejorado */}
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -176,7 +175,7 @@ const SobreNosotros = () => {
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <Carousel
               opts={{
                 align: "start",
@@ -185,22 +184,24 @@ const SobreNosotros = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselContent className="-ml-4">
                 {valores.map((valor, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <div className="p-2">
-                      <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
-                        <CardHeader className="pb-4">
-                          <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
-                            <span className="text-3xl">{valor.icon}</span>
-                          </div>
-                          <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">{valor.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="font-open-sans text-gray-600 leading-relaxed">{valor.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
+                  <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                    <Card className="h-80 flex flex-col hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <CardHeader className="flex-shrink-0 text-center pb-4">
+                        <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                          <span className="text-2xl">{valor.icon}</span>
+                        </div>
+                        <CardTitle className="font-montserrat text-almatec-dark-gray text-lg tracking-wide leading-tight">
+                          {valor.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-1 flex items-center justify-center px-4">
+                        <p className="font-open-sans text-gray-600 leading-relaxed text-center text-sm">
+                          {valor.description}
+                        </p>
+                      </CardContent>
+                    </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
