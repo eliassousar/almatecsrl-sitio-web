@@ -172,3 +172,65 @@ export const productosManejo: Producto[] = [
     ]
   }
 ];
+
+export const productosBalanzas: Producto[] = [
+  {
+    id: 13,
+    name: "Balanza Camionera Metálica",
+    description: "Las balanzas camioneras metálicas de Coimma están diseñadas para el pesaje preciso de vehículos pesados en la industria agrícola. Construidas con materiales de alta resistencia, ofrecen durabilidad excepcional y precisión confiable para el pesaje de granos y productos agrícolas.",
+    image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.png",
+    specs: [
+      "Construcción metálica robusta y duradera",
+      "Alta precisión en el pesaje de vehículos pesados",
+      "Diseño específico para la industria agrícola",
+      "Sistema de pesaje confiable para granos",
+      "Resistente a condiciones climáticas adversas",
+      "Marca Coimma con garantía de calidad"
+    ]
+  },
+  {
+    id: 14,
+    name: "Balanza de Concreto",
+    description: "Las balanzas de concreto Coimma proporcionan una solución permanente y estable para el pesaje industrial. Su construcción en concreto armado garantiza máxima estabilidad y resistencia, ideal para operaciones de pesaje continuo en plantas de almacenamiento de granos.",
+    image: "/lovable-uploads/bb0c281c-6e9a-48ed-b2ab-bc5a3251358d.png",
+    specs: [
+      "Construcción en concreto armado para máxima estabilidad",
+      "Solución permanente para pesaje industrial",
+      "Resistencia superior a cargas pesadas",
+      "Ideal para operaciones de pesaje continuo",
+      "Mínimo mantenimiento requerido",
+      "Tecnología Coimma de precisión garantizada"
+    ]
+  }
+];
+
+export const productosVolcadoras: Producto[] = [
+  {
+    id: 15,
+    name: "Plataforma Volcadora Trasera 21 metros",
+    description: "La plataforma volcadora trasera de 21 metros de Saur está diseñada para facilitar la descarga eficiente de camiones en plantas de almacenamiento. Su sistema hidráulico robusto permite voltear cargas pesadas de manera segura y controlada, optimizando los tiempos de descarga.",
+    image: "/lovable-uploads/f4497456-6eea-475d-a974-9e593bebc184.png",
+    specs: [
+      "Plataforma de 21 metros de longitud",
+      "Sistema hidráulico robusto y confiable",
+      "Descarga segura y controlada",
+      "Optimización de tiempos de descarga",
+      "Construcción resistente para uso intensivo",
+      "Tecnología Saur de alta calidad"
+    ]
+  },
+  {
+    id: 16,
+    name: "Colectores de Muestras",
+    description: "Los colectores de muestras Saur son equipos especializados para la toma automática de muestras de granos durante el proceso de descarga. Garantizan muestras representativas y consistentes, esenciales para el control de calidad en la recepción de granos.",
+    image: "/lovable-uploads/b1109187-68a8-45ef-b7c0-959aed07cfe3.png",
+    specs: [
+      "Toma automática de muestras representativas",
+      "Sistema especializado para granos",
+      "Control de calidad en recepción",
+      "Operación automática y consistente",
+      "Diseño robusto para uso industrial",
+      "Marca Saur con tecnología especializada"
+    ]
+  }
+];

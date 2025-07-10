@@ -1,5 +1,6 @@
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { productosAlmacenamiento, productosSecado, productosManejo } from '@/data/productos';
+import { productosAlmacenamiento, productosSecado, productosManejo, productosBalanzas, productosVolcadoras } from '@/data/productos';
 import HeroSection from '@/components/products/HeroSection';
 import ProductSection from '@/components/products/ProductSection';
 import ClosingSection from '@/components/products/ClosingSection';
@@ -13,24 +14,36 @@ const Productos = () => {
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="almacenamiento" className="w-full max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-12 bg-gray-100">
+            <TabsList className="grid w-full grid-cols-5 mb-12 bg-gray-100">
               <TabsTrigger 
                 value="almacenamiento" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
               >
                 Almacenamiento de Granos
               </TabsTrigger>
               <TabsTrigger 
                 value="secado" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
               >
                 Sistemas de Secado
               </TabsTrigger>
               <TabsTrigger 
                 value="manejo" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
               >
                 Manejo de Granos
+              </TabsTrigger>
+              <TabsTrigger 
+                value="balanzas" 
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+              >
+                Balanzas
+              </TabsTrigger>
+              <TabsTrigger 
+                value="volcadoras" 
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+              >
+                Volcadoras
               </TabsTrigger>
             </TabsList>
 
@@ -55,6 +68,22 @@ const Productos = () => {
                 title="SISTEMAS DE MANEJO DE GRANOS"
                 description="Los equipos GSI para transporte de granos están diseñados para garantizar una operativa más fácil y rápida que mejorará el resultado de su cosecha. Con componentes de alta calidad y construcción robusta, estos sistemas optimizan el flujo de granos en su planta."
                 productos={productosManejo}
+              />
+            </TabsContent>
+
+            <TabsContent value="balanzas">
+              <ProductSection
+                title="SISTEMAS DE BALANZAS"
+                description="Las balanzas Coimma ofrecen soluciones de pesaje industrial de alta precisión para la industria agrícola. Diseñadas para soportar cargas pesadas y operación continua, garantizan mediciones exactas y confiables en el pesaje de granos y productos agrícolas."
+                productos={productosBalanzas}
+              />
+            </TabsContent>
+
+            <TabsContent value="volcadoras">
+              <ProductSection
+                title="SISTEMAS DE VOLCADORAS"
+                description="Los equipos Saur para descarga y muestreo están diseñados para optimizar los procesos de recepción de granos. Con tecnología especializada y construcción robusta, estos sistemas mejoran la eficiencia operativa y garantizan el control de calidad en la recepción de productos."
+                productos={productosVolcadoras}
               />
             </TabsContent>
           </Tabs>
