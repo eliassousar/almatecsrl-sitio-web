@@ -1,6 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
 
 const Contacto = () => {
@@ -35,7 +36,7 @@ const Contacto = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📞</span>
+                  <Phone className="w-8 h-8 text-almatec-dark-gray" />
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Teléfonos</h3>
                 <div className="space-y-1">
@@ -49,7 +50,7 @@ const Contacto = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📧</span>
+                  <Mail className="w-8 h-8 text-almatec-dark-gray" />
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Correos</h3>
                 <div className="space-y-1">
@@ -62,7 +63,7 @@ const Contacto = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🕒</span>
+                  <Clock className="w-8 h-8 text-almatec-dark-gray" />
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Horario</h3>
                 <div className="space-y-1">
