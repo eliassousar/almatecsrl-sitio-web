@@ -37,10 +37,10 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
-              Nuestros Servicios
+              Línea de Productos
             </h2>
             <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Ofrecemos una amplia gama de servicios diseñados para optimizar su producción agroindustrial.
+              Ofrecemos una amplia gama de productos diseñados para optimizar su producción agroindustrial.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
