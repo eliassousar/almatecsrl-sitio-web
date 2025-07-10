@@ -1,8 +1,9 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Award, Lightbulb, Shield, Target, TrendingUp } from 'lucide-react';
+import { Award, Lightbulb, Shield, Target, TrendingUp, Crosshair, Telescope } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -132,7 +133,7 @@ const SobreNosotros = () => {
             <Card className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader className="text-center pb-6">
                 <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-4xl">🎯</span>
+                  <Crosshair className="w-10 h-10 text-almatec-dark-gray" />
                 </div>
                 <CardTitle className="font-montserrat text-3xl text-almatec-dark-gray tracking-wide">Misión</CardTitle>
               </CardHeader>
@@ -148,7 +149,7 @@ const SobreNosotros = () => {
             <Card className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader className="text-center pb-6">
                 <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-4xl">🔭</span>
+                  <Telescope className="w-10 h-10 text-almatec-dark-gray" />
                 </div>
                 <CardTitle className="font-montserrat text-3xl text-almatec-dark-gray tracking-wide">Visión</CardTitle>
               </CardHeader>
