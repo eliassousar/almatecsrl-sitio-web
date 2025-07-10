@@ -210,7 +210,7 @@ export const productosVolcadoras: Producto[] = [
     id: 15,
     name: "Plataforma Volcadora Trasera 21 metros",
     description: "La Plataforma de Volcadora Trasera SAUR de 21 metros fue proyectada para descargar camiones tolvas, chatos, carretas, bitrenes y rodotrenes de hasta 90 toneladas. La descarga se realiza de forma simple y práctica, en un promedio de 4 minutos, lo que contribuye con el proceso y reduce considerablemente las filas en las centrales de recepción. Éste es uno de los modelos más comunes y está entre los sistemas de descarga de graneles más vendidos.",
-    image: "/lovable-uploads/f4497456-6eea-475d-a974-9e593bebc184.png",
+    image: "/lovable-uploads/55c80e54-aae9-498a-b272-583d3f81db08.png",
     specs: [
       "Capacidad de carga: 80 o 90 Ton.",
       "Largo: 21.000 mm",
