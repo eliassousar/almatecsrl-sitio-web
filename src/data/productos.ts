@@ -1,3 +1,4 @@
+
 export interface Producto {
   id: number;
   name: string;
@@ -191,7 +192,7 @@ export const productosBalanzas: Producto[] = [
   {
     id: 14,
     name: "Balanza de Concreto",
-    description: "Las balanzas de concreto Coimma proporcionan una solución permanente y estable para el pesaje industrial. Su construcción en concreto armado garantiza máxima estabilidad y resistencia, ideal para operaciones de pesaje continuo en plantas de almacenamiento de granos.",
+    description: "Plataforma diseñada para recibir una cubierta de hormigón, diseñada según las Normas ABNT - Carga Móvil en Puentes de Carretera. Fabricada con materias primas y componentes electrónicos de primera calidad, se ofrece en diversas capacidades, desde 40.000 hasta 200.000 kg, y con plataformas de 10 a 60 m. Versiones: SP = sobre el suelo con rampa; SE = semiempotrada sin rampa y totalmente empotrada.",
     image: "/lovable-uploads/bb0c281c-6e9a-48ed-b2ab-bc5a3251358d.png",
     specs: [
       "Construcción en concreto armado para máxima estabilidad",
