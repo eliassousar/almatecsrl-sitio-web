@@ -1,9 +1,13 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -109,8 +113,12 @@ const Home = () => {
             </Card>
           </div>
           <div className="mt-12 text-center">
-            <Button size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg">
-              Ver Todos los Servicios
+            <Button 
+              size="lg" 
+              className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg"
+              onClick={() => navigate('/productos')}
+            >
+              Ver Productos y Soluciones
             </Button>
           </div>
         </div>
@@ -238,3 +246,4 @@ const Home = () => {
 };
 
 export default Home;
+
