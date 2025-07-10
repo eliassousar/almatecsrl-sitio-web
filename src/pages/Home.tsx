@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -28,7 +27,11 @@ const Home = () => {
               Impulsamos la productividad agroindustrial con tecnología de punta y servicios especializados.
             </p>
             <div className="mt-10">
-              <Button size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg">
+              <Button 
+                size="lg" 
+                className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg"
+                onClick={() => navigate('/productos')}
+              >
                 Descubra Más
               </Button>
             </div>
