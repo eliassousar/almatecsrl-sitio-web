@@ -225,7 +225,7 @@ export const productosVolcadoras: Producto[] = [
     id: 16,
     name: "Colectores de Muestras",
     description: "Los colectores de muestras Saur son equipos especializados para la toma automática de muestras de granos durante el proceso de descarga. Garantizan muestras representativas y consistentes, esenciales para el control de calidad en la recepción de granos.",
-    image: "/lovable-uploads/b1109187-68a8-45ef-b7c0-959aed07cfe3.png",
+    image: "/lovable-uploads/449f003e-565b-4dc5-b50b-6f477d499a6e.png",
     specs: [
       "Toma automática de muestras representativas",
       "Sistema especializado para granos",
