@@ -103,7 +103,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="https://images.unsplash.com/photo-1606765497444-04645c9a5764?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80"
+                    src="/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.png"
                     alt="Manejo de Granos"
                     className="object-cover rounded-md"
                   />
