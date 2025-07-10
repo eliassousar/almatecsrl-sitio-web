@@ -138,7 +138,7 @@ const SobreNosotros = () => {
               </CardHeader>
               <CardContent>
                 <p className="font-open-sans text-gray-600 leading-relaxed text-center text-lg">
-                  Proporcionar soluciones agrícolas integrales y de alta calidad que impulsen la 
+                  Proporcionar soluciones agroindustriales integrales y de alta calidad que impulsen la 
                   productividad y rentabilidad de nuestros clientes, contribuyendo al desarrollo 
                   sostenible del sector agroindustrial boliviano.
                 </p>
@@ -164,7 +164,7 @@ const SobreNosotros = () => {
         </div>
       </section>
 
-      {/* Nuestros Valores */}
+      {/* Nuestros Valores - Ahora como Carrusel */}
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -176,20 +176,37 @@ const SobreNosotros = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {valores.map((valor, index) => (
-              <Card key={index} className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <CardHeader className="pb-4">
-                  <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-3xl">{valor.icon}</span>
-                  </div>
-                  <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">{valor.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-open-sans text-gray-600 leading-relaxed">{valor.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-7xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {valores.map((valor, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                    <div className="p-2">
+                      <Card className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                        <CardHeader className="pb-4">
+                          <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span className="text-3xl">{valor.icon}</span>
+                          </div>
+                          <CardTitle className="font-montserrat text-almatec-dark-gray text-xl tracking-wide">{valor.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="font-open-sans text-gray-600 leading-relaxed">{valor.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
         </div>
       </section>
