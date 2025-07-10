@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -72,27 +73,6 @@ const features = [
     title: "Garantía de Calidad",
     description: "Todos nuestros servicios están respaldados por una garantía de satisfacción, asegurando la calidad y durabilidad.",
     icon: CheckCircle
-  }
-];
-
-const testimonios = [
-  {
-    name: "Juan Pérez",
-    company: "Agropecuaria del Norte",
-    testimony: "Gracias a Almatec, hemos optimizado nuestro sistema de almacenamiento y reducido las pérdidas de granos. ¡Excelente servicio!",
-    rating: 5
-  },
-  {
-    name: "María Rodríguez",
-    company: "Cooperativa Campesina",
-    testimony: "El equipo de Almatec nos brindó un asesoramiento técnico invaluable. Su profesionalismo y conocimiento son impresionantes.",
-    rating: 4
-  },
-  {
-    name: "Carlos Gómez",
-    company: "Granos del Sur",
-    testimony: "La instalación de los silos GSI fue impecable. Almatec cumplió con los plazos y superó nuestras expectativas.",
-    rating: 5
   }
 ];
 
@@ -219,39 +199,6 @@ const Servicios = () => {
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2 text-xl">{feature.title}</h3>
                 <p className="font-open-sans text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonios */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl text-almatec-dark-gray mb-6 tracking-wide">
-              Testimonios de Nuestros Clientes
-            </h2>
-            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Lo que dicen nuestros clientes sobre nuestros servicios y soluciones.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonios.map((testimonio, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <CardHeader>
-                  <CardTitle className="font-montserrat text-almatec-dark-gray text-xl">{testimonio.name}</CardTitle>
-                  <CardDescription className="text-gray-500">{testimonio.company}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-open-sans text-gray-600 leading-relaxed mb-4">{testimonio.testimony}</p>
-                  <div className="flex items-center">
-                    {Array.from({ length: testimonio.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-almatec-yellow mr-1" />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
             ))}
           </div>
         </div>
