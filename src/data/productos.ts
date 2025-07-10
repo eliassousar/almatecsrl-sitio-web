@@ -179,7 +179,7 @@ export const productosBalanzas: Producto[] = [
     id: 13,
     name: "Balanza Camionera Metálica",
     description: "Totalmente modular, compuesto por una estructura metálica (acero). Construido según las normas ABNT para carga móvil en puentes de carretera. Fabricado con un estricto control de calidad utilizando materias primas y componentes electrónicos de primera calidad. Disponible en varias capacidades, de 40.000 a 200.000 kg, con plataformas de 12 a 60 m. Versiones: SP = sobre el suelo con rampa; SE = semiempotrado sin rampa y totalmente empotrado.",
-    image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.png",
+    image: "/lovable-uploads/4f443edd-e4b5-4b4d-9e92-deb3d8a532a8.png",
     specs: [
       "Construcción metálica robusta y duradera",
       "Alta precisión en el pesaje de vehículos pesados",
