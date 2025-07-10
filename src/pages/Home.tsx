@@ -1,5 +1,4 @@
 
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -62,7 +61,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="https://images.unsplash.com/photo-1628494250987-bd99452374da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+                    src="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.png"
                     alt="Silos de Almacenamiento"
                     className="object-cover rounded-md"
                   />
@@ -246,4 +245,3 @@ const Home = () => {
 };
 
 export default Home;
-
