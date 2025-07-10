@@ -209,15 +209,16 @@ export const productosVolcadoras: Producto[] = [
   {
     id: 15,
     name: "Plataforma Volcadora Trasera 21 metros",
-    description: "La plataforma volcadora trasera de 21 metros de Saur está diseñada para facilitar la descarga eficiente de camiones en plantas de almacenamiento. Su sistema hidráulico robusto permite voltear cargas pesadas de manera segura y controlada, optimizando los tiempos de descarga.",
+    description: "La Plataforma de Volcadora Trasera SAUR de 21 metros fue proyectada para descargar camiones tolvas, chatos, carretas, bitrenes y rodotrenes de hasta 90 toneladas. La descarga se realiza de forma simple y práctica, en un promedio de 4 minutos, lo que contribuye con el proceso y reduce considerablemente las filas en las centrales de recepción. Éste es uno de los modelos más comunes y está entre los sistemas de descarga de graneles más vendidos.",
     image: "/lovable-uploads/f4497456-6eea-475d-a974-9e593bebc184.png",
     specs: [
-      "Plataforma de 21 metros de longitud",
-      "Sistema hidráulico robusto y confiable",
-      "Descarga segura y controlada",
-      "Optimización de tiempos de descarga",
-      "Construcción resistente para uso intensivo",
-      "Tecnología Saur de alta calidad"
+      "Capacidad de carga: 80 o 90 Ton.",
+      "Largo: 21.000 mm",
+      "Ancho: 3.000 mm",
+      "Ángulo de basculado: 40°",
+      "Para descarga de camiones tolva, chatos, carretas, bitrenes y rodotrenes de hasta 90 toneladas",
+      "Posibilidad de adaptación de Balanza Electrónica Integrada",
+      "Cilindros internos para obras que previenen instalación de la Plataforma o cilindros externos para obras existentes y versión móvil"
     ]
   },
   {
