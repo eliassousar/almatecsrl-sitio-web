@@ -82,7 +82,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="https://images.unsplash.com/photo-1557498502-84449949a104?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+                    src="/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.png"
                     alt="Sistemas de Secado"
                     className="object-cover rounded-md"
                   />
