@@ -21,7 +21,7 @@ const Home = () => {
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="max-w-4xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight">
-              Soluciones Integrales para el Agro
+              Soluciones completas para la agroindustria boliviana
             </h1>
             <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
               Impulsamos la productividad agroindustrial con tecnología de punta y servicios especializados.
