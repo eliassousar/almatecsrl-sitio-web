@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -80,12 +79,12 @@ const Servicios = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       {/* Hero Section */}
-      <section className="bg-almatec-yellow/10 py-24">
+      <section className="bg-almatec-black py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-montserrat font-bold text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+          <h1 className="font-montserrat font-bold text-5xl text-almatec-white mb-6 tracking-wide">
             Nuestros Servicios
           </h1>
-          <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-open-sans text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Ofrecemos una amplia gama de servicios para optimizar sus operaciones agroindustriales, desde la instalación de silos hasta el asesoramiento técnico especializado.
           </p>
         </div>
