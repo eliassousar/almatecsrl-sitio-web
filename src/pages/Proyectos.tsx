@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -159,7 +158,7 @@ const Proyectos = () => {
       {/* Estadísticas Rápidas */}
       <section className="py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-3xl md:text-4xl font-montserrat font-bold text-almatec-yellow mb-2">50+</div>
               <div className="font-open-sans text-gray-600">Proyectos Completados</div>
@@ -169,12 +168,8 @@ const Proyectos = () => {
               <div className="font-open-sans text-gray-600">Toneladas Instaladas</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-montserrat font-bold text-almatec-yellow mb-2">15+</div>
+              <div className="text-3xl md:text-4xl font-montserrat font-bold text-almatec-yellow mb-2">+20</div>
               <div className="font-open-sans text-gray-600">Años de Experiencia</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-montserrat font-bold text-almatec-yellow mb-2">98%</div>
-              <div className="font-open-sans text-gray-600">Satisfacción Cliente</div>
             </div>
           </div>
         </div>
