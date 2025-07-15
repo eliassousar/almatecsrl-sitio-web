@@ -93,14 +93,6 @@ const Servicios = () => {
       {/* Servicios Principales */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl text-almatec-dark-gray mb-6 tracking-wide">
-              Servicios Destacados
-            </h2>
-            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Conozca nuestros servicios principales y cómo podemos ayudarle a mejorar su productividad y rentabilidad.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {servicios.map((servicio, index) => (
