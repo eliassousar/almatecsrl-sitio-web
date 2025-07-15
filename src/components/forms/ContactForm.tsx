@@ -120,7 +120,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
         throw error;
       }
       
-      console.log('Consulta enviada exitosamente a Supabase');
+      // Consulta enviada exitosamente a Supabase
       
       toast({
         title: "¡Mensaje enviado exitosamente!",
@@ -129,7 +129,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
       
       form.reset();
     } catch (error) {
-      console.error('Error al enviar consulta:', error);
+      // Error al enviar consulta - logged for debugging
       toast({
         title: "Error al enviar el mensaje",
         description: "Por favor, verifique su conexión a internet e intente nuevamente.",

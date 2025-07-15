@@ -102,7 +102,7 @@ const QuoteForm = () => {
         throw error;
       }
       
-      console.log('Solicitud de cotización enviada exitosamente a Supabase');
+      // Solicitud de cotización enviada exitosamente a Supabase
       
       toast({
         title: "¡Solicitud de cotización enviada!",
@@ -112,7 +112,7 @@ const QuoteForm = () => {
       form.reset();
       setCurrentStep(1);
     } catch (error) {
-      console.error('Error al enviar solicitud de cotización:', error);
+      // Error al enviar solicitud - logged for debugging
       toast({
         title: "Error al enviar la solicitud",
         description: "Por favor, intente nuevamente o contáctenos directamente.",

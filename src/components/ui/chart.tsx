@@ -74,28 +74,47 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null
   }
 
-  return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-      itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
-  })
-  .join("\n")}
-}
-`
-          )
-          .join("\n"),
-      }}
-    />
-  )
+  // Crear CSS custom properties de forma segura sin dangerouslySetInnerHTML
+  const cssVariables = React.useMemo(() => {
+    const variables: Record<string, string> = {}
+    
+    Object.entries(THEMES).forEach(([theme, prefix]) => {
+      colorConfig.forEach(([key, itemConfig]) => {
+        const color =
+          itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
+          itemConfig.color
+        
+        if (color && typeof color === 'string') {
+          // Sanitizar el color para prevenir injection
+          const sanitizedColor = color.replace(/[^a-zA-Z0-9#().,\s%-]/g, '')
+          variables[`--color-${key}${theme !== 'light' ? `-${theme}` : ''}`] = sanitizedColor
+        }
+      })
+    })
+    
+    return variables
+  }, [colorConfig])
+
+  // Aplicar estilos usando CSS custom properties de forma segura
+  React.useEffect(() => {
+    const chartElement = document.querySelector(`[data-chart="${id}"]`) as HTMLElement
+    if (chartElement) {
+      Object.entries(cssVariables).forEach(([property, value]) => {
+        chartElement.style.setProperty(property, value)
+      })
+    }
+    
+    // Cleanup
+    return () => {
+      if (chartElement) {
+        Object.keys(cssVariables).forEach(property => {
+          chartElement.style.removeProperty(property)
+        })
+      }
+    }
+  }, [id, cssVariables])
+
+  return null
 }
 
 const ChartTooltip = RechartsPrimitive.Tooltip

@@ -31,6 +31,22 @@ export default defineConfig(({ mode }) => ({
           forms: ['react-hook-form', '@hookform/resolvers', 'zod'],
         },
       },
+      // Remover console.log en producción
+      ...(mode === 'production' && {
+        plugins: [
+          {
+            name: 'remove-console',
+            transform(code, id) {
+              if (mode === 'production') {
+                return {
+                  code: code.replace(/console\.log\(.*?\);?/g, ''),
+                  map: null
+                }
+              }
+            }
+          }
+        ]
+      })
     },
     // Usar esbuild para minificación (más rápido y incluido por defecto)
     minify: mode === 'production' ? 'esbuild' : false,
