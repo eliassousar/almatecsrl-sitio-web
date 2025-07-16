@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      cached_stats: {
+        Row: {
+          id: number
+          metric_name: string
+          metric_value: number
+          updated_at: string | null
+        }
+        Insert: {
+          id?: number
+          metric_name: string
+          metric_value: number
+          updated_at?: string | null
+        }
+        Update: {
+          id?: number
+          metric_name?: string
+          metric_value?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       contact_inquiries: {
         Row: {
           acepta_politica: boolean
@@ -121,7 +142,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      cleanup_old_audit_data: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      get_contact_stats: {
+        Args: { start_date?: string; end_date?: string }
+        Returns: {
+          total_contacts: number
+          total_quotes: number
+          avg_per_day: number
+          top_subjects: string[]
+          top_companies: string[]
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
