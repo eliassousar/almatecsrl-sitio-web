@@ -63,8 +63,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/proyectos" className="text-gray-300 hover:text-almatec-yellow transition-colors">
-                  Proyectos
+                <Link to="/contacto" className="text-gray-300 hover:text-almatec-yellow transition-colors">
+                  Contacto
                 </Link>
               </li>
               <li>
@@ -100,7 +100,11 @@ const Footer = () => {
                 href="https://www.facebook.com/almatecscz/?locale=es_LA" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://www.facebook.com/almatecscz/?locale=es_LA', '_blank', 'noopener,noreferrer');
+                }}
+                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -109,7 +113,11 @@ const Footer = () => {
                 href="https://www.instagram.com/almatecsrl/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://www.instagram.com/almatecsrl/', '_blank', 'noopener,noreferrer');
+                }}
+                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -118,7 +126,11 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/almatec-srl/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://www.linkedin.com/company/almatec-srl/', '_blank', 'noopener,noreferrer');
+                }}
+                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -127,7 +139,11 @@ const Footer = () => {
                 href="https://www.youtube.com/@GSI.americadelsur" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://www.youtube.com/@GSI.americadelsur', '_blank', 'noopener,noreferrer');
+                }}
+                className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="YouTube"
               >
                 <Youtube className="w-4 h-4" />
