@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useNavigate } from 'react-router-dom';
+import ProjectsGallery from '@/components/projects/ProjectsGallery';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -126,104 +127,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonios */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
-              Lo que dicen nuestros clientes
-            </h2>
-            <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-              Experiencias de clientes que han transformado su producción agroindustrial con nuestras soluciones.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonio 1 */}
-            <Card className="bg-white shadow-md rounded-md p-6">
-              <CardContent>
-                <div className="mb-4">
-                  <p className="font-open-sans text-gray-700 italic">
-                    "Almatec SRL superó nuestras expectativas. Sus silos de almacenamiento han optimizado nuestra operación y reducido las pérdidas."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 mr-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1531427186611-ecfd6d936e63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2872&q=80"
-                      alt="Cliente 1"
-                      className="object-cover w-full h-full rounded-full"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-montserrat font-semibold text-almatec-dark-gray">
-                      Juan Pérez
-                    </p>
-                    <p className="font-open-sans text-gray-500 text-sm">
-                      Productor de Granos
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Testimonio 2 */}
-            <Card className="bg-white shadow-md rounded-md p-6">
-              <CardContent>
-                <div className="mb-4">
-                  <p className="font-open-sans text-gray-700 italic">
-                    "La automatización que implementaron en nuestra planta ha mejorado significativamente nuestra eficiencia y rentabilidad."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 mr-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1573496800643-6e79aa36e58f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2815&q=80"
-                      alt="Cliente 2"
-                      className="object-cover w-full h-full rounded-full"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-montserrat font-semibold text-almatec-dark-gray">
-                      María Rodríguez
-                    </p>
-                    <p className="font-open-sans text-gray-500 text-sm">
-                      Gerente de Operaciones
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Testimonio 3 */}
-            <Card className="bg-white shadow-md rounded-md p-6">
-              <CardContent>
-                <div className="mb-4">
-                  <p className="font-open-sans text-gray-700 italic">
-                    "El soporte técnico que nos brindan es invaluable. Siempre están disponibles para resolver cualquier problema."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 mr-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d674x?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2861&q=80"
-                      alt="Cliente 3"
-                      className="object-cover w-full h-full rounded-full"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-montserrat font-semibold text-almatec-dark-gray">
-                      Carlos Gómez
-                    </p>
-                    <p className="font-open-sans text-gray-500 text-sm">
-                      Ingeniero Agrónomo
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Galería de Proyectos */}
+      <ProjectsGallery />
 
       {/* CTA Final */}
       <section className="py-20 bg-gradient-to-r from-almatec-dark-gray to-almatec-black text-almatec-white">
