@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ModernPageHero from '@/components/modern-page-hero';
 
 const SobreNosotros = () => {
   const valores = [
@@ -69,28 +70,10 @@ const SobreNosotros = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-almatec-dark-gray to-almatec-black text-almatec-white">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/lovable-uploads/a39e2e59-574f-4889-b4cd-42efd1e10346.png')"
-          }}
-        ></div>
-        
-        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-4xl">
-            <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight tracking-wide">
-              Sobre 
-              <span className="text-almatec-yellow"> Almatec SRL</span>
-            </h1>
-            <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl leading-relaxed">
-              Líderes en soluciones agroindustriales con más de dos décadas de experiencia en el mercado boliviano
-            </p>
-          </div>
-        </div>
-      </section>
+      <ModernPageHero 
+        title="Sobre Almatec SRL"
+        subtitle="Líderes en soluciones agroindustriales con más de dos décadas de experiencia"
+      />
 
       {/* Nuestra Historia */}
       <section className="py-20 bg-almatec-white">

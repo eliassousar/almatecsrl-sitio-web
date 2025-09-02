@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
-  { name: 'Servicios', href: '/servicios' },
+  { name: 'Sobre Nosotros', href: '/sobre-nosotros' },
   { name: 'Productos', href: '/productos' },
+  { name: 'Servicios', href: '/servicios' },
   { name: 'Contacto', href: '/contacto' },
 ];
 

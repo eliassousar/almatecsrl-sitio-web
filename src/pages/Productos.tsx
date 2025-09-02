@@ -1,14 +1,17 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { productosAlmacenamiento, productosSecado, productosManejo, productosBalanzas, productosVolcadoras } from '@/data/productos';
-import HeroSection from '@/components/products/HeroSection';
+import ModernPageHero from '@/components/modern-page-hero';
 import ProductSection from '@/components/products/ProductSection';
 import ClosingSection from '@/components/products/ClosingSection';
 
 const Productos = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <HeroSection />
+      <ModernPageHero 
+        title="Productos y Soluciones"
+        subtitle="Soluciones integrales para el sector agroindustrial"
+      />
 
       {/* Sección de Productos por Categorías */}
       <section className="py-20 bg-almatec-white">

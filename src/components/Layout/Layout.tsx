@@ -25,13 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
         Saltar al contenido principal
       </a>
       
-      {/* Mostrar header y breadcrumbs solo si NO es la página de inicio */}
-      {!isHomePage && (
-        <>
-          <Header />
-          <BreadcrumbNav />
-        </>
-      )}
+      {/* Header y breadcrumbs ocultos en todas las páginas para usar solo navegación moderna */}
       
       {/* Sticky navigation que aparece en todas las páginas */}
       <StickyNav />

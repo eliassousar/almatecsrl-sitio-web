@@ -3,31 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
+import ModernPageHero from '@/components/modern-page-hero';
 
 const Contacto = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-almatec-dark-gray to-almatec-black text-almatec-white">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80')"
-          }}
-        ></div>
-        
-        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-4xl">
-            <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight">
-              <span className="text-almatec-yellow">Contáctenos</span>
-            </h1>
-            <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Estamos aquí para ayudarle con sus proyectos agroindustriales. Converse con nuestros especialistas.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ModernPageHero 
+        title="Contáctenos"
+        subtitle="Estamos aquí para ayudarle con sus proyectos agroindustriales"
+      />
 
       {/* Información de Contacto Rápida */}
       <section className="py-16 bg-almatec-white">
