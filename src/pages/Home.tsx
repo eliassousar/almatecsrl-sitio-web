@@ -4,15 +4,12 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useNavigate } from 'react-router-dom';
 import ProjectsGallery from '@/components/projects/ProjectsGallery';
 import NewHero from '@/components/new-hero';
-import StickyNav from '@/components/sticky-nav';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-      <StickyNav />
-      <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
         {/* Nueva Hero Section */}
         <NewHero />
 
@@ -124,8 +121,7 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      </div>
-    </>
+    </div>
   );
 };
 

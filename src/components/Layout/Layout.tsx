@@ -1,15 +1,20 @@
 
 import { ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../ui/breadcrumb-nav';
 import WhatsAppButton from '../ui/whatsapp-button';
+import StickyNav from '../sticky-nav';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Skip to main content para accesibilidad */}
@@ -20,8 +25,16 @@ const Layout = ({ children }: LayoutProps) => {
         Saltar al contenido principal
       </a>
       
-      <Header />
-      <BreadcrumbNav />
+      {/* Mostrar header y breadcrumbs solo si NO es la página de inicio */}
+      {!isHomePage && (
+        <>
+          <Header />
+          <BreadcrumbNav />
+        </>
+      )}
+      
+      {/* Sticky navigation que aparece en todas las páginas */}
+      <StickyNav />
       
       <main 
         id="main-content" 
