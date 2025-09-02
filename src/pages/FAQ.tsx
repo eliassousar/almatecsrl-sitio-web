@@ -75,18 +75,18 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+        <div className="mb-6 lg:mb-8">
           <Link to="/">
-            <Button variant="outline" className="mb-4">
+            <Button variant="outline" className="mb-4 h-12">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Volver al inicio
             </Button>
           </Link>
-          <h1 className="text-3xl font-montserrat font-bold text-almatec-dark-gray mb-4">
+          <h1 className="text-2xl md:text-3xl font-montserrat font-bold text-almatec-dark-gray mb-4">
             Preguntas Frecuentes
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-base md:text-lg">
             Encuentre respuestas a las consultas más comunes sobre nuestros productos y servicios
           </p>
         </div>
@@ -129,15 +129,16 @@ const FAQ = () => {
             <p className="text-gray-700 mb-6">
               Nuestro equipo está listo para responder cualquier consulta específica sobre nuestros productos y servicios.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contacto">
-                <Button className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/contacto" className="flex-1">
+                <Button className="w-full h-12 bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   Enviar Consulta
                 </Button>
               </Link>
               <Button 
                 variant="outline"
+                className="flex-1 h-12"
                 onClick={() => window.open('tel:+59133326206')}
               >
                 <Phone className="w-4 h-4 mr-2" />

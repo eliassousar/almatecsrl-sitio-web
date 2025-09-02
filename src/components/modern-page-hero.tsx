@@ -23,7 +23,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
-        className="text-5xl md:text-7xl font-bold text-neutral-100 z-10 text-center tracking-tighter"
+        className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-100 z-10 text-center tracking-tighter px-4 leading-tight"
         style={{ fontFamily: "'Inter', sans-serif" }}
       >
         {title}
@@ -35,7 +35,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeInOut' }}
-          className="text-lg md:text-xl text-neutral-400 z-10 text-center mt-6 max-w-4xl px-4"
+          className="text-base md:text-lg lg:text-xl text-neutral-400 z-10 text-center mt-4 lg:mt-6 max-w-4xl px-6"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {subtitle}

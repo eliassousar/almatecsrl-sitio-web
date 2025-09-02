@@ -257,6 +257,28 @@
   @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
 }
 
+/* Mobile-first optimizations */
+.container {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Touch targets */
+button, .btn, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Form improvements */
+input, textarea, select {
+  @apply text-base; /* Prevents zoom on iOS */
+  min-height: 44px;
+}
+
+/* Card improvements */
+.card-elegant {
+  @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;

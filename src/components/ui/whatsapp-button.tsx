@@ -57,23 +57,23 @@ const WhatsAppButton = () => {
   const isFormValid = consultaData.nombre.trim().length > 0 && consultaData.tipoConsulta.length > 0;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999]" role="complementary" aria-label="Botón de contacto por WhatsApp">
+    <div className="fixed bottom-4 right-4 z-[9999]" role="complementary" aria-label="Botón de contacto por WhatsApp">
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
           <Button
-            className="w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 focus:ring-4 focus:ring-[#25D366]/30"
+            className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 focus:ring-4 focus:ring-[#25D366]/30"
             size="icon"
             aria-label="Abrir chat de WhatsApp"
             title="Contactar por WhatsApp"
           >
             <div className="flex flex-col items-center justify-center">
-              <MessageCircle className="w-6 h-6 mb-1" aria-hidden="true" />
-              <span className="text-xs font-medium">Chat</span>
+              <MessageCircle className="w-5 h-5 lg:w-6 lg:h-6 mb-0.5 lg:mb-1" aria-hidden="true" />
+              <span className="text-xs font-medium hidden lg:block">Chat</span>
             </div>
           </Button>
         </DialogTrigger>
         
-        <DialogContent className="sm:max-w-md" aria-describedby="whatsapp-dialog-description">
+        <DialogContent className="sm:max-w-md mx-4" aria-describedby="whatsapp-dialog-description">
           <DialogHeader>
             <DialogTitle className="text-almatec-dark-gray">Consulta por WhatsApp</DialogTitle>
             <DialogDescription id="whatsapp-dialog-description">
@@ -114,11 +114,11 @@ const WhatsAppButton = () => {
               </Select>
             </div>
             
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button 
                 onClick={handleConsultaSubmit} 
                 disabled={!isFormValid}
-                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white disabled:opacity-50 disabled:cursor-not-allowed h-12 text-sm"
                 aria-label="Enviar consulta personalizada por WhatsApp"
               >
                 Enviar por WhatsApp
@@ -126,7 +126,7 @@ const WhatsAppButton = () => {
               <Button 
                 onClick={handleDirectWhatsApp} 
                 variant="outline"
-                className="flex-1"
+                className="flex-1 h-12 text-sm"
                 aria-label="Contacto directo por WhatsApp"
               >
                 Contacto directo

@@ -17,34 +17,37 @@ const Productos = () => {
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="almacenamiento" className="w-full max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-5 mb-12 bg-gray-100">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-8 lg:mb-12 bg-gray-100 h-auto p-1">
               <TabsTrigger 
                 value="almacenamiento" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs sm:text-sm py-3 px-2 lg:px-3"
               >
-                Almacenamiento de Granos
+                <span className="lg:hidden">Almacén</span>
+                <span className="hidden lg:inline">Almacenamiento de Granos</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="secado" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs sm:text-sm py-3 px-2 lg:px-3"
               >
-                Sistemas de Secado
+                <span className="lg:hidden">Secado</span>
+                <span className="hidden lg:inline">Sistemas de Secado</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="manejo" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs sm:text-sm py-3 px-2 lg:px-3"
               >
-                Manejo de Granos
+                <span className="lg:hidden">Manejo</span>
+                <span className="hidden lg:inline">Manejo de Granos</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="balanzas" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs sm:text-sm py-3 px-2 lg:px-3"
               >
                 Balanzas
               </TabsTrigger>
               <TabsTrigger 
                 value="volcadoras" 
-                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs lg:text-sm"
+                className="font-montserrat font-medium data-[state=active]:bg-almatec-yellow data-[state=active]:text-almatec-black text-xs sm:text-sm py-3 px-2 lg:px-3"
               >
                 Volcadoras
               </TabsTrigger>
