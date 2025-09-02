@@ -19,10 +19,12 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'montserrat': ['Montserrat', 'sans-serif'],
-				'open-sans': ['Open Sans', 'sans-serif'],
-			},
+      fontFamily: {
+        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+        'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

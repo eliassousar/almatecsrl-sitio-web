@@ -14,7 +14,7 @@ const Home = () => {
         <NewHero />
 
       {/* Servicios Destacados */}
-      <section className="py-16 bg-almatec-white">
+      <section id="productos" className="py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
@@ -104,7 +104,7 @@ const Home = () => {
       <ProjectsGallery />
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-almatec-dark-gray to-almatec-black text-almatec-white">
+      <section id="contacto" className="py-20 bg-gradient-to-r from-almatec-dark-gray to-almatec-black text-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-8 text-center">
             ¿Su empresa necesita soluciones de almacenamiento de granos?
