@@ -3,53 +3,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useNavigate } from 'react-router-dom';
 import ProjectsGallery from '@/components/projects/ProjectsGallery';
+import NewHero from '@/components/new-hero';
+import StickyNav from '@/components/sticky-nav';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden text-almatec-white">
-        {/* Video Background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://videos.pexels.com/video-files/2022395/2022395-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-          {/* Fallback background for browsers that don't support video */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1560419164-98c46b585c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')"
-            }}
-          />
-        </video>
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        
-        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-4xl">
-            <h1 className="font-montserrat font-bold text-4xl md:text-6xl mb-6 leading-tight">
-              Soluciones completas para la agroindustria boliviana
-            </h1>
-            <p className="font-open-sans text-xl md:text-2xl text-gray-200 max-w-3xl">
-              Impulsamos la productividad agroindustrial con tecnología de punta y servicios especializados.
-            </p>
-            <div className="mt-10">
-              <Button 
-                size="lg" 
-                className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg"
-                onClick={() => navigate('/productos')}
-              >
-                Descubra Más
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+    <>
+      <StickyNav />
+      <div className="min-h-screen bg-gray-50">
+        {/* Nueva Hero Section */}
+        <NewHero />
 
       {/* Servicios Destacados */}
       <section className="py-16 bg-almatec-white">
@@ -159,7 +124,8 @@ const Home = () => {
           </Button>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
