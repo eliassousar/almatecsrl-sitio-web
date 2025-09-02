@@ -21,12 +21,31 @@ const NewHero = () => {
     <section 
       ref={ref}
       id="new-hero"
-      className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 relative overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 relative overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(circle at 20% 50%, rgba(120, 120, 120, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(160, 160, 160, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(100, 100, 100, 0.2) 0%, transparent 50%),
+          linear-gradient(135deg, #1f2937 0%, #374151 25%, #4b5563 50%, #374151 75%, #1f2937 100%)
+        `
+      }}
     >
-      {/* Animated grid background */}
+      {/* Metallic overlay pattern */}
+      <div className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%),
+            linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%)
+          `,
+          backgroundSize: '20px 20px'
+        }}
+      />
+      
+      {/* Subtle grid background */}
       <motion.div 
         style={{ y: smoothY, opacity: smoothOpacity }}
-        className="absolute inset-0 w-full h-full bg-transparent bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:60px_60px]"
+        className="absolute inset-0 w-full h-full bg-transparent bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:80px_80px]"
       />
 
       {/* Main content container */}
