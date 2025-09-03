@@ -71,8 +71,8 @@ const SobreNosotros = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <ModernPageHero 
-        title="Sobre Almatec SRL"
-        subtitle="Líderes en soluciones agroindustriales con más de dos décadas de experiencia"
+        title="Sobre Nosotros"
+        subtitle="Conoce a tu próximo socio estratégico que impulsará la productividad y rentabilidad de tu agroindustria."
       />
 
       {/* Nuestra Historia */}
