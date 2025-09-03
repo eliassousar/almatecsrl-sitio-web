@@ -37,9 +37,9 @@ const NewHero = () => {
         className="absolute top-8 left-8 z-20"
       >
         <img 
-          src="/lovable-uploads/7b64d736-3e47-4632-88ea-bf9f994641db.png" 
-          alt="Almatec Agronegocios" 
-          className="h-16 w-auto object-contain opacity-80"
+          src="/lovable-uploads/60ea7bc0-cc0b-4570-8c9d-9a5c075afe6a.png" 
+          alt="Almatec Isologo" 
+          className="h-16 w-auto object-contain opacity-90"
         />
       </motion.div>
 
