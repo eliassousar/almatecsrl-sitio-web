@@ -66,11 +66,7 @@ const NewHero = () => {
               type: "spring",
               stiffness: 100
             }}
-            className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-yellow-400 hover:from-yellow-300 hover:via-yellow-100 hover:to-white transition-all duration-700 ease-in-out transform-gpu"
-            style={{
-              textShadow: "0 0 30px rgba(255, 215, 0, 0.3)",
-              filter: "drop-shadow(0 4px 8px rgba(255, 215, 0, 0.2))"
-            }}
+            className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-yellow-400"
           >
             Soluciones agroindustriales
           </motion.span>
@@ -84,11 +80,7 @@ const NewHero = () => {
               type: "spring",
               stiffness: 100
             }}
-            className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-white hover:from-white hover:via-yellow-200 hover:to-yellow-400 transition-all duration-700 ease-in-out transform-gpu"
-            style={{
-              textShadow: "0 0 25px rgba(255, 215, 0, 0.4)",
-              filter: "drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3))"
-            }}
+            className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-white"
           >
             integrales para el futuro
           </motion.span>
@@ -102,11 +94,7 @@ const NewHero = () => {
               type: "spring",
               stiffness: 100
             }}
-            className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-300 hover:from-yellow-300 hover:to-white transition-all duration-700 ease-in-out transform-gpu"
-            style={{
-              textShadow: "0 0 20px rgba(255, 215, 0, 0.5)",
-              filter: "drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4))"
-            }}
+            className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-300"
           >
             de Bolivia
           </motion.span>
