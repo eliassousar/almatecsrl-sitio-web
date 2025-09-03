@@ -9,8 +9,7 @@ const Productos = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <ModernPageHero 
-        title="Productos y Soluciones"
-        subtitle="Soluciones integrales para el sector agroindustrial"
+        title="Conoce nuestras soluciones integrales para el sector agroindustrial"
       />
 
       {/* Sección de Productos por Categorías */}
