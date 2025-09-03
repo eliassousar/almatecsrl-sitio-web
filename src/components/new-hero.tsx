@@ -21,13 +21,27 @@ const NewHero = () => {
     <section 
       ref={ref}
       id="new-hero"
-      className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-800 via-gray-900 to-black relative overflow-hidden"
     >
       {/* Subtle grid background */}
       <motion.div 
         style={{ y: smoothY, opacity: smoothOpacity }}
         className="absolute inset-0 w-full h-full bg-transparent bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:80px_80px]"
       />
+
+      {/* Almatec Logo */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="absolute top-8 left-8 z-20"
+      >
+        <img 
+          src="/lovable-uploads/7b64d736-3e47-4632-88ea-bf9f994641db.png" 
+          alt="Almatec Agronegocios" 
+          className="h-16 w-auto object-contain opacity-80"
+        />
+      </motion.div>
 
       {/* Main content container */}
       <motion.div
