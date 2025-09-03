@@ -21,7 +21,7 @@ const NewHero = () => {
     <section 
       ref={ref}
       id="new-hero"
-      className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-800 via-gray-900 to-black relative overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center bg-gray-950 relative overflow-hidden"
     >
       {/* Subtle grid background */}
       <motion.div 
