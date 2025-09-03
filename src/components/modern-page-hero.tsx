@@ -58,7 +58,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight tracking-tight"
+          className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight tracking-tight"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           <motion.span
@@ -89,7 +89,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
               type: "spring",
               stiffness: 100
             }}
-            className="text-lg md:text-xl lg:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-white mt-6 max-w-4xl mx-auto leading-relaxed"
+            className="text-base md:text-lg lg:text-xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-white mt-4 lg:mt-6 max-w-5xl mx-auto leading-relaxed"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             {subtitle}
