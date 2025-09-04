@@ -69,7 +69,7 @@ const SobreNosotros = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       <ModernPageHero 
         title="Conoce a tu próximo socio estratégico que impulsará la productividad y rentabilidad de tu agroindustria."
       />

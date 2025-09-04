@@ -131,7 +131,7 @@ const Proyectos = () => {
   const proyectosDestacados = proyectos.filter(proyecto => proyecto.destacado);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-almatec-dark-gray to-almatec-black text-almatec-white">
         <div className="absolute inset-0 bg-black/50 z-10"></div>

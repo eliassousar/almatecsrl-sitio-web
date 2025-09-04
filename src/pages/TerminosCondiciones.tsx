@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const TerminosCondiciones = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Link to="/">

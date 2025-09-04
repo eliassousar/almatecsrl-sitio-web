@@ -7,7 +7,7 @@ import ModernPageHero from '@/components/modern-page-hero';
 
 const Contacto = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       <ModernPageHero 
         title="Contáctenos"
         subtitle="Estamos aquí para ayudarle con sus proyectos agroindustriales"

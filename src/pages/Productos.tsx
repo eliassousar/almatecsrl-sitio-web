@@ -7,7 +7,7 @@ import ClosingSection from '@/components/products/ClosingSection';
 
 const Productos = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       <ModernPageHero 
         title="Conoce nuestras soluciones integrales para el sector agroindustrial"
       />

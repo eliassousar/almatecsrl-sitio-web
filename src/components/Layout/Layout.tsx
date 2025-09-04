@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-almatec-black">
       {/* Skip to main content para accesibilidad */}
       <a 
         href="#main-content" 

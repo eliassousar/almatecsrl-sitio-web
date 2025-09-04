@@ -78,7 +78,7 @@ const features = [
 
 const Servicios = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-almatec-black">
       <ModernPageHero 
         title="Nuestros Servicios"
         subtitle="Ofrecemos una amplia gama de servicios para optimizar sus operaciones agroindustriales"
