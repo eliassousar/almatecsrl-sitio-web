@@ -78,30 +78,30 @@ const features = [
 
 const Servicios = () => {
   return (
-    <div className="min-h-screen bg-almatec-black">
+    <div className="min-h-screen bg-background">
       <ModernPageHero 
         title="Nuestros Servicios"
         subtitle="Ofrecemos una amplia gama de servicios para optimizar sus operaciones agroindustriales"
       />
 
       {/* Servicios Principales */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {servicios.map((servicio, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-card">
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                  <CardTitle className="text-xl font-montserrat text-almatec-dark-gray flex items-center gap-2">
-                    <servicio.icon className="w-5 h-5 mr-2" />
+                  <CardTitle className="text-xl font-montserrat text-foreground flex items-center gap-2">
+                    <servicio.icon className="w-5 h-5 mr-2 text-primary" />
                     {servicio.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600 font-open-sans leading-relaxed">
+                  <CardDescription className="text-muted-foreground font-open-sans leading-relaxed">
                     {servicio.description}
                   </CardDescription>
-                  <ul className="list-disc pl-5 mt-4 text-gray-600 font-open-sans">
+                  <ul className="list-disc pl-5 mt-4 text-muted-foreground font-open-sans">
                     {servicio.details.map((detail, i) => (
                       <li key={i} className="text-sm">{detail}</li>
                     ))}
@@ -114,48 +114,48 @@ const Servicios = () => {
       </section>
 
       {/* Proceso de Trabajo */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl text-almatec-dark-gray mb-6 tracking-wide">
+            <h2 className="font-montserrat font-bold text-4xl text-foreground mb-6 tracking-wide">
               Nuestro Proceso de Trabajo
             </h2>
-            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="font-open-sans text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Le acompañamos en cada etapa de su proyecto, desde la planificación hasta la puesta en marcha.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-almatec-black">
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-primary-foreground font-bold">
                 1
               </div>
-              <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2 text-xl">
+              <h3 className="font-montserrat font-semibold text-foreground mb-2 text-xl">
                 Análisis y Planificación
               </h3>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <p className="font-open-sans text-muted-foreground leading-relaxed">
                 Evaluamos sus necesidades y diseñamos una solución a medida.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-almatec-black">
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-primary-foreground font-bold">
                 2
               </div>
-              <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2 text-xl">
+              <h3 className="font-montserrat font-semibold text-foreground mb-2 text-xl">
                 Implementación
               </h3>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <p className="font-open-sans text-muted-foreground leading-relaxed">
                 Llevamos a cabo la instalación y configuración de los equipos.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-almatec-black">
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-primary-foreground font-bold">
                 3
               </div>
-              <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2 text-xl">
+              <h3 className="font-montserrat font-semibold text-foreground mb-2 text-xl">
                 Soporte y Mantenimiento
               </h3>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <p className="font-open-sans text-muted-foreground leading-relaxed">
                 Ofrecemos un servicio de soporte técnico y mantenimiento continuo.
               </p>
             </div>
@@ -164,13 +164,13 @@ const Servicios = () => {
       </section>
 
       {/* Features */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl text-almatec-dark-gray mb-6 tracking-wide">
+            <h2 className="font-montserrat font-bold text-4xl text-foreground mb-6 tracking-wide">
               ¿Por Qué Elegirnos?
             </h2>
-            <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="font-open-sans text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Descubra las ventajas de trabajar con un equipo de expertos comprometidos con su éxito.
             </p>
           </div>
@@ -178,11 +178,11 @@ const Servicios = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="w-20 h-20 bg-almatec-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-4xl text-almatec-black">
-                  <feature.icon />
+                <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                  <feature.icon className="w-10 h-10" />
                 </div>
-                <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2 text-xl">{feature.title}</h3>
-                <p className="font-open-sans text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="font-montserrat font-semibold text-foreground mb-2 text-xl">{feature.title}</h3>
+                <p className="font-open-sans text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -190,18 +190,18 @@ const Servicios = () => {
       </section>
       
       {/* Contacto */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-montserrat font-bold text-4xl text-almatec-dark-gray mb-4">
+              <h2 className="font-montserrat font-bold text-4xl text-foreground mb-4">
                 Solicite una Cotización
               </h2>
-              <p className="font-open-sans text-xl text-gray-600">
+              <p className="font-open-sans text-xl text-muted-foreground">
                 Complete el formulario y nuestros especialistas le proporcionarán una propuesta personalizada
               </p>
             </div>
-            <Card className="shadow-xl">
+            <Card className="shadow-xl bg-card">
               <CardContent className="p-8">
                 <QuoteForm />
               </CardContent>
