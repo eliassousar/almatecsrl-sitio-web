@@ -70,21 +70,11 @@ const NewHero = () => {
         
         {/* Subtítulo */}
         <p 
-          className="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "400" }}
         >
           Tecnología de vanguardia en silos, secado y manejo de granos para optimizar la productividad agrícola
         </p>
-
-        {/* Botón CTA */}
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-2 border-yellow-500 text-white bg-transparent hover:bg-yellow-500 hover:text-black transition-all duration-300 px-8 py-3 text-lg font-medium"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}
-        >
-          Conoce Nuestros Productos
-        </Button>
       </motion.div>
     </section>
   );
