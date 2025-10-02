@@ -1,43 +1,28 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import heroBackground from '@/assets/hero-agro-background.jpg';
+import { motion } from 'framer-motion';
 
 const NewHero = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-
-  // Parallax ligero para la imagen de fondo
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section 
       ref={ref}
       id="new-hero"
       className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
     >
+      {/* Video de fondo */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
+      </video>
+
       {/* Overlay negro con 70% opacidad */}
       <div className="absolute inset-0 bg-black bg-opacity-70 z-5" />
-      
-      {/* Imagen de fondo con parallax */}
-      <motion.div 
-        style={{ 
-          y: backgroundY,
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-        className="absolute inset-0 w-full h-full z-0"
-      />
 
       {/* Almatec Logo */}
       <motion.div
