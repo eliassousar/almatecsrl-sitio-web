@@ -91,13 +91,17 @@ export type Database = {
           energia_disponible: string | null
           fecha_estimada: string | null
           id: string
+          ip: unknown | null
           nombre: string
           presupuesto_aproximado: string | null
+          source: string | null
           telefono: string
           tipo_cultivo: string | null
           tipo_producto: string
           ubicacion_proyecto: string
           updated_at: string
+          user_agent: string | null
+          user_id: string | null
         }
         Insert: {
           capacidad_requerida?: string | null
@@ -109,13 +113,17 @@ export type Database = {
           energia_disponible?: string | null
           fecha_estimada?: string | null
           id?: string
+          ip?: unknown | null
           nombre: string
           presupuesto_aproximado?: string | null
+          source?: string | null
           telefono: string
           tipo_cultivo?: string | null
           tipo_producto: string
           ubicacion_proyecto: string
           updated_at?: string
+          user_agent?: string | null
+          user_id?: string | null
         }
         Update: {
           capacidad_requerida?: string | null
@@ -127,13 +135,17 @@ export type Database = {
           energia_disponible?: string | null
           fecha_estimada?: string | null
           id?: string
+          ip?: unknown | null
           nombre?: string
           presupuesto_aproximado?: string | null
+          source?: string | null
           telefono?: string
           tipo_cultivo?: string | null
           tipo_producto?: string
           ubicacion_proyecto?: string
           updated_at?: string
+          user_agent?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -142,6 +154,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      can_create_quote_request: {
+        Args: { p_email: string; p_ip: unknown }
+        Returns: boolean
+      }
       cleanup_old_audit_data: {
         Args: Record<PropertyKey, never>
         Returns: undefined
