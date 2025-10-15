@@ -1,1 +1,13 @@
 project_id = "mchbnrqbysucxtsmuqnj"
+
+[functions.validate-contact]
+verify_jwt = false
+
+[functions.validate-quote]
+verify_jwt = false
+
+[functions.maintenance-tasks]
+verify_jwt = true
+
+[functions.analytics-dashboard]
+verify_jwt = true

@@ -101,10 +101,9 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
     setIsSubmitting(true);
     
     try {
-      // Enviar datos a Supabase
-      const { error } = await supabase
-        .from('contact_inquiries')
-        .insert({
+      // Use edge function for server-side validation
+      const { data: response, error } = await supabase.functions.invoke('validate-contact', {
+        body: {
           nombre: data.nombre,
           email: data.email,
           telefono: data.telefono,
@@ -114,10 +113,15 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
           ubicacion: data.ubicacion || null,
           tipo_cultivo: data.tipoCultivo || null,
           acepta_politica: data.aceptaPolitica,
-        });
+        },
+      });
 
       if (error) {
         throw error;
+      }
+
+      if (!response?.success) {
+        throw new Error(response?.error || 'Error al validar el formulario');
       }
       
       // Consulta enviada exitosamente a Supabase

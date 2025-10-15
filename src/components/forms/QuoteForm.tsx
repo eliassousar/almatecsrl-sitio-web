@@ -79,10 +79,9 @@ const QuoteForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Enviar datos a Supabase
-      const { error } = await supabase
-        .from('quote_requests')
-        .insert({
+      // Use edge function for server-side validation
+      const { data: response, error } = await supabase.functions.invoke('validate-quote', {
+        body: {
           nombre: data.nombre,
           email: data.email,
           telefono: data.telefono,
@@ -96,10 +95,15 @@ const QuoteForm = () => {
           energia_disponible: data.energiaDisponible || null,
           presupuesto_aproximado: data.presupuestoAproximado || null,
           comentarios_adicionales: data.comentariosAdicionales || null,
-        });
+        },
+      });
 
       if (error) {
         throw error;
+      }
+
+      if (!response?.success) {
+        throw new Error(response?.error || 'Error al validar la cotización');
       }
       
       // Solicitud de cotización enviada exitosamente a Supabase
