@@ -28,7 +28,7 @@ const Home = () => {
             {/* Servicio 1 */}
             <Card 
               className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => navigate('/productos')}
+              onClick={() => navigate('/productos?tab=almacenamiento')}
             >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
@@ -52,7 +52,7 @@ const Home = () => {
             {/* Servicio 2 */}
             <Card 
               className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => navigate('/productos')}
+              onClick={() => navigate('/productos?tab=secado')}
             >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
@@ -76,7 +76,7 @@ const Home = () => {
             {/* Servicio 3 */}
             <Card 
               className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => navigate('/productos')}
+              onClick={() => navigate('/productos?tab=manejo')}
             >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
