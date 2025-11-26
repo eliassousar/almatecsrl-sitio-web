@@ -91,7 +91,7 @@ export type Database = {
           energia_disponible: string | null
           fecha_estimada: string | null
           id: string
-          ip: unknown | null
+          ip: unknown
           nombre: string
           presupuesto_aproximado: string | null
           source: string | null
@@ -113,7 +113,7 @@ export type Database = {
           energia_disponible?: string | null
           fecha_estimada?: string | null
           id?: string
-          ip?: unknown | null
+          ip?: unknown
           nombre: string
           presupuesto_aproximado?: string | null
           source?: string | null
@@ -135,7 +135,7 @@ export type Database = {
           energia_disponible?: string | null
           fecha_estimada?: string | null
           id?: string
-          ip?: unknown | null
+          ip?: unknown
           nombre?: string
           presupuesto_aproximado?: string | null
           source?: string | null
@@ -158,10 +158,7 @@ export type Database = {
         Args: { p_email: string; p_ip: unknown }
         Returns: boolean
       }
-      cleanup_old_audit_data: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      cleanup_old_audit_data: { Args: never; Returns: undefined }
       get_contact_stats: {
         Args: { end_date?: string; start_date?: string }
         Returns: {
