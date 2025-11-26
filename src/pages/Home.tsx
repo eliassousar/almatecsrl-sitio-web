@@ -26,7 +26,10 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Servicio 1 */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card 
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              onClick={() => navigate('/productos')}
+            >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
                   Silos de Almacenamiento
@@ -47,7 +50,10 @@ const Home = () => {
             </Card>
 
             {/* Servicio 2 */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card 
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              onClick={() => navigate('/productos')}
+            >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
                   Sistemas de Secado
@@ -68,7 +74,10 @@ const Home = () => {
             </Card>
 
             {/* Servicio 3 */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card 
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              onClick={() => navigate('/productos')}
+            >
               <CardHeader>
                 <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
                   Manejo de Granos
