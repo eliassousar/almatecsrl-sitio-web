@@ -5,10 +5,16 @@ import ModernPageHero from '@/components/modern-page-hero';
 import ProductSection from '@/components/products/ProductSection';
 import ClosingSection from '@/components/products/ClosingSection';
 import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Productos = () => {
   const [searchParams] = useSearchParams();
   const tabFromUrl = searchParams.get('tab') || 'almacenamiento';
+  const [activeTab, setActiveTab] = useState(tabFromUrl);
+
+  useEffect(() => {
+    setActiveTab(tabFromUrl);
+  }, [tabFromUrl]);
   return (
     <div className="min-h-screen bg-almatec-black">
       <ModernPageHero 
@@ -18,7 +24,7 @@ const Productos = () => {
       {/* Sección de Productos por Categorías */}
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Tabs value={tabFromUrl} defaultValue="almacenamiento" className="w-full max-w-7xl mx-auto">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-7xl mx-auto">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-8 lg:mb-12 bg-gray-100 h-auto p-1">
               <TabsTrigger 
                 value="almacenamiento" 
