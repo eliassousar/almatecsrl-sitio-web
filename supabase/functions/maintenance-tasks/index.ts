@@ -379,6 +379,32 @@ serve(async (req) => {
       );
     }
 
+    // Verificar que el usuario tiene rol de admin (mantenimiento solo para admins)
+    const { data: userRoles, error: rolesError } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', user.id);
+
+    if (rolesError) {
+      console.error('Error fetching user roles:', rolesError);
+      return new Response(
+        JSON.stringify({ error: 'Error verifying permissions' }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const isAdmin = userRoles?.some(r => r.role === 'admin');
+
+    if (!isAdmin) {
+      console.log(`Access denied for user ${user.id} - admin role required for maintenance tasks`);
+      return new Response(
+        JSON.stringify({ error: 'Insufficient permissions. Admin role required for maintenance tasks' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    console.log(`Admin access granted for user ${user.id}`);
+
     console.log('Starting maintenance tasks...')
     
     // Ejecutar mantenimiento

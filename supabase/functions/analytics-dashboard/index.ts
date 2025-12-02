@@ -297,6 +297,34 @@ serve(async (req) => {
       );
     }
 
+    // Verificar que el usuario tiene un rol autorizado (admin, sales, o viewer)
+    const { data: userRoles, error: rolesError } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', user.id);
+
+    if (rolesError) {
+      console.error('Error fetching user roles:', rolesError);
+      return new Response(
+        JSON.stringify({ error: 'Error verifying permissions' }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const hasRequiredRole = userRoles?.some(r => 
+      ['admin', 'sales', 'viewer'].includes(r.role)
+    );
+
+    if (!hasRequiredRole) {
+      console.log(`Access denied for user ${user.id} - no authorized role`);
+      return new Response(
+        JSON.stringify({ error: 'Insufficient permissions. Required role: admin, sales, or viewer' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    console.log(`Access granted for user ${user.id} with roles:`, userRoles?.map(r => r.role));
+
     const url = new URL(req.url)
     const query: AnalyticsQuery = {
       type: (url.searchParams.get('type') as any) || 'stats',
