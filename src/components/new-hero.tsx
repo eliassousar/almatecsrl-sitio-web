@@ -43,11 +43,11 @@ const NewHero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="z-10 text-center px-4 max-w-4xl mx-auto"
+        className="z-10 text-center px-4 max-w-5xl mx-auto"
       >
         {/* Título principal */}
         <h1 
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           Soluciones Agroindustriales Integrales Para El Futuro De Bolivia
