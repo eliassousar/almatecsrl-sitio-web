@@ -43,15 +43,15 @@ const NewHero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="z-10 text-center px-4 max-w-6xl mx-auto"
+        className="z-10 text-center px-4 mx-auto"
+        style={{ maxWidth: '850px' }}
       >
         {/* Título principal */}
         <h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
+          className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-tight tracking-tight mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          Soluciones Agroindustriales Integrales<br />
-          Para El Futuro De Bolivia
+          Soluciones Agroindustriales Integrales Para El Futuro De Bolivia
         </h1>
         
         {/* Subtítulo */}
