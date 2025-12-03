@@ -59,7 +59,7 @@ const NewHero = () => {
           className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "400" }}
         >
-          Tecnología de vanguardia en silos, secado y manejo de granos para optimizar la productividad agrícola
+          Tecnología de vanguardia en silos, secado y manejo de granos para optimizar tu productividad agrícola
         </p>
       </motion.div>
     </section>
