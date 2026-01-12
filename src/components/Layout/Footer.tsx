@@ -100,10 +100,6 @@ const Footer = () => {
                 href="https://www.facebook.com/almatecscz/?locale=es_LA" 
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://www.facebook.com/almatecscz/?locale=es_LA', '_blank', 'noopener,noreferrer');
-                }}
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="Facebook"
               >
@@ -113,10 +109,6 @@ const Footer = () => {
                 href="https://www.instagram.com/almatecsrl/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://www.instagram.com/almatecsrl/', '_blank', 'noopener,noreferrer');
-                }}
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="Instagram"
               >
@@ -126,10 +118,6 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/almatec-srl/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://www.linkedin.com/company/almatec-srl/', '_blank', 'noopener,noreferrer');
-                }}
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="LinkedIn"
               >
@@ -139,10 +127,6 @@ const Footer = () => {
                 href="https://www.youtube.com/@GSI.americadelsur" 
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://www.youtube.com/@GSI.americadelsur', '_blank', 'noopener,noreferrer');
-                }}
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
                 aria-label="YouTube"
               >
