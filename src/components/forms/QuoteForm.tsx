@@ -39,6 +39,9 @@ const quoteFormSchema = z.object({
   // Paso 4: Información adicional
   presupuestoAproximado: z.string().optional(),
   comentariosAdicionales: z.string().optional(),
+  
+  // Honeypot field - bots will fill this, real users won't see it
+  website: z.string().optional(),
 });
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
@@ -46,6 +49,7 @@ type QuoteFormData = z.infer<typeof quoteFormSchema>;
 const QuoteForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formLoadTime] = useState(() => Date.now()); // Track when form was loaded
   const { toast } = useToast();
 
   const form = useForm<QuoteFormData>({
@@ -64,6 +68,7 @@ const QuoteForm = () => {
       energiaDisponible: '',
       presupuestoAproximado: '',
       comentariosAdicionales: '',
+      website: '', // Honeypot field
     },
   });
 
@@ -86,15 +91,18 @@ const QuoteForm = () => {
           email: data.email,
           telefono: data.telefono,
           empresa: data.empresa,
-          tipo_producto: data.tipoProducto,
-          ubicacion_proyecto: data.ubicacionProyecto,
-          fecha_estimada: data.fechaEstimada || null,
-          capacidad_requerida: data.capacidadRequerida || null,
-          tipo_cultivo: data.tipoCultivo || null,
-          condiciones_ambientales: data.condicionesAmbientales || null,
-          energia_disponible: data.energiaDisponible || null,
-          presupuesto_aproximado: data.presupuestoAproximado || null,
-          comentarios_adicionales: data.comentariosAdicionales || null,
+          tipoProducto: data.tipoProducto,
+          ubicacionProyecto: data.ubicacionProyecto,
+          fechaEstimada: data.fechaEstimada || null,
+          capacidadRequerida: data.capacidadRequerida || null,
+          tipoCultivo: data.tipoCultivo || null,
+          condicionesAmbientales: data.condicionesAmbientales || null,
+          energiaDisponible: data.energiaDisponible || null,
+          presupuestoAproximado: data.presupuestoAproximado || null,
+          comentariosAdicionales: data.comentariosAdicionales || null,
+          // Honeypot fields for bot detection
+          website: data.website || '',
+          _timestamp: formLoadTime.toString(),
         },
       });
 
@@ -149,7 +157,18 @@ const QuoteForm = () => {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            
+            {/* Honeypot field - hidden from real users, bots will fill it */}
+            <div className="absolute left-[-9999px] opacity-0 pointer-events-none" aria-hidden="true">
+              <label htmlFor="quote-website">Website</label>
+              <input
+                type="text"
+                id="quote-website"
+                tabIndex={-1}
+                autoComplete="off"
+                {...form.register('website')}
+              />
+            </div>
+
             {currentStep === 1 && (
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-almatec-dark-gray">Información de Contacto</h3>

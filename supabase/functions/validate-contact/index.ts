@@ -24,6 +24,30 @@ interface ContactFormData {
   ubicacion?: string
   tipoCultivo?: string
   aceptaPolitica: boolean
+  // Honeypot field - should be empty for real submissions
+  website?: string
+}
+
+// Honeypot validation - returns true if submission appears to be from a bot
+function isHoneypotTriggered(data: any): boolean {
+  // If the honeypot field has any value, it's likely a bot
+  if (data.website && data.website.trim() !== '') {
+    console.log('Honeypot triggered - bot detected')
+    return true
+  }
+  
+  // Additional bot detection: check for suspiciously fast submissions
+  // (bots typically fill forms instantly)
+  if (data._timestamp) {
+    const submissionTime = Date.now() - parseInt(data._timestamp, 10)
+    // If form was filled in less than 3 seconds, likely a bot
+    if (submissionTime < 3000) {
+      console.log('Suspicious submission speed - possible bot')
+      return true
+    }
+  }
+  
+  return false
 }
 
 // Función de validación server-side optimizada con caching
@@ -196,6 +220,15 @@ serve(async (req) => {
       req.json(),
       timeoutPromise
     ]) as any
+    
+    // Check honeypot - reject bot submissions silently
+    if (isHoneypotTriggered(body)) {
+      // Return success to not tip off the bot, but don't process
+      return new Response(
+        JSON.stringify({ success: true, message: 'Contact form submitted successfully' }),
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      )
+    }
     
     // Validar datos con cache
     const validation = validateContactForm(body)
