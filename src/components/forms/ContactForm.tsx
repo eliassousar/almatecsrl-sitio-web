@@ -69,6 +69,8 @@ const contactFormSchema = z.object({
   aceptaPolitica: z.boolean().refine((val) => val === true, {
     message: 'Debe aceptar la política de privacidad',
   }),
+  // Honeypot field - bots will fill this, real users won't see it
+  website: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -79,6 +81,7 @@ interface ContactFormProps {
 
 const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formLoadTime] = useState(() => Date.now()); // Track when form was loaded
   const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
@@ -93,6 +96,7 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
       ubicacion: '',
       tipoCultivo: '',
       aceptaPolitica: false,
+      website: '', // Honeypot field
     },
     mode: 'onChange', // Validación en tiempo real
   });
@@ -113,6 +117,9 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
           ubicacion: data.ubicacion || null,
           tipo_cultivo: data.tipoCultivo || null,
           acepta_politica: data.aceptaPolitica,
+          // Honeypot fields for bot detection
+          website: data.website || '',
+          _timestamp: formLoadTime.toString(),
         },
       });
 
@@ -156,6 +163,17 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
     return (
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" noValidate>
+          {/* Honeypot field - hidden from real users, bots will fill it */}
+          <div className="absolute left-[-9999px] opacity-0 pointer-events-none" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              tabIndex={-1}
+              autoComplete="off"
+              {...form.register('website')}
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -282,6 +300,17 @@ const ContactForm = ({ variant = 'full' }: ContactFormProps) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+        {/* Honeypot field - hidden from real users, bots will fill it */}
+        <div className="absolute left-[-9999px] opacity-0 pointer-events-none" aria-hidden="true">
+          <label htmlFor="website-full">Website</label>
+          <input
+            type="text"
+            id="website-full"
+            tabIndex={-1}
+            autoComplete="off"
+            {...form.register('website')}
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
