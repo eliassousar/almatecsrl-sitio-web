@@ -9,7 +9,7 @@ import ModernPageHero from '@/components/modern-page-hero';
 const servicios = [
   {
     title: "Asesoramiento Técnico",
-    description: "Actuamos como asesores técnicos estratégicos para la correcta elección de equipos y soluciones para su operación agroindustrial, alineando las decisiones actuales con una planificación de crecimiento a largo plazo. Buscamos maximizar la eficiencia operativa, optimizar la inversión y asegurar la escalabilidad futura de la infraestructura.",
+    description: "Actuamos como asesores técnicos estratégicos para la correcta elección de equipos y soluciones para su operación agroindustrial, alineando las decisiones actuales con una planificación de crecimiento a largo plazo.",
     icon: Users,
     details: [
       "Selección técnica de equipos según operación y proyección",
