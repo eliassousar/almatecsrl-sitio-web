@@ -5,7 +5,7 @@ const ClosingSection = () => (
   <section className="py-20 bg-almatec-dark-gray text-almatec-white">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
-        SOLUCIONES PERSONALIZADAS PARA SU OPERACIÓN
+        SOLUCIONES HECHAS A MEDIDA
       </h2>
       <p className="font-open-sans text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
         En Almatec SRL entendemos que cada operación agroindustrial tiene necesidades específicas. Nuestro equipo técnico 
