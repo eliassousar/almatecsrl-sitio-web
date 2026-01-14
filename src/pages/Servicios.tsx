@@ -8,7 +8,29 @@ import ModernPageHero from '@/components/modern-page-hero';
 
 const servicios = [
   {
-    title: "Instalación de Silos GSI",
+    title: "Asesoramiento Técnico",
+    description: "Consultoría especializada para la gestión eficiente de sus operaciones agroindustriales.",
+    icon: Users,
+    details: [
+      "Análisis de procesos y optimización de recursos",
+      "Capacitación de personal",
+      "Implementación de buenas prácticas agroindustriales",
+      "Soporte técnico continuo"
+    ]
+  },
+  {
+    title: "Servicios de Ingeniería",
+    description: "Diseño y optimización de sistemas de almacenamiento y manejo de granos, adaptados a sus necesidades.",
+    icon: Settings,
+    details: [
+      "Análisis de capacidad y flujo de granos",
+      "Diseño de layouts de plantas",
+      "Selección de equipos y componentes",
+      "Elaboración de planos y especificaciones técnicas"
+    ]
+  },
+  {
+    title: "Montaje de Silos",
     description: "Montaje profesional de silos de almacenamiento GSI, garantizando la correcta instalación y funcionamiento.",
     icon: Wrench,
     details: [
@@ -27,28 +49,6 @@ const servicios = [
       "Ajuste y lubricación de componentes",
       "Revisión de sistemas eléctricos y mecánicos",
       "Limpieza y desinfección"
-    ]
-  },
-  {
-    title: "Servicios de Ingeniería",
-    description: "Diseño y optimización de sistemas de almacenamiento y manejo de granos, adaptados a sus necesidades.",
-    icon: Settings,
-    details: [
-      "Análisis de capacidad y flujo de granos",
-      "Diseño de layouts de plantas",
-      "Selección de equipos y componentes",
-      "Elaboración de planos y especificaciones técnicas"
-    ]
-  },
-  {
-    title: "Asesoramiento Técnico",
-    description: "Consultoría especializada para la gestión eficiente de sus operaciones agroindustriales.",
-    icon: Users,
-    details: [
-      "Análisis de procesos y optimización de recursos",
-      "Capacitación de personal",
-      "Implementación de buenas prácticas agroindustriales",
-      "Soporte técnico continuo"
     ]
   }
 ];
