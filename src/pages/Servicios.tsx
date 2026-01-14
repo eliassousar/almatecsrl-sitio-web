@@ -89,18 +89,20 @@ const Servicios = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {servicios.map((servicio, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-card">
-                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                  <CardTitle className="text-xl font-montserrat text-foreground flex items-center gap-2">
-                    <servicio.icon className="w-5 h-5 mr-2 text-primary" />
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-card h-full flex flex-col">
+                <CardHeader className="pb-4 space-y-0">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                    <servicio.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <CardTitle className="text-xl font-montserrat text-foreground">
                     {servicio.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-muted-foreground font-open-sans leading-relaxed">
+                <CardContent className="flex-1 flex flex-col">
+                  <CardDescription className="text-muted-foreground font-open-sans leading-relaxed min-h-[120px]">
                     {servicio.description}
                   </CardDescription>
-                  <ul className="list-disc pl-5 mt-4 text-muted-foreground font-open-sans">
+                  <ul className="list-disc pl-5 mt-4 text-muted-foreground font-open-sans space-y-1">
                     {servicio.details.map((detail, i) => (
                       <li key={i} className="text-sm">{detail}</li>
                     ))}
