@@ -40,14 +40,14 @@ const servicios = [
     ]
   },
   {
-    title: "Mantenimiento Preventivo",
-    description: "Programas de mantenimiento para asegurar la durabilidad y eficiencia de sus silos y equipos.",
+    title: "Capacitación y Puesta en Marcha",
+    description: "Nos encargamos de la puesta en marcha integral de la planta, asegurando que los equipos operen correctamente desde el primer día y que el personal esté técnicamente capacitado para su uso y mantenimiento. Transferimos conocimiento operativo para garantizar seguridad, eficiencia y continuidad en la operación.",
     icon: CheckCircle,
     details: [
-      "Inspecciones periódicas",
-      "Ajuste y lubricación de componentes",
-      "Revisión de sistemas eléctricos y mecánicos",
-      "Limpieza y desinfección"
+      "Puesta en marcha y ajustes operativos",
+      "Capacitación técnica al personal de planta",
+      "Protocolos de operación y mantenimiento",
+      "Acompañamiento técnico post-arranque"
     ]
   }
 ];
