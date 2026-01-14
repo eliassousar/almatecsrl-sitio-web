@@ -9,13 +9,12 @@ import ModernPageHero from '@/components/modern-page-hero';
 const servicios = [
   {
     title: "Asesoramiento Técnico",
-    description: "Consultoría especializada para la gestión eficiente de sus operaciones agroindustriales.",
+    description: "Actuamos como asesores técnicos estratégicos para la correcta elección de equipos y soluciones para su operación agroindustrial, alineando las decisiones actuales con una planificación de crecimiento a largo plazo. Buscamos maximizar la eficiencia operativa, optimizar la inversión y asegurar la escalabilidad futura de la infraestructura.",
     icon: Users,
     details: [
-      "Análisis de procesos y optimización de recursos",
-      "Capacitación de personal",
-      "Implementación de buenas prácticas agroindustriales",
-      "Soporte técnico continuo"
+      "Selección técnica de equipos según operación y proyección",
+      "Planificación de expansión y eficiencia operativa",
+      "Acompañamiento técnico continuo"
     ]
   },
   {
