@@ -8,9 +8,7 @@ const ClosingSection = () => (
         SOLUCIONES HECHAS A MEDIDA
       </h2>
       <p className="font-open-sans text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-        En Almatec SRL entendemos que cada operación agroindustrial tiene necesidades específicas. Nuestro equipo técnico 
-        especializado está preparado para asesorarle en la selección de los equipos GSI más adecuados para su proyecto, 
-        garantizando la máxima eficiencia y rentabilidad.
+        Entendemos que cada operación tiene necesidades específicas. Nuestro equipo técnico está preparado para asesorarle en la selección de los equipos más adecuados para su proyecto, garantizando la máxima eficiencia y rentabilidad a corto y largo plazo.
       </p>
       <p className="font-open-sans text-xl text-almatec-yellow mb-8 max-w-3xl mx-auto">
         Contáctenos para una consulta personalizada y descubra cómo las soluciones GSI pueden transformar su operación agroindustrial.
