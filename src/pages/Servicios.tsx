@@ -94,7 +94,7 @@ const Servicios = () => {
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                     <servicio.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-xl font-montserrat text-foreground">
+                  <CardTitle className="text-xl font-montserrat text-foreground min-h-[56px] flex items-start">
                     {servicio.title}
                   </CardTitle>
                 </CardHeader>
