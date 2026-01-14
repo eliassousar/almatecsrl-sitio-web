@@ -19,13 +19,13 @@ const servicios = [
   },
   {
     title: "Servicios de Ingeniería",
-    description: "Diseño y optimización de sistemas de almacenamiento y manejo de granos, adaptados a sus necesidades.",
+    description: "Desarrollamos ingeniería integral y obra civil para proyectos agroindustriales, todo alineada a la operación del cliente. Nuestro enfoque permite ofrecer un servicio completo, desde la ingeniería conceptual hasta la ejecución de la obra, garantizando eficiencia, coordinación y resultados confiables.",
     icon: Settings,
     details: [
-      "Análisis de capacidad y flujo de granos",
-      "Diseño de layouts de plantas",
-      "Selección de equipos y componentes",
-      "Elaboración de planos y especificaciones técnicas"
+      "Ingeniería de procesos y análisis de capacidad",
+      "Diseño de layouts y planificación de plantas",
+      "Selección técnica de equipos y componentes",
+      "Desarrollo de obra civil y documentación técnica"
     ]
   },
   {
