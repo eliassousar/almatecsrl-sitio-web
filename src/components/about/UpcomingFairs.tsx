@@ -51,7 +51,7 @@ const UpcomingFairs = () => {
               className="group bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               {/* Image placeholder */}
-              <div className="aspect-[16/9] bg-gray-100 flex items-center justify-center">
+              <div className="aspect-square bg-gray-100 flex items-center justify-center">
                 {fair.image ? (
                   <img 
                     src={fair.image} 
