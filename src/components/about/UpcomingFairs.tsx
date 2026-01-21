@@ -14,7 +14,8 @@ const upcomingFairs: Fair[] = [
     id: '1',
     name: 'ExpoSoya 2026',
     date: '26 - 28 de Febrero, 2026',
-    location: '4 Cañadas, Anapo'
+    location: 'Centro Experimental de Anapo, Cuatro Cañadas',
+    image: '/lovable-uploads/exposoya-2026.png'
   },
   {
     id: '2',
