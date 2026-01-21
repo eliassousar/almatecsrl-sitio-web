@@ -1,9 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
 import ModernPageHero from '@/components/modern-page-hero';
+import UpcomingFairs from '@/components/about/UpcomingFairs';
 
 const Contacto = () => {
   return (
@@ -120,6 +120,9 @@ const Contacto = () => {
           </Card>
         </div>
       </section>
+
+      {/* Upcoming Fairs Section */}
+      <UpcomingFairs />
 
       {/* CTA de Contacto Rápido */}
       <section className="py-16 bg-almatec-dark-gray text-almatec-white">
