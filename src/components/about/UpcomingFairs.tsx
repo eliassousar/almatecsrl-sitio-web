@@ -1,19 +1,20 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, ImageIcon } from 'lucide-react';
 
 interface Fair {
   id: string;
   name: string;
   date: string;
   location: string;
+  image?: string;
 }
 
 const upcomingFairs: Fair[] = [
   {
     id: '1',
-    name: 'Expocruz 2025',
-    date: '19 - 28 de Septiembre, 2025',
-    location: 'Santa Cruz de la Sierra, Fexpocruz'
+    name: 'ExpoSoya 2026',
+    date: '26 - 28 de Febrero, 2026',
+    location: '4 Cañadas, Anapo'
   },
   {
     id: '2',
@@ -46,8 +47,24 @@ const UpcomingFairs = () => {
           {upcomingFairs.map((fair) => (
             <Card 
               key={fair.id} 
-              className="group bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
+              {/* Image placeholder */}
+              <div className="aspect-[16/9] bg-gray-100 flex items-center justify-center">
+                {fair.image ? (
+                  <img 
+                    src={fair.image} 
+                    alt={fair.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-2 text-gray-400">
+                    <ImageIcon className="w-10 h-10" />
+                    <span className="text-xs font-open-sans">Imagen del evento</span>
+                  </div>
+                )}
+              </div>
+              
               <CardContent className="p-6">
                 <h3 className="font-montserrat font-semibold text-xl text-almatec-dark-gray mb-4 group-hover:text-almatec-yellow transition-colors duration-300">
                   {fair.name}
@@ -68,10 +85,6 @@ const UpcomingFairs = () => {
             </Card>
           ))}
         </div>
-
-        <p className="font-open-sans text-center text-gray-500 mt-10 text-sm">
-          Más fechas se anunciarán próximamente
-        </p>
       </div>
     </section>
   );
