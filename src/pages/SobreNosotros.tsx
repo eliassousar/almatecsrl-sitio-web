@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ModernPageHero from '@/components/modern-page-hero';
-
+import UpcomingFairs from '@/components/about/UpcomingFairs';
 const SobreNosotros = () => {
   const valores = [
     {
@@ -268,6 +268,9 @@ const SobreNosotros = () => {
           </div>
         </div>
       </section>
+
+      {/* Upcoming Fairs Section */}
+      <UpcomingFairs />
 
       {/* CTA Section */}
       <section className="py-20 bg-almatec-dark-gray text-almatec-white">
