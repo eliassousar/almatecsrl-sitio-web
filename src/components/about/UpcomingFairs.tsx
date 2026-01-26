@@ -26,9 +26,10 @@ const upcomingFairs: Fair[] = [
   },
   {
     id: '3',
-    name: 'Expo Norte Integrado',
-    date: '20 - 24 de Noviembre, 2025',
-    location: 'Montero, Santa Cruz'
+    name: 'FexpoSiv',
+    date: 'Julio, 2026',
+    location: 'San Ignacio de Velasco',
+    image: '/lovable-uploads/fexposiv-2026.jpg'
   }
 ];
 
