@@ -209,7 +209,9 @@ const SobreNosotros = () => {
               Representantes para Bolivia
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Trabajamos con las mejores marcas mundiales para ofrecer soluciones de calidad superior
+              Trabajamos con las mejores marcas mundiales
+              <br />
+              para ofrecer soluciones de calidad superior
             </p>
           </div>
 
