@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Smartphone } from 'lucide-react';
 
 const ClosingSection = () => (
   <section className="py-20 bg-almatec-dark-gray text-almatec-white">
@@ -11,11 +12,14 @@ const ClosingSection = () => (
         Entendemos que cada operación tiene necesidades específicas. Nuestro equipo técnico está preparado para asesorarle en la selección de los equipos más adecuados para su proyecto, garantizando la máxima eficiencia y rentabilidad a corto y largo plazo.
       </p>
       <p className="font-open-sans text-xl text-almatec-yellow mb-8 max-w-3xl mx-auto">
-        Contáctenos para una consulta personalizada y descubra cómo las soluciones GSI pueden transformar su operación agroindustrial.
+        Contáctenos para una consulta personalizada.
       </p>
       <div className="flex justify-center">
         <Button asChild size="lg" className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold">
-          <Link to="/contacto">Solicitar asesoría técnica</Link>
+          <Link to="/contacto" className="flex items-center gap-2">
+            <Smartphone className="h-5 w-5" />
+            Solicitar asesoría técnica
+          </Link>
         </Button>
       </div>
     </div>
