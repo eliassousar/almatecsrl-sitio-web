@@ -19,9 +19,10 @@ const upcomingFairs: Fair[] = [
   },
   {
     id: '2',
-    name: 'Feria Agropecruz',
-    date: '15 - 18 de Octubre, 2025',
-    location: 'Santa Cruz de la Sierra'
+    name: 'ExpoAgro',
+    date: '7 - 9 de Mayo, 2026',
+    location: 'Nueva Santa Cruz',
+    image: '/lovable-uploads/expoagro-2026.jpg'
   },
   {
     id: '3',
