@@ -12,7 +12,7 @@ interface Fair {
 const upcomingFairs: Fair[] = [
   {
     id: '1',
-    name: 'ExpoSoya 2026',
+    name: 'ExpoSoya',
     date: '26 - 28 de Febrero, 2026',
     location: 'Centro Experimental de Anapo, Cuatro Cañadas',
     image: '/lovable-uploads/exposoya-2026.png'
