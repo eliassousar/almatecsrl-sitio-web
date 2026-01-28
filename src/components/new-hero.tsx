@@ -51,7 +51,7 @@ const NewHero = () => {
           className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-tight tracking-tight mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          Soluciones Agroindustriales Integrales Para El Futuro De Bolivia
+          Soluciones Integrales para tu Agroindustria
         </h1>
         
         {/* Subtítulo */}
@@ -59,7 +59,7 @@ const NewHero = () => {
           className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "400" }}
         >
-          Tecnología de vanguardia en silos, secado y manejo de granos para optimizar tu productividad agrícola
+          Tecnología de vanguardia en silos, secado y manejo de granos para optimizar tu productividad agrícola.
         </p>
       </motion.div>
     </section>
