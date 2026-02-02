@@ -171,6 +171,9 @@ const Servicios = () => {
             <h2 className="font-montserrat font-bold text-4xl text-foreground mb-6 tracking-wide">
               Razones por las que nuestros clientes nos eligen
             </h2>
+            <p className="font-open-sans text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Combinamos tecnología, experiencia y un trato cercano para ofrecer soluciones que realmente funcionan en el tiempo.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
