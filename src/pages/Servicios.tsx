@@ -169,11 +169,8 @@ const Servicios = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-montserrat font-bold text-4xl text-foreground mb-6 tracking-wide">
-              ¿Por Qué Elegirnos?
+              Razones por las que nuestros clientes nos eligen
             </h2>
-            <p className="font-open-sans text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Razones por las que nuestros clientes nos eligen.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
