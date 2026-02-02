@@ -172,7 +172,7 @@ const Servicios = () => {
               ¿Por Qué Elegirnos?
             </h2>
             <p className="font-open-sans text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Descubra las ventajas de trabajar con un equipo de expertos comprometidos con su éxito.
+              Razones por las que nuestros clientes nos eligen.
             </p>
           </div>
 
