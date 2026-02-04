@@ -1,9 +1,9 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ArrowLeft, MessageCircle, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/seo/SEO';
 
 const FAQ = () => {
   const faqs = [
@@ -75,6 +75,12 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-almatec-black">
+      <SEO 
+        title="Preguntas Frecuentes"
+        description="Respuestas a las consultas más comunes sobre silos GSI, servicios de instalación, mantenimiento y proceso de compra en Almatec SRL."
+        url="https://almatecsrl-sitio-web.lovable.app/faq"
+        keywords="preguntas frecuentes silos, FAQ Almatec, dudas silos GSI, consultas agroindustriales"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
         <div className="mb-6 lg:mb-8">
           <Link to="/">

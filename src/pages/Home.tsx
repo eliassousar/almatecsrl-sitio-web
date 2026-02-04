@@ -4,37 +4,43 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useNavigate } from 'react-router-dom';
 import ProjectsGallery from '@/components/projects/ProjectsGallery';
 import NewHero from '@/components/new-hero';
+import SEO from '@/components/seo/SEO';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-almatec-black">
+    <div className="min-h-screen bg-background">
+        <SEO 
+          title="Almatec SRL - Soluciones Agrícolas de Alto Rendimiento"
+          description="Representante oficial de silos GSI en Bolivia. Más de 20 años ofreciendo soluciones integrales de almacenamiento, secado y manejo de granos."
+          url="https://almatecsrl-sitio-web.lovable.app"
+        />
         {/* Nueva Hero Section */}
         <NewHero />
 
       {/* Servicios Destacados */}
-      <section id="productos" className="py-16 bg-almatec-white">
+      <section id="productos" className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
+            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-foreground mb-4">
               Línea de Productos
             </h2>
-            <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-open-sans text-lg text-muted-foreground max-w-2xl mx-auto">
               Ofrecemos una amplia gama de productos diseñados para optimizar su producción agroindustrial.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Servicio 1 */}
             <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
               onClick={() => navigate('/productos?tab=almacenamiento')}
             >
               <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
+                <CardTitle className="font-montserrat text-xl text-foreground">
                   Silos de Almacenamiento
                 </CardTitle>
-                <CardDescription className="font-open-sans text-gray-600">
+                <CardDescription className="font-open-sans text-muted-foreground">
                   Diseño e instalación de silos para un almacenamiento eficiente y seguro de granos.
                 </CardDescription>
               </CardHeader>
@@ -51,14 +57,14 @@ const Home = () => {
 
             {/* Servicio 2 */}
             <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
               onClick={() => navigate('/productos?tab=secado')}
             >
               <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
+                <CardTitle className="font-montserrat text-xl text-foreground">
                   Sistemas de Secado
                 </CardTitle>
-                <CardDescription className="font-open-sans text-gray-600">
+                <CardDescription className="font-open-sans text-muted-foreground">
                   Implementación de sistemas de secado de granos para preservar la calidad y evitar pérdidas.
                 </CardDescription>
               </CardHeader>
@@ -75,14 +81,14 @@ const Home = () => {
 
             {/* Servicio 3 */}
             <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform"
+              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
               onClick={() => navigate('/productos?tab=manejo')}
             >
               <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-almatec-dark-gray">
+                <CardTitle className="font-montserrat text-xl text-foreground">
                   Manejo de Granos
                 </CardTitle>
-                <CardDescription className="font-open-sans text-gray-600">
+                <CardDescription className="font-open-sans text-muted-foreground">
                   Soluciones integrales para el manejo eficiente de granos, desde el transporte hasta el procesamiento final.
                 </CardDescription>
               </CardHeader>
@@ -100,7 +106,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Button 
               size="lg" 
-              className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold px-8 py-4 text-lg"
               onClick={() => navigate('/productos')}
             >
               Ver Productos y Soluciones
@@ -113,17 +119,17 @@ const Home = () => {
       <ProjectsGallery />
 
       {/* CTA Final */}
-      <section id="contacto" className="py-20 bg-gradient-to-r from-almatec-dark-gray to-almatec-black text-almatec-white">
+      <section id="contacto" className="py-20 bg-gradient-to-r from-muted to-background text-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-8 text-center">
             ¿Su empresa necesita soluciones de almacenamiento de granos?
           </h2>
-          <p className="font-open-sans text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="font-open-sans text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Permítanos ayudarle a encontrar la solución perfecta para sus necesidades de almacenamiento y procesamiento de granos.
           </p>
           <Button 
             size="lg" 
-            className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-4 text-lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold px-8 py-4 text-lg"
             onClick={() => window.location.href = '/contacto'}
           >
             Únase a Nuestros Clientes

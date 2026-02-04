@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/carousel";
 import ModernPageHero from '@/components/modern-page-hero';
 import UpcomingFairs from '@/components/about/UpcomingFairs';
+import SEO from '@/components/seo/SEO';
+
 const SobreNosotros = () => {
   const valores = [
     {
@@ -70,6 +72,12 @@ const SobreNosotros = () => {
 
   return (
     <div className="min-h-screen bg-almatec-black">
+      <SEO 
+        title="Sobre Nosotros"
+        description="Conoce a Almatec SRL, empresa boliviana con más de 20 años de experiencia. Representantes oficiales de GSI en Bolivia, líderes en soluciones agroindustriales."
+        url="https://almatecsrl-sitio-web.lovable.app/sobre-nosotros"
+        keywords="Almatec SRL, historia, misión, visión, valores, representante GSI Bolivia, agroindustria boliviana"
+      />
       <ModernPageHero 
         title="Conoce a tu próximo socio estratégico que impulsará la productividad y rentabilidad de tu agroindustria."
       />

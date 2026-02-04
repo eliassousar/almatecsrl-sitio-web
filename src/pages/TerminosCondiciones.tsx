@@ -1,12 +1,18 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/seo/SEO';
 
 const TerminosCondiciones = () => {
   return (
     <div className="min-h-screen bg-almatec-black">
+      <SEO 
+        title="Términos y Condiciones"
+        description="Términos y condiciones de uso del sitio web de Almatec SRL. Condiciones legales y de servicio."
+        url="https://almatecsrl-sitio-web.lovable.app/terminos-condiciones"
+        noIndex={true}
+      />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Link to="/">

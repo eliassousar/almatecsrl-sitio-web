@@ -5,6 +5,7 @@ import { CheckCircle, Wrench, Settings, Users, Star, ArrowRight } from 'lucide-r
 import { Link } from 'react-router-dom';
 import QuoteForm from '@/components/forms/QuoteForm';
 import ModernPageHero from '@/components/modern-page-hero';
+import SEO from '@/components/seo/SEO';
 
 const servicios = [
   {
@@ -78,6 +79,12 @@ const features = [
 const Servicios = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Servicios"
+        description="Asesoramiento técnico, ingeniería, montaje de silos GSI y capacitación. Servicios completos para proyectos agroindustriales en Bolivia."
+        url="https://almatecsrl-sitio-web.lovable.app/servicios"
+        keywords="montaje silos, asesoría técnica agroindustrial, ingeniería silos, capacitación operativa, servicios GSI Bolivia"
+      />
       <ModernPageHero 
         title="Nuestros Servicios"
         subtitle="Ofrecemos una amplia gama de servicios para optimizar sus operaciones agroindustriales"
