@@ -4,10 +4,17 @@ import { Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
 import ModernPageHero from '@/components/modern-page-hero';
 import UpcomingFairs from '@/components/about/UpcomingFairs';
+import SEO from '@/components/seo/SEO';
 
 const Contacto = () => {
   return (
     <div className="min-h-screen bg-almatec-black">
+      <SEO 
+        title="Contacto"
+        description="Contáctenos para cotizaciones de silos GSI y proyectos agroindustriales. Teléfono: (+591) 3 326206. WhatsApp: 77028610. Santa Cruz, Bolivia."
+        url="https://almatecsrl-sitio-web.lovable.app/contacto"
+        keywords="contacto Almatec, cotización silos, teléfono Almatec, WhatsApp silos Bolivia, dirección Almatec Santa Cruz"
+      />
       <ModernPageHero 
         title="Contáctenos"
         subtitle="Estamos aquí para ayudarle con sus proyectos agroindustriales"

@@ -1,4 +1,3 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { productosAlmacenamiento, productosSecado, productosManejo, productosBalanzas, productosVolcadoras } from '@/data/productos';
 import ModernPageHero from '@/components/modern-page-hero';
@@ -6,6 +5,7 @@ import ProductSection from '@/components/products/ProductSection';
 import ClosingSection from '@/components/products/ClosingSection';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import SEO from '@/components/seo/SEO';
 
 const Productos = () => {
   const [searchParams] = useSearchParams();
@@ -17,6 +17,12 @@ const Productos = () => {
   }, [tabFromUrl]);
   return (
     <div className="min-h-screen bg-almatec-black">
+      <SEO 
+        title="Productos y Soluciones"
+        description="Silos de almacenamiento GSI, sistemas de secado, manejo de granos, balanzas y volcadoras. Catálogo completo de soluciones agroindustriales en Bolivia."
+        url="https://almatecsrl-sitio-web.lovable.app/productos"
+        keywords="silos GSI, silos almacenamiento, sistemas secado granos, manejo granos, balanzas industriales, volcadoras"
+      />
       <ModernPageHero 
         title="Conoce nuestras soluciones integrales para el sector agroindustrial"
       />

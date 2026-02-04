@@ -1,12 +1,17 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Home, Search, Phone, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/seo/SEO';
 
 const NotFound = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <SEO 
+        title="Página no encontrada"
+        description="La página que busca no existe. Visite nuestra página principal o contáctenos."
+        noIndex={true}
+      />
       <Card className="max-w-lg w-full">
         <CardContent className="p-8 text-center">
           <div className="mb-6">
