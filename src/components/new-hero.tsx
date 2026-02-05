@@ -16,6 +16,7 @@ const NewHero = () => {
         loop
         muted
         playsInline
+        poster="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.png"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="/videos/hero-background.mp4" type="video/mp4" />
