@@ -153,10 +153,10 @@ const SobreNosotros = () => {
       </section>
 
       {/* Nuestros Valores - Carrusel Mejorado */}
-      <section className="py-20 bg-almatec-white">
+      <section className="py-12 md:py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-4 md:mb-6 tracking-wide">
               Nuestros Valores
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
