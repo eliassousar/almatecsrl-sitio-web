@@ -90,7 +90,7 @@ const Contacto = () => {
       </section>
 
       {/* Mapa con enlace funcional */}
-      <section className="py-16 bg-almatec-white">
+      <section className="py-10 md:py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
