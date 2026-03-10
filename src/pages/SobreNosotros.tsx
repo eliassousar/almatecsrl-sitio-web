@@ -89,7 +89,7 @@ const SobreNosotros = () => {
                 <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Somos una empresa boliviana con base operativa en Santa Cruz de la Sierra y cobertura en los nueve departamentos del país. Dedicada a suministrar soluciones llave en mano para la poscosecha de granos.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Desde hace más de dos décadas somos representantes oficiales de GSI® Grain Systems, líder mundial en almacenamiento, secado y manejo de granos, una alianza que nos permite acercar a los productores locales tecnología probada a escala global.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
