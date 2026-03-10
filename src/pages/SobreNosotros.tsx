@@ -278,9 +278,9 @@ const SobreNosotros = () => {
       <UpcomingFairs />
 
       {/* CTA Section */}
-      <section className="py-20 bg-almatec-dark-gray text-almatec-white">
+      <section className="py-12 md:py-20 bg-almatec-dark-gray text-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-8 tracking-wide">
+          <h2 className="font-montserrat font-bold text-3xl md:text-5xl mb-6 md:mb-8 tracking-wide">
             ¿Quiere Conocer Más Sobre Nosotros?
           </h2>
           <p className="font-open-sans text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
