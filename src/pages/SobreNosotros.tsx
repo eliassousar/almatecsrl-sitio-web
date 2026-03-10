@@ -95,7 +95,7 @@ const SobreNosotros = () => {
                 <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Integramos todos los eslabones críticos del proceso: estudios de suelo, obra civil, montajes eléctricos, instalación de silos metálicos, secadoras de flujo continuo, cintas y elevadores, además de sistemas de monitoreo de temperatura e inventario. Cada proyecto se dimensiona según el cultivo y los planes de crecimiento del cliente, garantizando compatibilidad entre equipos y máxima eficiencia operativa.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura agroindustrial nacional, con proyectos implementados en los principales centros productivos del país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
                 </p>
               </div>
