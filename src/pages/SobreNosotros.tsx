@@ -267,8 +267,8 @@ const SobreNosotros = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious variant="ghost" className="left-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
+              <CarouselNext variant="ghost" className="right-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
             </Carousel>
           </div>
         </div>
