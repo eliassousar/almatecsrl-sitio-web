@@ -92,7 +92,7 @@ const SobreNosotros = () => {
                 <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Desde hace más de dos décadas somos representantes oficiales de GSI® Grain Systems, líder mundial en almacenamiento, secado y manejo de granos, una alianza que nos permite acercar a los productores locales tecnología probada a escala global.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Integramos todos los eslabones críticos del proceso: estudios de suelo, obra civil, montajes eléctricos, instalación de silos metálicos, secadoras de flujo continuo, cintas y elevadores, además de sistemas de monitoreo de temperatura e inventario. Cada proyecto se dimensiona según el cultivo y los planes de crecimiento del cliente, garantizando compatibilidad entre equipos y máxima eficiencia operativa.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
