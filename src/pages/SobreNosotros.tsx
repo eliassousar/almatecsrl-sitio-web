@@ -78,24 +78,24 @@ const SobreNosotros = () => {
       />
 
       {/* Nuestra Historia */}
-      <section className="py-20 bg-almatec-white">
+      <section className="py-12 md:py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-8 tracking-wide">
+              <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-6 md:mb-8 tracking-wide">
                 Nuestra Historia
               </h2>
-              <div className="space-y-8">
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-5 md:space-y-8">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Somos una empresa boliviana con base operativa en Santa Cruz de la Sierra y cobertura en los nueve departamentos del país. Dedicada a suministrar soluciones llave en mano para la poscosecha de granos.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Desde hace más de dos décadas somos representantes oficiales de GSI® Grain Systems, líder mundial en almacenamiento, secado y manejo de granos, una alianza que nos permite acercar a los productores locales tecnología probada a escala global.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Integramos todos los eslabones críticos del proceso: estudios de suelo, obra civil, montajes eléctricos, instalación de silos metálicos, secadoras de flujo continuo, cintas y elevadores, además de sistemas de monitoreo de temperatura e inventario. Cada proyecto se dimensiona según el cultivo y los planes de crecimiento del cliente, garantizando compatibilidad entre equipos y máxima eficiencia operativa.
                 </p>
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Hoy, Almatec SRL se enorgullece de haber contribuido al desarrollo de la infraestructura agroindustrial nacional, con proyectos implementados en los principales centros productivos del país, mejorando la capacidad de almacenamiento y la eficiencia operativa de nuestros clientes.
                 </p>
               </div>
@@ -114,7 +114,7 @@ const SobreNosotros = () => {
       </section>
 
       {/* Misión y Visión */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -153,10 +153,10 @@ const SobreNosotros = () => {
       </section>
 
       {/* Nuestros Valores - Carrusel Mejorado */}
-      <section className="py-20 bg-almatec-white">
+      <section className="py-12 md:py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-4 md:mb-6 tracking-wide">
               Nuestros Valores
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -205,10 +205,10 @@ const SobreNosotros = () => {
       </section>
 
       {/* Representantes para Bolivia */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-4 md:mb-6 tracking-wide">
               Representantes para Bolivia
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -267,8 +267,8 @@ const SobreNosotros = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious variant="ghost" className="left-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
+              <CarouselNext variant="ghost" className="right-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
             </Carousel>
           </div>
         </div>
@@ -278,9 +278,9 @@ const SobreNosotros = () => {
       <UpcomingFairs />
 
       {/* CTA Section */}
-      <section className="py-20 bg-almatec-dark-gray text-almatec-white">
+      <section className="py-12 md:py-20 bg-almatec-dark-gray text-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-8 tracking-wide">
+          <h2 className="font-montserrat font-bold text-3xl md:text-5xl mb-6 md:mb-8 tracking-wide">
             ¿Quiere Conocer Más Sobre Nosotros?
           </h2>
           <p className="font-open-sans text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">

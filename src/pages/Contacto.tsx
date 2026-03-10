@@ -21,7 +21,7 @@ const Contacto = () => {
       />
 
       {/* Información de Contacto Rápida */}
-      <section className="py-16 bg-almatec-white">
+      <section className="py-10 md:py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <Card className="hover:shadow-lg transition-shadow">
@@ -69,7 +69,7 @@ const Contacto = () => {
       </section>
 
       {/* Formulario de Contacto */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-10 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <Card>
@@ -90,7 +90,7 @@ const Contacto = () => {
       </section>
 
       {/* Mapa con enlace funcional */}
-      <section className="py-16 bg-almatec-white">
+      <section className="py-10 md:py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray mb-4">
@@ -132,7 +132,7 @@ const Contacto = () => {
       <UpcomingFairs />
 
       {/* CTA de Contacto Rápido */}
-      <section className="py-16 bg-almatec-dark-gray text-almatec-white">
+      <section className="py-10 md:py-16 bg-almatec-dark-gray text-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
             ¿Tiene una Consulta Urgente?
