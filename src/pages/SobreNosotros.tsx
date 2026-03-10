@@ -27,11 +27,6 @@ const SobreNosotros = () => {
       icon: Lightbulb
     },
     {
-      title: "Integridad",
-      description: "Actuamos con honestidad y transparencia en todas nuestras relaciones comerciales",
-      icon: Shield
-    },
-    {
       title: "Compromiso con el cliente",
       description: "El éxito de nuestros clientes es nuestra principal motivación y medida de logro",
       icon: Target
