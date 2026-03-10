@@ -86,7 +86,7 @@ const SobreNosotros = () => {
                 Nuestra Historia
               </h2>
               <div className="space-y-5 md:space-y-8">
-                <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+                <p className="font-open-sans text-base md:text-lg text-gray-600 leading-relaxed">
                   Somos una empresa boliviana con base operativa en Santa Cruz de la Sierra y cobertura en los nueve departamentos del país. Dedicada a suministrar soluciones llave en mano para la poscosecha de granos.
                 </p>
                 <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
