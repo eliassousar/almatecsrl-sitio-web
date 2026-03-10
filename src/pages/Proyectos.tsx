@@ -361,7 +361,7 @@ const Proyectos = () => {
               ))}
             </CarouselContent>
             <CarouselPrevious variant="ghost" className="left-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
-            <CarouselNext variant="right-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
+            <CarouselNext variant="ghost" className="right-0 border-none bg-transparent shadow-none hover:bg-transparent h-auto w-auto" />
           </Carousel>
         </div>
       </section>
