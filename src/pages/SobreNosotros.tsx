@@ -80,7 +80,7 @@ const SobreNosotros = () => {
       {/* Nuestra Historia */}
       <section className="py-12 md:py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-6 md:mb-8 tracking-wide">
                 Nuestra Historia

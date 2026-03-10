@@ -32,7 +32,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
       }}
     >
       {/* Overlay negro con 70% opacidad */}
-      <div className="absolute inset-0 bg-black bg-opacity-70 z-5" />
+      <div className="absolute inset-0 bg-black/70 z-[5]" />
       
       {/* Imagen de fondo con parallax */}
       <motion.div 
