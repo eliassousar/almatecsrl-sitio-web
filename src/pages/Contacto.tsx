@@ -21,7 +21,7 @@ const Contacto = () => {
       />
 
       {/* Información de Contacto Rápida */}
-      <section className="py-16 bg-almatec-white">
+      <section className="py-10 md:py-16 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <Card className="hover:shadow-lg transition-shadow">
