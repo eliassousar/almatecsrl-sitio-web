@@ -205,10 +205,10 @@ const SobreNosotros = () => {
       </section>
 
       {/* Representantes para Bolivia */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-almatec-dark-gray mb-6 tracking-wide">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-montserrat font-bold text-3xl md:text-5xl text-almatec-dark-gray mb-4 md:mb-6 tracking-wide">
               Representantes para Bolivia
             </h2>
             <p className="font-open-sans text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
