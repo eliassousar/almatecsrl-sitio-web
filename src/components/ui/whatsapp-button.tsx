@@ -114,23 +114,41 @@ const WhatsAppButton = () => {
               </Select>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="space-y-3">
               <Button 
                 onClick={handleConsultaSubmit} 
                 disabled={!isFormValid}
-                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white disabled:opacity-50 disabled:cursor-not-allowed h-12 text-sm"
+                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white disabled:opacity-50 disabled:cursor-not-allowed h-12 text-sm"
                 aria-label="Enviar consulta personalizada por WhatsApp"
               >
                 Enviar por WhatsApp
               </Button>
-              <Button 
-                onClick={handleDirectWhatsApp} 
-                variant="outline"
-                className="flex-1 h-12 text-sm"
-                aria-label="Contacto directo por WhatsApp"
-              >
-                Contacto directo
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button 
+                  onClick={() => {
+                    const msg = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
+                    const w = window.open(`https://wa.me/+59177028610?text=${msg}`, '_blank', 'noopener,noreferrer');
+                    if (!w) window.location.href = `https://wa.me/+59177028610?text=${msg}`;
+                  }}
+                  variant="outline"
+                  className="flex-1 h-12 text-sm"
+                  aria-label="Contacto directo al 77028610"
+                >
+                  📱 77028610
+                </Button>
+                <Button 
+                  onClick={() => {
+                    const msg = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
+                    const w = window.open(`https://wa.me/+59178007220?text=${msg}`, '_blank', 'noopener,noreferrer');
+                    if (!w) window.location.href = `https://wa.me/+59178007220?text=${msg}`;
+                  }}
+                  variant="outline"
+                  className="flex-1 h-12 text-sm"
+                  aria-label="Contacto directo al 78007220"
+                >
+                  📱 78007220
+                </Button>
+              </div>
             </div>
           </div>
         </DialogContent>

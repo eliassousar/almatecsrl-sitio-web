@@ -142,12 +142,6 @@ const Contacto = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.location.href = 'tel:+59133326206'}
-              className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 rounded-md transition-colors inline-flex items-center justify-center"
-            >
-              📞 Llamar Ahora
-            </button>
-            <button 
               onClick={() => window.open('https://wa.me/+59177028610?text=Hola, tengo una consulta urgente sobre los servicios de Almatec SRL', '_blank')}
               className="border border-almatec-white text-almatec-white hover:bg-almatec-white hover:text-almatec-black px-8 py-3 rounded-md transition-colors inline-flex items-center justify-center"
             >

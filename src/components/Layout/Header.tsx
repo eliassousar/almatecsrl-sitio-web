@@ -90,6 +90,13 @@ const Header = () => {
                     <span className="font-open-sans text-sm">(+591) 77028610</span>
                   </button>
                   <button
+                    onClick={handlePhoneClick2}
+                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span className="font-open-sans text-sm">(+591) 78007220</span>
+                  </button>
+                  <button
                     onClick={handleEmailClick}
                     className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full"
                   >

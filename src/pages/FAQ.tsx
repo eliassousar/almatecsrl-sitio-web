@@ -142,14 +142,6 @@ const FAQ = () => {
                   Enviar Consulta
                 </Button>
               </Link>
-              <Button 
-                variant="outline"
-                className="flex-1 h-12"
-                onClick={() => window.open('tel:+59133326206')}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Llamar Ahora
-              </Button>
             </div>
           </CardContent>
         </Card>

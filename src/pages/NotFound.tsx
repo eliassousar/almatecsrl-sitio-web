@@ -47,14 +47,6 @@ const NotFound = () => {
                   Contactar
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => window.open('tel:+59133326206')}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Llamar
-              </Button>
             </div>
           </div>
 
