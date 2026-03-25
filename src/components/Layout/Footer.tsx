@@ -20,23 +20,23 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>Santa Cruz de la Sierra, Bolivia</span>
+                <a href="https://maps.app.goo.gl/kHZ2LP4FBZwmb9FC9" target="_blank" rel="noopener noreferrer" className="hover:text-almatec-yellow transition-colors">Santa Cruz de la Sierra, Bolivia</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>(+591) 77028610</span>
+                <a href="tel:+59177028610" className="hover:text-almatec-yellow transition-colors">(+591) 77028610</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>(+591) 78007220</span>
+                <a href="tel:+59178007220" className="hover:text-almatec-yellow transition-colors">(+591) 78007220</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>edson_gsi@hotmail.com</span>
+                <a href="mailto:edson_gsi@hotmail.com" className="hover:text-almatec-yellow transition-colors">edson_gsi@hotmail.com</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <span>pabloarteaga@almatec.net</span>
+                <a href="mailto:pabloarteaga@almatec.net" className="hover:text-almatec-yellow transition-colors">pabloarteaga@almatec.net</a>
               </div>
             </div>
           </div>

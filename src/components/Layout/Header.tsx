@@ -22,6 +22,10 @@ const Header = () => {
     window.location.href = 'tel:+59177028610';
   };
 
+  const handlePhoneClick2 = () => {
+    window.location.href = 'tel:+59178007220';
+  };
+
   const handleEmailClick = () => {
     window.location.href = 'mailto:edson_gsi@hotmail.com';
   };
@@ -84,6 +88,13 @@ const Header = () => {
                   >
                     <Phone className="h-4 w-4" />
                     <span className="font-open-sans text-sm">(+591) 77028610</span>
+                  </button>
+                  <button
+                    onClick={handlePhoneClick2}
+                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span className="font-open-sans text-sm">(+591) 78007220</span>
                   </button>
                   <button
                     onClick={handleEmailClick}

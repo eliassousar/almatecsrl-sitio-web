@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Home, Search, Phone, MessageCircle } from 'lucide-react';
+import { Home, Search, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
 
@@ -47,14 +47,6 @@ const NotFound = () => {
                   Contactar
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => window.open('tel:+59133326206')}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Llamar
-              </Button>
             </div>
           </div>
 

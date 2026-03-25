@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ArrowLeft, MessageCircle, Phone } from 'lucide-react';
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
 
@@ -142,14 +142,6 @@ const FAQ = () => {
                   Enviar Consulta
                 </Button>
               </Link>
-              <Button 
-                variant="outline"
-                className="flex-1 h-12"
-                onClick={() => window.open('tel:+59133326206')}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Llamar Ahora
-              </Button>
             </div>
           </CardContent>
         </Card>
