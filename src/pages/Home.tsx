@@ -23,10 +23,13 @@ const Home = () => {
       {/* Sección de Trayectoria */}
       <section className="py-16 bg-almatec-dark-gray w-full">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest text-center">
-              Una trayectoria construida proyecto a proyecto
+          <div className="text-center mb-12">
+            <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest mb-3">
+              Nuestra trayectoria
             </p>
+            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white leading-tight">
+              Una trayectoria construida con la confianza<br className="hidden md:block" /> del productor.
+            </h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center lg:border-r border-gray-700">
