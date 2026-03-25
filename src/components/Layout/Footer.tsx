@@ -15,7 +15,7 @@ const Footer = () => {
               Almatec SRL
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Especialistas en soluciones de almacenamiento agroindustrial y representantes oficiales de silos GSI en Bolivia.
+              Representantes exclusivos de GSI® Grain Systems en Bolivia. Más de 20 años ejecutando proyectos de almacenamiento, secado y manejo de granos.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
