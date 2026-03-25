@@ -75,19 +75,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products & Services */}
           <div className="space-y-4">
             <h4 className="text-lg font-montserrat font-semibold text-almatec-yellow">
-              Nuestras Soluciones
+              Atención al Cliente
             </h4>
-            <ul className="space-y-2 text-sm">
-              <li className="text-gray-300">Silos GSI</li>
-              <li className="text-gray-300">Sistemas de almacenamiento</li>
-              <li className="text-gray-300">Equipos de secado</li>
-              <li className="text-gray-300">Sistemas de transporte</li>
-              <li className="text-gray-300">Servicio técnico</li>
-              <li className="text-gray-300">Mantenimiento</li>
-            </ul>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start space-x-2">
+                <Clock className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-gray-300">Lunes a Viernes</p>
+                  <p className="text-white font-medium">8:00 – 18:00</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Clock className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-gray-300">Sábados</p>
+                  <p className="text-white font-medium">8:00 – 12:00</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2 pt-2 border-t border-gray-700">
+                <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-gray-300">Av. Banzer entre 4to y 5to anillo</p>
+                  <p className="text-gray-300">Comercial Plaza Norte, Oficina 46</p>
+                  <p className="text-gray-300">Santa Cruz de la Sierra, Bolivia</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Social Media */}
