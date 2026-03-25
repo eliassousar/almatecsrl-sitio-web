@@ -213,7 +213,7 @@ const Home = () => {
             ¿Está pensando en ampliar o iniciar su capacidad de almacenamiento?
           </h2>
           <p className="font-open-sans text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Permítanos ayudarle a encontrar la solución perfecta para sus necesidades de almacenamiento y procesamiento de granos.
+            Cada operación agroindustrial tiene sus propias condiciones y objetivos. Conversemos sobre su proyecto — sin compromiso y con criterio técnico — para identificar juntos la solución más adecuada.
           </p>
           <Button 
             size="lg" 
