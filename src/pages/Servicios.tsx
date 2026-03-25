@@ -97,11 +97,11 @@ const Servicios = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {servicios.map((servicio, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-card h-full flex flex-col">
-                <CardHeader className="pb-4 space-y-0">
+                <CardHeader className="pb-4 space-y-0 items-center text-center">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                     <servicio.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-xl font-montserrat text-foreground min-h-[56px] flex items-start whitespace-pre-line">
+                  <CardTitle className="text-xl font-montserrat text-foreground min-h-[56px] flex items-center justify-center whitespace-pre-line">
                     {servicio.title}
                   </CardTitle>
                 </CardHeader>
