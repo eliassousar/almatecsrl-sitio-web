@@ -3,7 +3,8 @@ import { productosAlmacenamiento, productosSecado, productosManejo, productosBal
 import ModernPageHero from '@/components/modern-page-hero';
 import ProductSection from '@/components/products/ProductSection';
 import ClosingSection from '@/components/products/ClosingSection';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SEO from '@/components/seo/SEO';
 
