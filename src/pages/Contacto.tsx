@@ -31,9 +31,8 @@ const Contacto = () => {
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Teléfonos</h3>
                 <div className="space-y-1">
-                  <p className="font-open-sans text-gray-600">(+591) 3 326206</p>
-                  <p className="font-open-sans text-gray-600">77028610</p>
-                  <p className="font-open-sans text-gray-600">78007220</p>
+                  <p className="font-open-sans text-gray-600">(+591) 77028610</p>
+                  <p className="font-open-sans text-gray-600">(+591) 78007220</p>
                 </div>
               </CardContent>
             </Card>
