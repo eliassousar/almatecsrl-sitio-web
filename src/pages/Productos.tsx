@@ -41,12 +41,6 @@ const Productos = () => {
               <p className="font-open-sans text-lg text-gray-600 leading-relaxed mb-8">
                 Acompañamos a nuestros clientes desde la concepción del proyecto hasta la puesta en marcha de la planta. Ingeniería, obra civil, montaje mecánico y eléctrico, equipos e integración de sistemas — todo coordinado por un solo equipo. Así eliminamos las fricciones entre proveedores y garantizamos que el resultado final corresponda exactamente a lo que fue diseñado.
               </p>
-              <Link
-                to="/contacto"
-                className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 rounded-md transition-colors inline-block"
-              >
-                Conversar con nuestro equipo
-              </Link>
             </div>
             <div>
               <p className="font-montserrat font-semibold text-lg text-almatec-dark-gray mb-6">
