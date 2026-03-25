@@ -28,6 +28,57 @@ const Productos = () => {
         title="Conoce nuestras soluciones integrales para el sector agroindustrial"
       />
 
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest mb-4">
+                Nuestro modelo de trabajo
+              </p>
+              <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-almatec-dark-gray leading-tight mb-6">
+                Un proyecto bien ejecutado comienza mucho antes de la primera excavación.
+              </h2>
+              <p className="font-open-sans text-lg text-gray-600 leading-relaxed mb-8">
+                Acompañamos a nuestros clientes desde la concepción del proyecto hasta la puesta en marcha de la planta. Ingeniería, obra civil, montaje mecánico y eléctrico, equipos e integración de sistemas — todo coordinado por un solo equipo. Así eliminamos las fricciones entre proveedores y garantizamos que el resultado final corresponda exactamente a lo que fue diseñado.
+              </p>
+              <Link
+                to="/contacto"
+                className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 rounded-md transition-colors inline-block"
+              >
+                Conversar con nuestro equipo
+              </Link>
+            </div>
+            <div>
+              <p className="font-montserrat font-semibold text-lg text-almatec-dark-gray mb-6">
+                Lo que incluye cada proyecto:
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                  <span className="font-open-sans text-gray-700">Ingeniería de proyecto y diseño de planta a medida</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                  <span className="font-open-sans text-gray-700">Obra civil y fundaciones certificadas</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                  <span className="font-open-sans text-gray-700">Montaje mecánico y eléctrico completo</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                  <span className="font-open-sans text-gray-700">Equipos GSI®, SAUR y COIMMA integrados en un solo sistema</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-almatec-yellow flex-shrink-0 mt-0.5" />
+                  <span className="font-open-sans text-gray-700">Puesta en marcha y capacitación operativa del personal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Sección de Productos por Categorías */}
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
