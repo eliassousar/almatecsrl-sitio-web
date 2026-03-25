@@ -19,6 +19,43 @@ const Home = () => {
         {/* Nueva Hero Section */}
         <NewHero />
 
+      {/* Sección de Trayectoria */}
+      <section className="py-16 bg-almatec-dark-gray w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest text-center">
+              Una trayectoria construida proyecto a proyecto
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center lg:border-r border-gray-700">
+              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">21</span>
+              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
+                años como representante exclusivo de GSI® en Bolivia
+              </p>
+            </div>
+            <div className="text-center lg:border-r border-gray-700">
+              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">+60</span>
+              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
+                proyectos ejecutados en todo el territorio nacional
+              </p>
+            </div>
+            <div className="text-center lg:border-r border-gray-700">
+              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">3</span>
+              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
+                marcas líderes integradas en cada solución
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">1</span>
+              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
+                interlocutor responsable de inicio a fin
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Servicios Destacados */}
       <section id="productos" className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
