@@ -32,25 +32,25 @@ const Home = () => {
             <div className="text-center lg:border-r border-gray-700">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">21</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                años como representante exclusivo de GSI® en Bolivia
+                años brindando tecnología del líder mundial GSI® en Bolivia.
               </p>
             </div>
             <div className="text-center lg:border-r border-gray-700">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">+60</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                proyectos ejecutados en todo el territorio nacional
+                proyectos ejecutados en todo el territorio nacional.
               </p>
             </div>
             <div className="text-center lg:border-r border-gray-700">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">3</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                marcas líderes integradas en cada solución
+                marcas líderes integradas en cada solución.
               </p>
             </div>
             <div className="text-center">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">1</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                interlocutor responsable de inicio a fin
+                solución completa de Llave en Mano.
               </p>
             </div>
           </div>
