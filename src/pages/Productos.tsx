@@ -75,10 +75,7 @@ const Productos = () => {
 
       <div className="bg-almatec-dark-gray py-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest mb-3">
-            Catálogo de equipos
-          </p>
-          <h3 className="font-montserrat font-semibold text-2xl md:text-3xl text-white mb-4">
+          <h3 className="font-montserrat font-semibold text-2xl md:text-3xl text-white mb-2">
             Conozca los equipos que integran cada proyecto.
           </h3>
           <svg
