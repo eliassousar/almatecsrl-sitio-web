@@ -19,10 +19,6 @@ const Footer = () => {
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <a href="https://maps.app.goo.gl/kHZ2LP4FBZwmb9FC9" target="_blank" rel="noopener noreferrer" className="hover:text-almatec-yellow transition-colors">Santa Cruz de la Sierra, Bolivia</a>
-              </div>
-              <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
                 <a href="tel:+59177028610" className="hover:text-almatec-yellow transition-colors">(+591) 77028610</a>
               </div>
