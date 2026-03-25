@@ -210,7 +210,7 @@ const Home = () => {
       <section id="contacto" className="py-20 bg-gradient-to-r from-muted to-background text-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-8 text-center">
-            ¿Su empresa necesita soluciones de almacenamiento de granos?
+            ¿Está pensando en ampliar o iniciar su capacidad de almacenamiento?
           </h2>
           <p className="font-open-sans text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Permítanos ayudarle a encontrar la solución perfecta para sus necesidades de almacenamiento y procesamiento de granos.
