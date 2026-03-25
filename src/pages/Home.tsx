@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
 import ProjectsGallery from '@/components/projects/ProjectsGallery';
 import NewHero from '@/components/new-hero';
 import SEO from '@/components/seo/SEO';
