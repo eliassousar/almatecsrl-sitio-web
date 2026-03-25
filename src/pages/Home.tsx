@@ -44,7 +44,7 @@ const Home = () => {
             <div className="text-center lg:border-r border-gray-700">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">3</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                marcas líderes integradas en cada solución
+                marcas líderes integradas en cada solución.
               </p>
             </div>
             <div className="text-center">
