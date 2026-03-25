@@ -22,6 +22,10 @@ const Header = () => {
     window.location.href = 'tel:+59177028610';
   };
 
+  const handlePhoneClick2 = () => {
+    window.location.href = 'tel:+59178007220';
+  };
+
   const handleEmailClick = () => {
     window.location.href = 'mailto:edson_gsi@hotmail.com';
   };
