@@ -52,7 +52,7 @@ const NewHero = () => {
           className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-tight tracking-tight mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          Soluciones Integrales para tu Agroindustria
+          Infraestructura agroindustrial que trabaja para usted, incluso cuando no está cosechando.
         </h1>
         
         {/* Subtítulo */}
