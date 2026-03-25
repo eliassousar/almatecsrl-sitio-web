@@ -220,7 +220,7 @@ const Home = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold px-8 py-4 text-lg"
             onClick={() => window.location.href = '/contacto'}
           >
-            Únase a Nuestros Clientes
+            Iniciar una consulta
           </Button>
         </div>
       </section>
