@@ -73,6 +73,27 @@ const Productos = () => {
         </div>
       </section>
 
+      <div className="bg-almatec-dark-gray py-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest mb-3">
+            Catálogo de equipos
+          </p>
+          <h3 className="font-montserrat font-semibold text-2xl md:text-3xl text-white mb-4">
+            Conozca los equipos que integran cada proyecto.
+          </h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-almatec-yellow mt-2 animate-bounce"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+
       {/* Sección de Productos por Categorías */}
       <section className="py-20 bg-almatec-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
