@@ -126,6 +126,32 @@ const Footer = () => {
                 <Youtube className="w-4 h-4" />
               </a>
             </div>
+
+            <div className="space-y-3 pt-4 border-t border-gray-700">
+              {/* Contacto 1 */}
+              <div className="space-y-1">
+                <a href="tel:+59177028610" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                  <Phone className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
+                  <span>(+591) 77028610</span>
+                </a>
+                <a href="mailto:edson_gsi@hotmail.com" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                  <Mail className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
+                  <span>edson_gsi@hotmail.com</span>
+                </a>
+              </div>
+
+              {/* Contacto 2 */}
+              <div className="space-y-1">
+                <a href="tel:+59178007220" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                  <Phone className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
+                  <span>(+591) 78007220</span>
+                </a>
+                <a href="mailto:pabloarteaga@almatec.net" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                  <Mail className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
+                  <span>pabloarteaga@almatec.net</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
