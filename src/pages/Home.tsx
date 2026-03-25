@@ -50,7 +50,7 @@ const Home = () => {
             <div className="text-center">
               <span className="font-montserrat font-bold text-6xl text-almatec-yellow">1</span>
               <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                interlocutor responsable de inicio a fin
+                solución completa de Llave en Mano.
               </p>
             </div>
           </div>
