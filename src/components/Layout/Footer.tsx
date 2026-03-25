@@ -15,13 +15,9 @@ const Footer = () => {
               Almatec SRL
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Especialistas en soluciones de almacenamiento agroindustrial y representantes oficiales de silos GSI en Bolivia.
+              Representantes exclusivos de GSI® Grain Systems en Bolivia. Más de 20 años ejecutando proyectos de almacenamiento, secado y manejo de granos.
             </p>
             <div className="space-y-2 text-sm">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
-                <a href="https://maps.app.goo.gl/kHZ2LP4FBZwmb9FC9" target="_blank" rel="noopener noreferrer" className="hover:text-almatec-yellow transition-colors">Santa Cruz de la Sierra, Bolivia</a>
-              </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-almatec-yellow flex-shrink-0" />
                 <a href="tel:+59177028610" className="hover:text-almatec-yellow transition-colors">(+591) 77028610</a>
