@@ -41,12 +41,6 @@ const Productos = () => {
               <p className="font-open-sans text-lg text-gray-600 leading-relaxed mb-8">
                 Acompañamos a nuestros clientes desde la concepción del proyecto hasta la puesta en marcha de la planta. Ingeniería, obra civil, montaje mecánico y eléctrico, equipos e integración de sistemas — todo coordinado por un solo equipo. Así eliminamos las fricciones entre proveedores y garantizamos que el resultado final corresponda exactamente a lo que fue diseñado.
               </p>
-              <Link
-                to="/contacto"
-                className="bg-almatec-yellow hover:bg-almatec-yellow/90 text-almatec-black font-montserrat font-semibold px-8 py-3 rounded-md transition-colors inline-block"
-              >
-                Conversar con nuestro equipo
-              </Link>
             </div>
             <div>
               <p className="font-montserrat font-semibold text-lg text-almatec-dark-gray mb-6">
@@ -78,6 +72,27 @@ const Productos = () => {
           </div>
         </div>
       </section>
+
+      <div className="bg-almatec-dark-gray py-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          <p className="font-open-sans text-sm text-almatec-yellow uppercase tracking-widest mb-3">
+            Catálogo de equipos
+          </p>
+          <h3 className="font-montserrat font-semibold text-2xl md:text-3xl text-white mb-4">
+            Conozca los equipos que integran cada proyecto.
+          </h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-almatec-yellow mt-2 animate-bounce"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
 
       {/* Sección de Productos por Categorías */}
       <section className="py-20 bg-almatec-white">
