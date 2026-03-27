@@ -55,13 +55,6 @@ const NewHero = () => {
           Infraestructura agroindustrial que trabaja para usted, incluso cuando no está cosechando.
         </h1>
         
-        {/* Subtítulo */}
-        <p 
-          className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed"
-          style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "400" }}
-        >
-          Representantes exclusivos de GSI® en Bolivia. Más de 20 años diseñando, instalando y poniendo en marcha plantas de almacenamiento que le dan al productor control sobre su cosecha y su momento de venta.
-        </p>
       </motion.div>
     </section>
   );
