@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL, ALMATEC_EMAILS, ALMATEC_PRIMARY_PHONE, ALMATEC_ADDRESS } from '@/config/contact';
 
 const TerminosCondiciones = () => {
   return (
@@ -10,7 +11,7 @@ const TerminosCondiciones = () => {
       <SEO 
         title="Términos y Condiciones"
         description="Términos y condiciones de uso del sitio web de Almatec SRL. Condiciones legales y de servicio."
-        url="https://almatecsrl-sitio-web.lovable.app/terminos-condiciones"
+        url={`${ALMATEC_SITE_URL}/terminos-condiciones`}
         noIndex={true}
       />
       <div className="container mx-auto px-4 py-8">
@@ -122,9 +123,9 @@ const TerminosCondiciones = () => {
               </p>
               <div className="bg-almatec-yellow/10 p-4 rounded-lg mt-3">
                 <p className="font-semibold text-almatec-dark-gray">Almatec SRL</p>
-                <p className="text-gray-700">Email: pabloarteaga@almatec.net</p>
-                <p className="text-gray-700">Teléfono: (+591) 3 326206</p>
-                <p className="text-gray-700">Dirección: Santa Cruz de la Sierra, Bolivia</p>
+                <p className="text-gray-700">Email: {ALMATEC_EMAILS.secondary}</p>
+                <p className="text-gray-700">WhatsApp: {ALMATEC_PRIMARY_PHONE.displayFull}</p>
+                <p className="text-gray-700">Dirección: {ALMATEC_ADDRESS.city}</p>
               </div>
             </section>
           </CardContent>

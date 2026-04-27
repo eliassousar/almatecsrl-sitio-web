@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import QuoteForm from '@/components/forms/QuoteForm';
 import ModernPageHero from '@/components/modern-page-hero';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const servicios = [
   {
@@ -82,7 +83,7 @@ const Servicios = () => {
       <SEO 
         title="Servicios"
         description="Asesoramiento técnico, ingeniería, montaje de silos GSI y capacitación. Servicios completos para proyectos agroindustriales en Bolivia."
-        url="https://almatecsrl-sitio-web.lovable.app/servicios"
+        url={`${ALMATEC_SITE_URL}/servicios`}
         keywords="montaje silos, asesoría técnica agroindustrial, ingeniería silos, capacitación operativa, servicios GSI Bolivia"
       />
       <ModernPageHero 

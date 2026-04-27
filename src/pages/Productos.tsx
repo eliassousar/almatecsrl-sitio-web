@@ -7,6 +7,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const Productos = () => {
   const [searchParams] = useSearchParams();
@@ -21,7 +22,7 @@ const Productos = () => {
       <SEO 
         title="Productos y Soluciones"
         description="Silos de almacenamiento GSI, sistemas de secado, manejo de granos, balanzas y volcadoras. Catálogo completo de soluciones agroindustriales en Bolivia."
-        url="https://almatecsrl-sitio-web.lovable.app/productos"
+        url={`${ALMATEC_SITE_URL}/productos`}
         keywords="silos GSI, silos almacenamiento, sistemas secado granos, manejo granos, balanzas industriales, volcadoras"
       />
       <ModernPageHero 
