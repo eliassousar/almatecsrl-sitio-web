@@ -29,6 +29,10 @@ const ProductCard = ({ producto }: ProductCardProps) => {
           <img 
             src={producto.image}
             alt={producto.name}
+            width={800}
+            height={500}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-t-lg"
           />
         </AspectRatio>

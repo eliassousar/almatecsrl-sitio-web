@@ -40,6 +40,10 @@ const Header = () => {
             <img 
               src="/lovable-uploads/7b64d736-3e47-4632-88ea-bf9f994641db.png" 
               alt="Almatec Agronegocios Logo" 
+              width={250}
+              height={48}
+              loading="eager"
+              decoding="async"
               className="h-12 w-auto max-w-[250px] object-contain"
             />
           </Link>

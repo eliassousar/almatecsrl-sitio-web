@@ -58,6 +58,10 @@ const UpcomingFairs = () => {
                   <img 
                     src={fair.image} 
                     alt={fair.name}
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 ) : (

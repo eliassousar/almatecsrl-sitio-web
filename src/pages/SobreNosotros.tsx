@@ -105,6 +105,10 @@ const SobreNosotros = () => {
                 <img 
                   src="/lovable-uploads/fa89e05e-4726-4a5f-b6e4-d2eee416394a.png" 
                   alt="Historia de Almatec"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-lg shadow-xl"
                 />
               </AspectRatio>
@@ -236,24 +240,40 @@ const SobreNosotros = () => {
                             <img 
                               src="/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png" 
                               alt="GSI Logo"
+                              width={200}
+                              height={100}
+                              loading="lazy"
+                              decoding="async"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : representante.name === "SAUR" ? (
                             <img 
                               src="/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png" 
                               alt="SAUR Logo"
+                              width={200}
+                              height={100}
+                              loading="lazy"
+                              decoding="async"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : representante.name === "COIMMA" ? (
                             <img 
                               src="/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.png" 
                               alt="COIMMA Logo"
+                              width={200}
+                              height={100}
+                              loading="lazy"
+                              decoding="async"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : representante.name === "PROCER" ? (
                             <img 
                               src="/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.png" 
                               alt="PROCER Logo"
+                              width={200}
+                              height={100}
+                              loading="lazy"
+                              decoding="async"
                               className="max-w-full max-h-full object-contain"
                             />
                           ) : (
