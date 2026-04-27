@@ -1,6 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import {
+  ALMATEC_PHONES,
+  ALMATEC_EMAILS,
+  ALMATEC_ADDRESS,
+  ALMATEC_BUSINESS_HOURS,
+  ALMATEC_SOCIAL,
+} from '@/config/contact';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
