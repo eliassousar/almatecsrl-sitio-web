@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const FAQ = () => {
   const faqs = [
@@ -78,7 +79,7 @@ const FAQ = () => {
       <SEO 
         title="Preguntas Frecuentes"
         description="Respuestas a las consultas más comunes sobre silos GSI, servicios de instalación, mantenimiento y proceso de compra en Almatec SRL."
-        url="https://almatecsrl-sitio-web.lovable.app/faq"
+        url={`${ALMATEC_SITE_URL}/faq`}
         keywords="preguntas frecuentes silos, FAQ Almatec, dudas silos GSI, consultas agroindustriales"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">

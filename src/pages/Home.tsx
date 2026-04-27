@@ -6,6 +6,7 @@ import { CheckCircle } from 'lucide-react';
 import ProjectsGallery from '@/components/projects/ProjectsGallery';
 import NewHero from '@/components/new-hero';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Home = () => {
         <SEO 
           title="Almatec SRL - Soluciones Agrícolas de Alto Rendimiento"
           description="Representante oficial de silos GSI en Bolivia. Más de 20 años ofreciendo soluciones integrales de almacenamiento, secado y manejo de granos."
-          url="https://almatecsrl-sitio-web.lovable.app"
+          url={ALMATEC_SITE_URL}
         />
         {/* Nueva Hero Section */}
         <NewHero />

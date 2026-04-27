@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const PoliticaPrivacidad = () => {
   return (
@@ -10,7 +11,7 @@ const PoliticaPrivacidad = () => {
       <SEO 
         title="Política de Privacidad"
         description="Política de privacidad y protección de datos personales de Almatec SRL. Conoce cómo protegemos tu información."
-        url="https://almatecsrl-sitio-web.lovable.app/politica-privacidad"
+        url={`${ALMATEC_SITE_URL}/politica-privacidad`}
         noIndex={true}
       />
       <div className="container mx-auto px-4 py-8">
