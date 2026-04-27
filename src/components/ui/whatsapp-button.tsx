@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { MessageCircle } from 'lucide-react';
+import { ALMATEC_PHONES, ALMATEC_PRIMARY_PHONE, buildWhatsAppUrl } from '@/config/contact';
 
 const WhatsAppButton = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -15,14 +16,9 @@ const WhatsAppButton = () => {
   });
 
   const handleDirectWhatsApp = useCallback(() => {
-    const phoneNumber = "+59177028610";
-    const message = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    // Mejor manejo de ventanas emergentes
+    const whatsappUrl = buildWhatsAppUrl();
     const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (!newWindow) {
-      // Fallback si el popup es bloqueado
       window.location.href = whatsappUrl;
     }
   }, []);
@@ -32,15 +28,14 @@ const WhatsAppButton = () => {
       return;
     }
 
-    const phoneNumber = "+59177028610";
     const tipoTexto = consultaData.tipoConsulta === 'silos-gsi' ? 'silos GSI' :
                      consultaData.tipoConsulta === 'sistemas-secado' ? 'sistemas de secado' :
                      consultaData.tipoConsulta === 'servicios-tecnicos' ? 'servicios técnicos' :
                      consultaData.tipoConsulta === 'cotizacion' ? 'una cotización' : 'consulta general';
-    
-    const message = encodeURIComponent(`Hola, soy ${consultaData.nombre.trim()}. Estoy interesado en conocer más sobre ${tipoTexto} de Almatec SRL.`);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
+
+    const message = `Hola, soy ${consultaData.nombre.trim()}. Estoy interesado en conocer más sobre ${tipoTexto} de Almatec SRL.`;
+    const whatsappUrl = buildWhatsAppUrl(ALMATEC_PRIMARY_PHONE.raw, message);
+
     const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (!newWindow) {
       window.location.href = whatsappUrl;
@@ -124,30 +119,21 @@ const WhatsAppButton = () => {
                 Enviar por WhatsApp
               </Button>
               <div className="flex flex-col sm:flex-row gap-2">
-                <Button 
-                  onClick={() => {
-                    const msg = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
-                    const w = window.open(`https://wa.me/+59177028610?text=${msg}`, '_blank', 'noopener,noreferrer');
-                    if (!w) window.location.href = `https://wa.me/+59177028610?text=${msg}`;
-                  }}
-                  variant="outline"
-                  className="flex-1 h-12 text-sm"
-                  aria-label="Contacto directo al 77028610"
-                >
-                  📱 77028610
-                </Button>
-                <Button 
-                  onClick={() => {
-                    const msg = encodeURIComponent("Hola, me interesa conocer más sobre las soluciones agroindustriales de Almatec SRL");
-                    const w = window.open(`https://wa.me/+59178007220?text=${msg}`, '_blank', 'noopener,noreferrer');
-                    if (!w) window.location.href = `https://wa.me/+59178007220?text=${msg}`;
-                  }}
-                  variant="outline"
-                  className="flex-1 h-12 text-sm"
-                  aria-label="Contacto directo al 78007220"
-                >
-                  📱 78007220
-                </Button>
+                {ALMATEC_PHONES.map((phone) => (
+                  <Button
+                    key={phone.raw}
+                    onClick={() => {
+                      const url = buildWhatsAppUrl(phone.raw);
+                      const w = window.open(url, '_blank', 'noopener,noreferrer');
+                      if (!w) window.location.href = url;
+                    }}
+                    variant="outline"
+                    className="flex-1 h-12 text-sm"
+                    aria-label={`Contacto directo al ${phone.display}`}
+                  >
+                    📱 {phone.display}
+                  </Button>
+                ))}
               </div>
             </div>
           </div>
