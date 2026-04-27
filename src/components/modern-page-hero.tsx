@@ -53,7 +53,7 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
         className="absolute top-8 left-8 z-20"
       >
         <img 
-          src="/lovable-uploads/60ea7bc0-cc0b-4570-8c9d-9a5c075afe6a.png" 
+          src="/lovable-uploads/60ea7bc0-cc0b-4570-8c9d-9a5c075afe6a.webp" 
           alt="Almatec Isologo" 
           width={160}
           height={64}

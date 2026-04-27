@@ -85,7 +85,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.png"
+                    src="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp"
                     alt="Silos de Almacenamiento"
                     width={800}
                     height={450}
@@ -113,7 +113,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.png"
+                    src="/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.webp"
                     alt="Sistemas de Secado"
                     width={800}
                     height={450}
@@ -141,7 +141,7 @@ const Home = () => {
               <CardContent>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src="/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.png"
+                    src="/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.webp"
                     alt="Manejo de Granos"
                     width={800}
                     height={450}

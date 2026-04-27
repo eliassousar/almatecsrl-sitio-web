@@ -41,19 +41,19 @@ const SobreNosotros = () => {
   const representantes = [
     {
       name: "GSI",
-      logo: "/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png"
+      logo: "/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.webp"
     },
     {
       name: "SAUR",
-      logo: "/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png"
+      logo: "/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.webp"
     },
     {
       name: "COIMMA", 
-      logo: "/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.png"
+      logo: "/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.webp"
     },
     {
       name: "PROCER",
-      logo: "/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.png"
+      logo: "/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.webp"
     },
     {
       name: "Marca 5",
@@ -103,7 +103,7 @@ const SobreNosotros = () => {
             <div>
               <AspectRatio ratio={4 / 3}>
                 <img 
-                  src="/lovable-uploads/fa89e05e-4726-4a5f-b6e4-d2eee416394a.png" 
+                  src="/lovable-uploads/fa89e05e-4726-4a5f-b6e4-d2eee416394a.webp" 
                   alt="Historia de Almatec"
                   width={800}
                   height={600}
@@ -238,7 +238,7 @@ const SobreNosotros = () => {
                         <CardContent className="flex items-center justify-center p-6 h-full w-full">
                           {representante.name === "GSI" ? (
                             <img 
-                              src="/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.png" 
+                              src="/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.webp" 
                               alt="GSI Logo"
                               width={200}
                               height={100}
@@ -248,7 +248,7 @@ const SobreNosotros = () => {
                             />
                           ) : representante.name === "SAUR" ? (
                             <img 
-                              src="/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.png" 
+                              src="/lovable-uploads/bdef7309-ce39-4cc0-b493-973bd897e31c.webp" 
                               alt="SAUR Logo"
                               width={200}
                               height={100}
@@ -258,7 +258,7 @@ const SobreNosotros = () => {
                             />
                           ) : representante.name === "COIMMA" ? (
                             <img 
-                              src="/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.png" 
+                              src="/lovable-uploads/20b0ade2-f758-4313-9202-802e946a8e9c.webp" 
                               alt="COIMMA Logo"
                               width={200}
                               height={100}
@@ -268,7 +268,7 @@ const SobreNosotros = () => {
                             />
                           ) : representante.name === "PROCER" ? (
                             <img 
-                              src="/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.png" 
+                              src="/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.webp" 
                               alt="PROCER Logo"
                               width={200}
                               height={100}

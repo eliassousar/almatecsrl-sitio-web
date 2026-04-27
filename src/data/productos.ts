@@ -12,7 +12,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 1,
     name: "Silos de Fondo Plano EVO 50",
     description: "Para cumplir con las diversas aplicaciones requeridas, GSI ofrece una completa línea de silos de almacenamiento ventilados de fondo plano. Esta línea abarca capacidades desde 90 m³ hasta 41.165 m³, adaptándose a las necesidades específicas de cada productor.",
-    image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.png",
+    image: "/lovable-uploads/bb3e9329-ad88-485a-a354-d83f8632994f.webp",
     specs: [
       "Capacidades desde 90 m³ hasta 41.165 m³",
       "Sistema de ventilación integrado",
@@ -24,7 +24,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 2,
     name: "Silos de Fondo Cónico EVO 50",
     description: "Los silos de fondo cónico EVO 50 de GSI ofrecen mayor agilidad en la descarga, optimizando el flujo de granos y reduciendo tiempos de operación. Su diseño cónico facilita la descarga completa del producto almacenado.",
-    image: "/lovable-uploads/bb0c281c-6e9a-48ed-b2ab-bc5a3251358d.png",
+    image: "/lovable-uploads/bb0c281c-6e9a-48ed-b2ab-bc5a3251358d.webp",
     specs: [
       "Diseño cónico que facilita la descarga completa",
       "Mayor eficiencia en el manejo de granos",
@@ -36,7 +36,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 3,
     name: "Roscas Barredoras",
     description: "Las roscas barredoras de GSI ofrecen la tecnología que su propiedad necesita para almacenar granos de manera segura y lograr mejores resultados. Son capaces de auxiliar en la descarga de silos y brindan agilidad, eficiencia y robustez, minimizando el acceso del operador al interior de los silos.",
-    image: "/lovable-uploads/f4497456-6eea-475d-a974-9e593bebc184.png",
+    image: "/lovable-uploads/f4497456-6eea-475d-a974-9e593bebc184.webp",
     specs: [
       "Tecnología avanzada para descarga eficiente",
       "Mayor seguridad al minimizar el acceso del operador al interior",
@@ -49,7 +49,7 @@ export const productosAlmacenamiento: Producto[] = [
     id: 4,
     name: "Esparcidor de Granos",
     description: "El esparcidor de granos GSI asegura una distribución uniforme del grano dentro del silo, optimizando el espacio de almacenamiento y mejorando la aireación. Esto contribuye a una mejor conservación del grano y a la prevención de puntos calientes.",
-    image: "/lovable-uploads/b1109187-68a8-45ef-b7c0-959aed07cfe3.png",
+    image: "/lovable-uploads/b1109187-68a8-45ef-b7c0-959aed07cfe3.webp",
     specs: [
       "Distribución uniforme del grano",
       "Optimización del espacio de almacenamiento",
@@ -65,7 +65,7 @@ export const productosSecado: Producto[] = [
     id: 5,
     name: "Process Dryer",
     description: "Secadora de granos con tecnología original GSI y sistema de secado continuo con flujo de aire cruzado, proporciona granos secos con calidad superior. Fue desarrollada para trabajar con diferentes tipos de granos, ya sea con fines comerciales o para la producción de semillas.",
-    image: "/lovable-uploads/d1e07e63-b4f8-48b3-9a56-1baef2ced2e9.png",
+    image: "/lovable-uploads/d1e07e63-b4f8-48b3-9a56-1baef2ced2e9.webp",
     specs: [
       "Tecnología original GSI",
       "Sistema de secado continuo con flujo de aire cruzado",
@@ -79,7 +79,7 @@ export const productosSecado: Producto[] = [
     id: 6,
     name: "Sistema de Aireación y Ventiladores",
     description: "Los sistemas de aireación de los silos GSI se dimensionan de acuerdo al producto almacenado y a la tasa de aireación (flujo de aire) necesaria para la conservación del grano. Se encuentran disponibles sistemas de aireación de canal y de piso 100% perforado.",
-    image: "/lovable-uploads/e35fc5b9-1b54-4cb1-81e6-bc564e15499b.png",
+    image: "/lovable-uploads/e35fc5b9-1b54-4cb1-81e6-bc564e15499b.webp",
     specs: [
       "Dimensionamiento personalizado según el producto almacenado",
       "Adaptación a la tasa de aireación necesaria",
@@ -92,7 +92,7 @@ export const productosSecado: Producto[] = [
     id: 7,
     name: "Portable Dryers",
     description: "Las secadoras portátiles GSI ofrecen flexibilidad y eficiencia para el secado de granos en diferentes ubicaciones. Son ideales para operaciones que requieren movilidad y un secado rápido y efectivo.",
-    image: "/lovable-uploads/9fb7021e-e36f-406c-bf46-205a18fa659c.png",
+    image: "/lovable-uploads/9fb7021e-e36f-406c-bf46-205a18fa659c.webp",
     specs: [
       "Flexibilidad y movilidad",
       "Secado rápido y efectivo",
@@ -105,7 +105,7 @@ export const productosSecado: Producto[] = [
     id: 8,
     name: "TopDry",
     description: "El sistema TopDry de GSI combina el secado y el almacenamiento en una sola unidad, ofreciendo una solución compacta y eficiente para el manejo de granos. Permite secar y enfriar el grano antes de almacenarlo, optimizando el proceso.",
-    image: "/lovable-uploads/5455be7f-63a4-40ec-9625-1b637a5f7c88.png",
+    image: "/lovable-uploads/5455be7f-63a4-40ec-9625-1b637a5f7c88.webp",
     specs: [
       "Combina secado y almacenamiento en una unidad",
       "Solución compacta y eficiente",
@@ -121,7 +121,7 @@ export const productosManejo: Producto[] = [
     id: 9,
     name: "Elevadores",
     description: "Fabricados con componentes de alta calidad y construcción robusta, los elevadores de granos GSI cuentan con alta durabilidad, operación continua y la mejor relación costo-beneficio para su producción.",
-    image: "/lovable-uploads/78866758-f51a-4f00-942d-d37f9de1a6c0.png",
+    image: "/lovable-uploads/78866758-f51a-4f00-942d-d37f9de1a6c0.webp",
     specs: [
       "Componentes de alta calidad",
       "Construcción robusta",
@@ -135,7 +135,7 @@ export const productosManejo: Producto[] = [
     id: 10,
     name: "Transportadores de Cadena",
     description: "Los transportadores de cadena GSI son extremadamente eficientes para el transporte de los granos en forma horizontal o vertical en la planta almacenadora, optimizando el flujo de material y reduciendo tiempos de operación.",
-    image: "/lovable-uploads/8f3ff249-d04c-490d-992d-74aa1b0b272b.png",
+    image: "/lovable-uploads/8f3ff249-d04c-490d-992d-74aa1b0b272b.webp",
     specs: [
       "Alta eficiencia en el transporte de granos",
       "Versatilidad para transporte horizontal o vertical",
@@ -148,7 +148,7 @@ export const productosManejo: Producto[] = [
     id: 11,
     name: "Cintas/Correas Transportadoras",
     description: "La tecnología aplicada en los mayores proyectos de almacenamiento globales llega a usted a través de dos líneas de cintas/correas GSI. Estos modelos emplean una solución inteligente, silenciosa y versátil para el transporte de granos horizontal e inclinado en distancias cortas, medias y largas.",
-    image: "/lovable-uploads/f3419807-79a8-4523-9743-9cb6795e00db.png",
+    image: "/lovable-uploads/f3419807-79a8-4523-9743-9cb6795e00db.webp",
     specs: [
       "Tecnología de nivel mundial",
       "Solución inteligente y silenciosa",
@@ -162,7 +162,7 @@ export const productosManejo: Producto[] = [
     id: 12,
     name: "Máquina de Prelimpieza",
     description: "Las máquinas de prelimpieza de GSI separan las impurezas de todo tipo de granos, mejorando la calidad del producto almacenado y reduciendo riesgos de contaminación durante el almacenamiento.",
-    image: "/lovable-uploads/2d924d1b-1e2d-4145-8f7c-a101eb817498.png",
+    image: "/lovable-uploads/2d924d1b-1e2d-4145-8f7c-a101eb817498.webp",
     specs: [
       "Separación eficiente de impurezas",
       "Compatible con diversos tipos de granos",
@@ -179,7 +179,7 @@ export const productosBalanzas: Producto[] = [
     id: 13,
     name: "Balanza Camionera Metálica",
     description: "Totalmente modular, compuesto por una estructura metálica (acero). Construido según las normas ABNT para carga móvil en puentes de carretera. Fabricado con un estricto control de calidad utilizando materias primas y componentes electrónicos de primera calidad. Disponible en varias capacidades, de 40.000 a 200.000 kg, con plataformas de 12 a 60 m. Versiones: SP = sobre el suelo con rampa; SE = semiempotrado sin rampa y totalmente empotrado.",
-    image: "/lovable-uploads/4f443edd-e4b5-4b4d-9e92-deb3d8a532a8.png",
+    image: "/lovable-uploads/4f443edd-e4b5-4b4d-9e92-deb3d8a532a8.webp",
     specs: [
       "Construcción metálica robusta y duradera",
       "Alta precisión en el pesaje de vehículos pesados",
@@ -193,7 +193,7 @@ export const productosBalanzas: Producto[] = [
     id: 14,
     name: "Balanza de Concreto",
     description: "Plataforma diseñada para recibir una cubierta de hormigón, diseñada según las Normas ABNT - Carga Móvil en Puentes de Carretera. Fabricada con materias primas y componentes electrónicos de primera calidad, se ofrece en diversas capacidades, desde 40.000 hasta 200.000 kg, y con plataformas de 10 a 60 m. Versiones: SP = sobre el suelo con rampa; SE = semiempotrada sin rampa y totalmente empotrada.",
-    image: "/lovable-uploads/29929e96-1389-43a3-a961-7fa37fb2c856.png",
+    image: "/lovable-uploads/29929e96-1389-43a3-a961-7fa37fb2c856.webp",
     specs: [
       "Construcción en concreto armado para máxima estabilidad",
       "Solución permanente para pesaje industrial",
@@ -210,7 +210,7 @@ export const productosVolcadoras: Producto[] = [
     id: 15,
     name: "Plataforma Volcadora Trasera 21 metros",
     description: "La Plataforma de Volcadora Trasera SAUR de 21 metros fue proyectada para descargar camiones tolvas, chatos, carretas, bitrenes y rodotrenes de hasta 90 toneladas. La descarga se realiza de forma simple y práctica, en un promedio de 4 minutos, lo que contribuye con el proceso y reduce considerablemente las filas en las centrales de recepción. Éste es uno de los modelos más comunes y está entre los sistemas de descarga de graneles más vendidos.",
-    image: "/lovable-uploads/55c80e54-aae9-498a-b272-583d3f81db08.png",
+    image: "/lovable-uploads/55c80e54-aae9-498a-b272-583d3f81db08.webp",
     specs: [
       "Capacidad de carga: 80 o 90 Ton.",
       "Largo: 21.000 mm",
@@ -225,7 +225,7 @@ export const productosVolcadoras: Producto[] = [
     id: 16,
     name: "Colectores de Muestras",
     description: "Los colectores de muestras Saur son equipos especializados para la toma automática de muestras de granos durante el proceso de descarga. Garantizan muestras representativas y consistentes, esenciales para el control de calidad en la recepción de granos.",
-    image: "/lovable-uploads/449f003e-565b-4dc5-b50b-6f477d499a6e.png",
+    image: "/lovable-uploads/449f003e-565b-4dc5-b50b-6f477d499a6e.webp",
     specs: [
       "Toma automática de muestras representativas",
       "Sistema especializado para granos",
