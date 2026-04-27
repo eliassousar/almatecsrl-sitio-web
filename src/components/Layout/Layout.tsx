@@ -25,10 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
         Saltar al contenido principal
       </a>
       
-      {/* Header y breadcrumbs ocultos en todas las páginas para usar solo navegación moderna */}
-      
-      {/* Navegación optimizada para móvil y desktop */}
-      <MobileNavigation />
+      {/* Header principal visible desde el inicio en todas las páginas */}
+      <Header />
       
       <main 
         id="main-content" 
