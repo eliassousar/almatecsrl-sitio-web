@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../ui/breadcrumb-nav';
 import WhatsAppButton from '../ui/whatsapp-button';
-import MobileNavigation from '../mobile-navigation';
+
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,10 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
         Saltar al contenido principal
       </a>
       
-      {/* Header y breadcrumbs ocultos en todas las páginas para usar solo navegación moderna */}
-      
-      {/* Navegación optimizada para móvil y desktop */}
-      <MobileNavigation />
+      {/* Header principal visible desde el inicio en todas las páginas */}
+      <Header />
       
       <main 
         id="main-content" 
