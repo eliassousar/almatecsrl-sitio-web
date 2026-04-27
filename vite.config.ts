@@ -31,27 +31,15 @@ export default defineConfig(({ mode }) => ({
           forms: ['react-hook-form', '@hookform/resolvers', 'zod'],
         },
       },
-      // Remover console.log en producción
-      ...(mode === 'production' && {
-        plugins: [
-          {
-            name: 'remove-console',
-            transform(code, id) {
-              if (mode === 'production') {
-                return {
-                  code: code.replace(/console\.log\(.*?\);?/g, ''),
-                  map: null
-                }
-              }
-            }
-          }
-        ]
-      })
     },
     // Usar esbuild para minificación (más rápido y incluido por defecto)
     minify: mode === 'production' ? 'esbuild' : false,
     // Configurar el límite de tamaño de chunk
     chunkSizeWarningLimit: 1000,
+  },
+  // Eliminar console.* en producción de forma segura vía esbuild
+  esbuild: {
+    drop: mode === 'production' ? ['console', 'debugger'] : [],
   },
   // Optimizaciones para desarrollo
   optimizeDeps: {
