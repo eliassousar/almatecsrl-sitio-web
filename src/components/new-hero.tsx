@@ -35,6 +35,10 @@ const NewHero = () => {
         <img 
           src="/lovable-uploads/60ea7bc0-cc0b-4570-8c9d-9a5c075afe6a.png" 
           alt="Almatec Isologo" 
+          width={160}
+          height={64}
+          loading="eager"
+          decoding="async"
           className="h-12 md:h-16 w-auto object-contain"
         />
       </motion.div>

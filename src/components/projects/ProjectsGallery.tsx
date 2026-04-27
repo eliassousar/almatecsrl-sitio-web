@@ -90,6 +90,10 @@ const ProjectsGallery = () => {
                         <img
                           src={project.image}
                           alt={project.title}
+                          width={800}
+                          height={450}
+                          loading="lazy"
+                          decoding="async"
                           className="object-cover rounded-md w-full h-full"
                         />
                       </AspectRatio>

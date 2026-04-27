@@ -87,6 +87,10 @@ const Home = () => {
                   <img
                     src="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.png"
                     alt="Silos de Almacenamiento"
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover rounded-md"
                   />
                 </AspectRatio>
@@ -111,6 +115,10 @@ const Home = () => {
                   <img
                     src="/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.png"
                     alt="Sistemas de Secado"
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover rounded-md"
                   />
                 </AspectRatio>
@@ -135,6 +143,10 @@ const Home = () => {
                   <img
                     src="/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.png"
                     alt="Manejo de Granos"
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover rounded-md"
                   />
                 </AspectRatio>
