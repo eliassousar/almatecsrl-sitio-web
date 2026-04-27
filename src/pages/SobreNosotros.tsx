@@ -55,14 +55,6 @@ const SobreNosotros = () => {
     {
       name: "PROCER",
       logo: "/lovable-uploads/bee243ee-4597-4039-8345-521424ab163b.webp"
-    },
-    {
-      name: "Marca 5",
-      logo: "/lovable-uploads/marca5-logo.png" // Placeholder path - will need actual logo
-    },
-    {
-      name: "Marca 6",
-      logo: "/lovable-uploads/marca6-logo.png" // Placeholder path - will need actual logo
     }
   ];
 

@@ -2,7 +2,9 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroBackground from '@/assets/hero-agro-background.jpg';
+
+// Fondo servido como asset estático optimizado (WebP) desde public/lovable-uploads
+const heroBackground = '/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp';
 
 interface ModernPageHeroProps {
   title: string;
