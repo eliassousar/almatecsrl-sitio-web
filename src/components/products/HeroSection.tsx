@@ -5,7 +5,7 @@ const HeroSection = () => (
         <h1 className="font-montserrat font-bold text-2xl md:text-3xl leading-tight flex items-center justify-center gap-4">
           <span>SOLUCIONES INTEGRALES</span>
           <img 
-            src="/lovable-uploads/81b02445-b13e-4bdc-ae29-94746fd5f7d8.png" 
+            src="/lovable-uploads/81b02445-b13e-4bdc-ae29-94746fd5f7d8.webp" 
             alt="GSI Logo" 
             width={120}
             height={64}

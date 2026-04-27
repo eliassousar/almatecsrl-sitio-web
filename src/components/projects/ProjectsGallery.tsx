@@ -13,7 +13,7 @@ const projectsData = [
     id: 1,
     title: "Instalación de Silos - Santa Cruz",
     description: "Proyecto de instalación de 5 silos metálicos para almacenamiento de soja, capacidad total de 50,000 toneladas.",
-    image: "/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.png",
+    image: "/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp",
     location: "Santa Cruz de la Sierra",
     year: "2023"
   },
@@ -21,7 +21,7 @@ const projectsData = [
     id: 2,
     title: "Sistema de Secado Automatizado",
     description: "Implementación de sistema de secado continuo con control automático de temperatura y humedad.",
-    image: "/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.png",
+    image: "/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.webp",
     location: "Cochabamba",
     year: "2023"
   },
@@ -29,7 +29,7 @@ const projectsData = [
     id: 3,
     title: "Centro de Acopio de Granos",
     description: "Construcción completa de centro de acopio con capacidad para 75,000 toneladas, incluye báscula y laboratorio.",
-    image: "/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.png",
+    image: "/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.webp",
     location: "La Paz",
     year: "2022"
   },
@@ -37,7 +37,7 @@ const projectsData = [
     id: 4,
     title: "Modernización de Planta Procesadora",
     description: "Actualización tecnológica completa de planta procesadora de quinua con nuevos equipos de clasificación.",
-    image: "/lovable-uploads/29929e96-1389-43a3-a961-7fa37fb2c856.png",
+    image: "/lovable-uploads/29929e96-1389-43a3-a961-7fa37fb2c856.webp",
     location: "Oruro",
     year: "2023"
   },
@@ -45,7 +45,7 @@ const projectsData = [
     id: 5,
     title: "Sistema de Transporte Neumático",
     description: "Instalación de sistema de transporte neumático para manejo eficiente de granos en planta industrial.",
-    image: "/lovable-uploads/54043837-d68a-4a6c-a2cc-4034d777c95f.png",
+    image: "/lovable-uploads/54043837-d68a-4a6c-a2cc-4034d777c95f.webp",
     location: "Tarija",
     year: "2022"
   },
@@ -53,7 +53,7 @@ const projectsData = [
     id: 6,
     title: "Planta de Almacenamiento Refrigerado",
     description: "Construcción de almacenes refrigerados para preservación de semillas con control climático automatizado.",
-    image: "/lovable-uploads/78866758-f51a-4f00-942d-d37f9de1a6c0.png",
+    image: "/lovable-uploads/78866758-f51a-4f00-942d-d37f9de1a6c0.webp",
     location: "Beni",
     year: "2023"
   }

@@ -15,21 +15,21 @@ const upcomingFairs: Fair[] = [
     name: 'ExpoSoya',
     date: '26 - 28 de Febrero, 2026',
     location: 'Centro Experimental de Anapo, Cuatro Cañadas',
-    image: '/lovable-uploads/exposoya-2026.png'
+    image: '/lovable-uploads/exposoya-2026.webp'
   },
   {
     id: '2',
     name: 'ExpoAgro',
     date: '7 - 9 de Mayo, 2026',
     location: 'Nueva Santa Cruz',
-    image: '/lovable-uploads/expoagro-2026.jpg'
+    image: '/lovable-uploads/expoagro-2026.webp'
   },
   {
     id: '3',
     name: 'FexpoSiv',
     date: 'Julio, 2026',
     location: 'San Ignacio de Velasco',
-    image: '/lovable-uploads/fexposiv-2026.jpg'
+    image: '/lovable-uploads/fexposiv-2026.webp'
   }
 ];
 
