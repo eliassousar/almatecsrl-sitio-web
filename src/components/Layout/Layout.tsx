@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../ui/breadcrumb-nav';
 import WhatsAppButton from '../ui/whatsapp-button';
-import MobileNavigation from '../mobile-navigation';
+
 
 interface LayoutProps {
   children: ReactNode;
