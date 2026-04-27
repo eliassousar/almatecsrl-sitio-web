@@ -40,8 +40,9 @@ const Contacto = () => {
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Teléfonos</h3>
                 <div className="space-y-1">
-                  <p className="font-open-sans text-gray-600">(+591) 77028610</p>
-                  <p className="font-open-sans text-gray-600">(+591) 78007220</p>
+                  {ALMATEC_PHONES.map((phone) => (
+                    <p key={phone.raw} className="font-open-sans text-gray-600">{phone.displayFull}</p>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -53,8 +54,8 @@ const Contacto = () => {
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Correos</h3>
                 <div className="space-y-1">
-                  <p className="font-open-sans text-gray-600">edson_gsi@hotmail.com</p>
-                  <p className="font-open-sans text-gray-600">pabloarteaga@almatec.net</p>
+                  <p className="font-open-sans text-gray-600">{ALMATEC_EMAILS.primary}</p>
+                  <p className="font-open-sans text-gray-600">{ALMATEC_EMAILS.secondary}</p>
                 </div>
               </CardContent>
             </Card>
@@ -66,9 +67,9 @@ const Contacto = () => {
                 </div>
                 <h3 className="font-montserrat font-semibold text-almatec-dark-gray mb-2">Horario</h3>
                 <div className="space-y-1">
-                  <p className="font-open-sans text-gray-600">Lunes a Viernes</p>
-                  <p className="font-open-sans text-gray-600">8:00 - 18:00</p>
-                  <p className="font-open-sans text-gray-600">Sábados: 8:00 - 12:00</p>
+                  <p className="font-open-sans text-gray-600">{ALMATEC_BUSINESS_HOURS.weekdays.label}</p>
+                  <p className="font-open-sans text-gray-600">{ALMATEC_BUSINESS_HOURS.weekdays.hours}</p>
+                  <p className="font-open-sans text-gray-600">{`${ALMATEC_BUSINESS_HOURS.saturday.label}: ${ALMATEC_BUSINESS_HOURS.saturday.hours}`}</p>
                 </div>
               </CardContent>
             </Card>
@@ -150,7 +151,7 @@ const Contacto = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.open('https://wa.me/+59177028610?text=Hola, tengo una consulta urgente sobre los servicios de Almatec SRL', '_blank')}
+              onClick={() => window.open(buildWhatsAppUrl(ALMATEC_PRIMARY_PHONE.raw, 'Hola, tengo una consulta urgente sobre los servicios de Almatec SRL'), '_blank')}
               className="border border-almatec-white text-almatec-white hover:bg-almatec-white hover:text-almatec-black px-8 py-3 rounded-md transition-colors inline-flex items-center justify-center"
             >
               📱 WhatsApp
