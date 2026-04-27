@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { ALMATEC_SITE_URL } from '@/config/contact';
 
 interface SEOProps {
   title?: string;
@@ -15,7 +16,7 @@ const SEO = ({
   description = 'Representante oficial de silos GSI en Bolivia. Soluciones integrales de almacenamiento, secado y manejo de granos para el sector agroindustrial.',
   keywords = 'silos GSI, almacenamiento de granos, secado de granos, agroindustria Bolivia, silos metálicos, Almatec SRL',
   image = '/lovable-uploads/08c05001-4d71-4d61-80a1-eff7e7909dea.webp',
-  url = 'https://almatecsrl-sitio-web.lovable.app',
+  url = ALMATEC_SITE_URL,
   type = 'website',
   noIndex = false,
 }: SEOProps) => {
