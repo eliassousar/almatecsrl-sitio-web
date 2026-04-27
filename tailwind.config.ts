@@ -20,8 +20,6 @@ export default {
 		},
 		extend: {
       fontFamily: {
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
-        'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
         'open-sans': ['Open Sans', 'sans-serif'],
       },
