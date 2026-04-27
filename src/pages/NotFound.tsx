@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Home, Search, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
+import { ALMATEC_PRIMARY_PHONE, ALMATEC_EMAILS } from '@/config/contact';
 
 const NotFound = () => {
   return (
@@ -58,9 +59,8 @@ const NotFound = () => {
               Nuestro equipo está disponible para atenderle
             </p>
             <div className="space-y-2 text-sm">
-              <p><strong>Teléfono:</strong> (+591) 3 326206</p>
-              <p><strong>WhatsApp:</strong> (+591) 77028610</p>
-              <p><strong>Email:</strong> pabloarteaga@almatec.net</p>
+              <p><strong>WhatsApp:</strong> {ALMATEC_PRIMARY_PHONE.displayFull}</p>
+              <p><strong>Email:</strong> {ALMATEC_EMAILS.secondary}</p>
             </div>
           </div>
         </CardContent>
