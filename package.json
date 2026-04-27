@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "bun scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
