@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Producto } from '@/data/productos';
 import { useCallback } from 'react';
+import { buildWhatsAppUrl } from '@/config/contact';
 
 interface ProductCardProps {
   producto: Producto;
@@ -11,10 +12,9 @@ interface ProductCardProps {
 
 const ProductCard = ({ producto }: ProductCardProps) => {
   const handleWhatsAppRedirect = useCallback(() => {
-    const phoneNumber = "+59177028610";
-    const message = encodeURIComponent(`Hola, me interesa obtener información sobre ${producto.name} de Almatec SRL. ¿Podrían brindarme más detalles sobre este producto?`);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
+    const message = `Hola, me interesa obtener información sobre ${producto.name} de Almatec SRL. ¿Podrían brindarme más detalles sobre este producto?`;
+    const whatsappUrl = buildWhatsAppUrl(undefined, message);
+
     const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (!newWindow) {
       // Fallback si el popup es bloqueado

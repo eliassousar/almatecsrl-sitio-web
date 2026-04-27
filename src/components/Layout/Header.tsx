@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Phone, Mail } from 'lucide-react';
+import { ALMATEC_PHONES, ALMATEC_EMAILS } from '@/config/contact';
 
 const Header = () => {
   const location = useLocation();
@@ -18,16 +19,12 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const handlePhoneClick = () => {
-    window.location.href = 'tel:+59177028610';
-  };
-
-  const handlePhoneClick2 = () => {
-    window.location.href = 'tel:+59178007220';
+  const handlePhoneClick = (raw: string) => {
+    window.location.href = `tel:${raw}`;
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:edson_gsi@hotmail.com';
+    window.location.href = `mailto:${ALMATEC_EMAILS.primary}`;
   };
 
   return (
@@ -86,26 +83,22 @@ const Header = () => {
               <div className="flex flex-col space-y-4 mt-8">
                 {/* Mobile Contact Links */}
                 <div className="border-b border-gray-200 pb-4 mb-4">
-                  <button
-                    onClick={handlePhoneClick}
-                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span className="font-open-sans text-sm">(+591) 77028610</span>
-                  </button>
-                  <button
-                    onClick={handlePhoneClick2}
-                    className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span className="font-open-sans text-sm">(+591) 78007220</span>
-                  </button>
+                  {ALMATEC_PHONES.map((phone) => (
+                    <button
+                      key={phone.raw}
+                      onClick={() => handlePhoneClick(phone.raw)}
+                      className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full mb-2"
+                    >
+                      <Phone className="h-4 w-4" />
+                      <span className="font-open-sans text-sm">{phone.displayFull}</span>
+                    </button>
+                  ))}
                   <button
                     onClick={handleEmailClick}
                     className="flex items-center space-x-2 text-almatec-dark-gray hover:text-almatec-yellow transition-colors w-full"
                   >
                     <Mail className="h-4 w-4" />
-                    <span className="font-open-sans text-sm">edson_gsi@hotmail.com</span>
+                    <span className="font-open-sans text-sm">{ALMATEC_EMAILS.primary}</span>
                   </button>
                 </div>
 

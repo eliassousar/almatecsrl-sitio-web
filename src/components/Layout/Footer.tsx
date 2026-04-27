@@ -1,6 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import {
+  ALMATEC_PHONES,
+  ALMATEC_EMAILS,
+  ALMATEC_ADDRESS,
+  ALMATEC_BUSINESS_HOURS,
+  ALMATEC_SOCIAL,
+} from '@/config/contact';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -61,23 +68,23 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <Clock className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-gray-300">Lunes a Viernes</p>
-                  <p className="text-white font-medium">8:00 – 18:00</p>
+                  <p className="text-gray-300">{ALMATEC_BUSINESS_HOURS.weekdays.label}</p>
+                  <p className="text-white font-medium">{ALMATEC_BUSINESS_HOURS.weekdays.hours}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <Clock className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-gray-300">Sábados</p>
-                  <p className="text-white font-medium">8:00 – 12:00</p>
+                  <p className="text-gray-300">{ALMATEC_BUSINESS_HOURS.saturday.label}</p>
+                  <p className="text-white font-medium">{ALMATEC_BUSINESS_HOURS.saturday.hours}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2 pt-2 border-t border-gray-700">
                 <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-gray-300">Av. Banzer entre 4to y 5to anillo</p>
-                  <p className="text-gray-300">Comercial Plaza Norte, Oficina 46</p>
-                  <p className="text-gray-300">Santa Cruz de la Sierra, Bolivia</p>
+                  <p className="text-gray-300">{ALMATEC_ADDRESS.line1}</p>
+                  <p className="text-gray-300">{ALMATEC_ADDRESS.line2}</p>
+                  <p className="text-gray-300">{ALMATEC_ADDRESS.city}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +97,7 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-3">
               <a 
-                href="https://www.facebook.com/almatecscz/?locale=es_LA" 
+                href={ALMATEC_SOCIAL.facebook} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
@@ -99,7 +106,7 @@ const Footer = () => {
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.instagram.com/almatecsrl/" 
+                href={ALMATEC_SOCIAL.instagram} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
@@ -108,7 +115,7 @@ const Footer = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.linkedin.com/company/almatec-srl/" 
+                href={ALMATEC_SOCIAL.linkedin} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
@@ -117,7 +124,7 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.youtube.com/@GSI.americadelsur" 
+                href={ALMATEC_SOCIAL.youtube} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
@@ -130,25 +137,25 @@ const Footer = () => {
             <div className="space-y-3 pt-4 border-t border-gray-700">
               {/* Contacto 1 */}
               <div className="space-y-1">
-                <a href="tel:+59177028610" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                <a href={`tel:${ALMATEC_PHONES[0].raw}`} className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
                   <Phone className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
-                  <span>(+591) 77028610</span>
+                  <span>{ALMATEC_PHONES[0].displayFull}</span>
                 </a>
-                <a href="mailto:edson_gsi@hotmail.com" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                <a href={`mailto:${ALMATEC_EMAILS.primary}`} className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
                   <Mail className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
-                  <span>edson_gsi@hotmail.com</span>
+                  <span>{ALMATEC_EMAILS.primary}</span>
                 </a>
               </div>
 
               {/* Contacto 2 */}
               <div className="space-y-1">
-                <a href="tel:+59178007220" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                <a href={`tel:${ALMATEC_PHONES[1].raw}`} className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
                   <Phone className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
-                  <span>(+591) 78007220</span>
+                  <span>{ALMATEC_PHONES[1].displayFull}</span>
                 </a>
-                <a href="mailto:pabloarteaga@almatec.net" className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
+                <a href={`mailto:${ALMATEC_EMAILS.secondary}`} className="flex items-center space-x-2 text-gray-300 hover:text-almatec-yellow transition-colors text-sm">
                   <Mail className="w-3.5 h-3.5 text-almatec-yellow flex-shrink-0" />
-                  <span>pabloarteaga@almatec.net</span>
+                  <span>{ALMATEC_EMAILS.secondary}</span>
                 </a>
               </div>
             </div>
