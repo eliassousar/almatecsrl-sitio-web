@@ -13,7 +13,7 @@ import {
   ALMATEC_BUSINESS_HOURS,
   buildWhatsAppUrl,
 } from '@/config/contact';
-import { ALMATEC_SITE_URL } from '@/config/contact';
+
 
 const Contacto = () => {
   return (
