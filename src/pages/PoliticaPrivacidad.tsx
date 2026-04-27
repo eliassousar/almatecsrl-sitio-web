@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
-import { ALMATEC_SITE_URL } from '@/config/contact';
+import { ALMATEC_SITE_URL, ALMATEC_EMAILS, ALMATEC_PRIMARY_PHONE } from '@/config/contact';
 
 const PoliticaPrivacidad = () => {
   return (
@@ -112,9 +112,8 @@ const PoliticaPrivacidad = () => {
               </p>
               <div className="bg-almatec-yellow/10 p-4 rounded-lg mt-3">
                 <p className="font-semibold text-almatec-dark-gray">Almatec SRL</p>
-                <p className="text-gray-700">Email: pabloarteaga@almatec.net</p>
-                <p className="text-gray-700">Teléfono: (+591) 3 326206</p>
-                <p className="text-gray-700">WhatsApp: (+591) 77028610</p>
+                <p className="text-gray-700">Email: {ALMATEC_EMAILS.secondary}</p>
+                <p className="text-gray-700">WhatsApp: {ALMATEC_PRIMARY_PHONE.displayFull}</p>
               </div>
             </section>
           </CardContent>
