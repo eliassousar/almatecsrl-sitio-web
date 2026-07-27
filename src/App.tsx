@@ -15,7 +15,10 @@ const Contacto = lazy(() => import("./pages/Contacto"));
 const PoliticaPrivacidad = lazy(() => import("./pages/PoliticaPrivacidad"));
 const TerminosCondiciones = lazy(() => import("./pages/TerminosCondiciones"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Login = lazy(() => import("./pages/Login"));
+const OAuthConsent = lazy(() => import("./pages/OAuthConsent"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+
 
 // Optimización de React Query con configuración de caché mejorada
 const queryClient = new QueryClient({
@@ -55,6 +58,9 @@ const App = () => (
               <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
               <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
