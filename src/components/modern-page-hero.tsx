@@ -47,24 +47,6 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
         className="absolute inset-0 w-full h-full z-0"
       />
 
-      {/* Almatec Logo - Top Left */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-8 left-8 z-20"
-      >
-        <img 
-          src="/lovable-uploads/60ea7bc0-cc0b-4570-8c9d-9a5c075afe6a.webp" 
-          alt="Almatec Isologo" 
-          width={160}
-          height={64}
-          loading="eager"
-          decoding="async"
-          className="h-12 md:h-16 w-auto object-contain"
-        />
-      </motion.div>
-
       {/* Contenido Principal */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
