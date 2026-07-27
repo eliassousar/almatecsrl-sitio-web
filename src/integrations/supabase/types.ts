@@ -149,6 +149,30 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limits: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          identifier: string
+          identifier_type: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          identifier: string
+          identifier_type: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          identifier?: string
+          identifier_type?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -178,6 +202,16 @@ export type Database = {
       can_create_quote_request: {
         Args: { p_email: string; p_ip: unknown }
         Returns: boolean
+      }
+      check_rate_limit: {
+        Args: {
+          _action: string
+          _email: string
+          _ip: string
+          _max_per_day?: number
+          _max_per_hour?: number
+        }
+        Returns: Json
       }
       cleanup_old_audit_data: { Args: never; Returns: undefined }
       get_contact_stats: {

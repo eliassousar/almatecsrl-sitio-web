@@ -262,10 +262,10 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
     
-    // Rate limiting optimizado usando el índice compuesto
-    const clientIP = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown'
-    const now = new Date()
-    const twoMinutesAgo = new Date(now.getTime() - 120000)
+    // IP real del cliente (primer valor de x-forwarded-for)
+    const clientIP = (req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '')
+      .split(',')[0]
+      .trim()
     
     // Parsear datos con timeout
     const timeoutPromise = new Promise((_, reject) => 
@@ -286,20 +286,34 @@ serve(async (req) => {
       )
     }
     
-    // Verificar rate limit usando índice optimizado (máximo 3 requests por 2 minutos por email)
-    const { data: recentRequests } = await supabase
-      .from('quote_requests')
-      .select('id')
-      .gte('created_at', twoMinutesAgo.toISOString())
-      .eq('email', body.email)
-      .limit(3)
+    // Rate limiting por IP y por email (3/hora, 10/día)
+    const { data: rateLimit, error: rateLimitError } = await supabase.rpc('check_rate_limit', {
+      _action: 'quote',
+      _ip: clientIP,
+      _email: typeof body?.email === 'string' ? body.email : '',
+      _max_per_hour: 3,
+      _max_per_day: 10,
+    })
     
-    if (recentRequests && recentRequests.length >= 3) {
+    if (rateLimitError) {
+      console.error('Rate limit check failed:', rateLimitError)
+    } else if (rateLimit && rateLimit.allowed === false) {
       return new Response(
-        JSON.stringify({ error: 'Rate limit exceeded. Please try again later.' }),
-        { status: 429, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+        JSON.stringify({
+          error: 'Has enviado demasiadas solicitudes. Intenta nuevamente más tarde.',
+          retry_after: rateLimit.retry_after,
+        }),
+        {
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'Retry-After': String(rateLimit.retry_after ?? 3600),
+            ...corsHeaders,
+          },
+        }
       )
     }
+    
     
     // Validar datos con cache
     const validation = validateQuoteForm(body)
