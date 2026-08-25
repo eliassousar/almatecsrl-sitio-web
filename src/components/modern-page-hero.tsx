@@ -1,10 +1,7 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-
-// Fondo servido como asset estático optimizado (WebP) desde public/lovable-uploads
-const heroBackground = '/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ModernPageHeroProps {
   title: string;
@@ -12,41 +9,11 @@ interface ModernPageHeroProps {
 }
 
 const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-
-  // Parallax ligero para la imagen de fondo
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-
   return (
     <section 
-      ref={ref}
       id="page-hero"
-      className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
+      className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-almatec-black"
     >
-      {/* Overlay negro con 70% opacidad */}
-      <div className="absolute inset-0 bg-black/70 z-[5]" />
-      
-      {/* Imagen de fondo con parallax */}
-      <motion.div 
-        style={{ 
-          y: backgroundY,
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-        className="absolute inset-0 w-full h-full z-0"
-      />
-
       {/* Contenido Principal */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
