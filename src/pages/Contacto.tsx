@@ -3,7 +3,6 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/forms/ContactForm';
 import ModernPageHero from '@/components/modern-page-hero';
-import UpcomingFairs from '@/components/about/UpcomingFairs';
 import SEO from '@/components/seo/SEO';
 import {
   ALMATEC_SITE_URL,
@@ -106,8 +105,6 @@ const Contacto = () => {
           </Card>
         </div>
       </section>
-
-      <UpcomingFairs />
 
       <section className="bg-almatec-dark-gray py-10 text-almatec-white md:py-16">
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
