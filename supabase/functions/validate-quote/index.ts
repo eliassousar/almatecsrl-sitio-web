@@ -1,364 +1,276 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import {
+  LEGACY_QUOTE_PRODUCTS,
+  LeadHandlerOptions,
+  SupabaseLike,
+  asAlias,
+  checkRateLimit,
+  consentValue,
+  emptyResponse,
+  formVersion,
+  insertConfirmed,
+  isAllowedOrigin,
+  isHoneypotTriggered,
+  jsonResponse,
+  normalizedChoice,
+  normalizeEmail,
+  normalizePhone,
+  optionalString,
+  parseJsonBody,
+  requiredString,
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../_shared/lead.ts";
 
-// CORS headers para optimizar preflight requests
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Max-Age': '86400', // Cache preflight por 24 horas
+export interface QuoteValidation {
+  ok: boolean;
+  errors: string[];
+  row?: Record<string, unknown>;
 }
 
-// Cache en memoria para validaciones frecuentes
-const validationCache = new Map<string, { isValid: boolean; timestamp: number }>()
-const CACHE_DURATION = 5 * 60 * 1000 // 5 minutos
+const VALIDATION_MESSAGES: Record<string, string> = {
+  form_version_type: "La versión del formulario no es válida.",
+  nombre_required: "El nombre es obligatorio.",
+  nombre_type: "El nombre debe ser texto.",
+  nombre_invalid: "El nombre no es válido.",
+  nombre_too_long: "El nombre es demasiado largo.",
+  email_required: "El correo electrónico es obligatorio.",
+  email_type: "El correo electrónico debe ser texto.",
+  email_invalid: "El correo electrónico no es válido.",
+  email_too_long: "El correo electrónico es demasiado largo.",
+  telefono_required: "El teléfono es obligatorio.",
+  telefono_type: "El teléfono debe ser texto.",
+  telefono_invalid: "El teléfono no es válido.",
+  telefono_too_long: "El teléfono es demasiado largo.",
+  empresa_required: "La empresa es obligatoria.",
+  empresa_type: "La empresa debe ser texto.",
+  empresa_too_long: "La empresa es demasiado larga.",
+  tipo_producto_required: "El tipo de producto es obligatorio.",
+  tipo_producto_type: "El tipo de producto debe ser texto.",
+  tipo_producto_invalid: "El tipo de producto seleccionado no es válido.",
+  tipo_producto_too_long: "El tipo de producto es demasiado largo.",
+  ubicacion_proyecto_required: "La ubicación del proyecto es obligatoria.",
+  ubicacion_proyecto_type: "La ubicación del proyecto debe ser texto.",
+  ubicacion_proyecto_too_long: "La ubicación del proyecto es demasiado larga.",
+  fecha_estimada_type: "La fecha estimada debe ser texto.",
+  fecha_estimada_too_long: "La fecha estimada es demasiado larga.",
+  fecha_estimada_invalid: "La fecha estimada no es válida.",
+  capacidad_requerida_type: "La capacidad requerida debe ser texto.",
+  capacidad_requerida_too_long: "La capacidad requerida es demasiado larga.",
+  tipo_cultivo_type: "El tipo de cultivo debe ser texto.",
+  tipo_cultivo_too_long: "El tipo de cultivo es demasiado largo.",
+  condiciones_ambientales_type: "Las condiciones ambientales deben ser texto.",
+  condiciones_ambientales_too_long: "Las condiciones ambientales son demasiado largas.",
+  energia_disponible_type: "La energía disponible debe ser texto.",
+  energia_disponible_too_long: "La energía disponible es demasiado larga.",
+  presupuesto_aproximado_type: "El presupuesto aproximado debe ser texto.",
+  presupuesto_aproximado_too_long: "El presupuesto aproximado es demasiado largo.",
+  comentarios_adicionales_type: "Los comentarios adicionales deben ser texto.",
+  comentarios_adicionales_too_long: "Los comentarios adicionales son demasiado largos.",
+  acepta_politica_type: "El consentimiento debe ser válido.",
+  acepta_politica_required: "Debes aceptar la política de privacidad.",
+  website_type: "La solicitud no es válida.",
+  timestamp_type: "La solicitud no es válida.",
+};
 
-// Batch processor para múltiples requests
-interface BatchRequest {
-  id: string
-  data: QuoteFormData
-  timestamp: number
+function validationDetails(errors: string[]): string[] {
+  return errors.map((error) => VALIDATION_MESSAGES[error] ?? "Revisa los datos ingresados.");
 }
 
-const batchQueue: BatchRequest[] = []
-const BATCH_SIZE = 10
-const BATCH_TIMEOUT = 5000 // 5 segundos
-
-// Esquema de validación server-side para cotizaciones
-interface QuoteFormData {
-  nombre: string
-  email: string
-  telefono: string
-  empresa: string
-  tipoProducto: string
-  ubicacionProyecto: string
-  fechaEstimada?: string
-  capacidadRequerida?: string
-  tipoCultivo?: string
-  condicionesAmbientales?: string
-  energiaDisponible?: string
-  presupuestoAproximado?: string
-  comentariosAdicionales?: string
-  // Honeypot field - should be empty for real submissions
-  website?: string
+function isCalendarDate(value: string): boolean {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/u.exec(value);
+  if (!match) return false;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1) return false;
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+  return day <= daysInMonth;
 }
 
-// Honeypot validation - returns true if submission appears to be from a bot
-function isHoneypotTriggered(data: any): boolean {
-  // If the honeypot field has any value, it's likely a bot
-  if (data.website && data.website.trim() !== '') {
-    console.log('Honeypot triggered - bot detected')
-    return true
-  }
-  
-  // Additional bot detection: check for suspiciously fast submissions
-  // (bots typically fill forms instantly)
-  if (data._timestamp) {
-    const submissionTime = Date.now() - parseInt(data._timestamp, 10)
-    // If form was filled in less than 3 seconds, likely a bot
-    if (submissionTime < 3000) {
-      console.log('Suspicious submission speed - possible bot')
-      return true
-    }
-  }
-  
-  return false
-}
+export function validateQuotePayload(value: Record<string, unknown>): QuoteValidation {
+  const errors: string[] = [];
+  const version = formVersion(value);
+  if (version === -1) errors.push("form_version_type");
 
-// Función de validación server-side optimizada con caching
-function validateQuoteForm(data: any): { isValid: boolean; errors: string[] } {
-  // Crear clave de cache basada en datos críticos
-  const cacheKey = `quote_validation:${JSON.stringify({
-    nombre: data.nombre?.trim(),
-    email: data.email?.trim(),
-    telefono: data.telefono?.trim(),
-    empresa: data.empresa?.trim(),
-    tipoProducto: data.tipoProducto,
-    ubicacionProyecto: data.ubicacionProyecto?.trim(),
-  })}`
-  
-  // Verificar cache
-  const cached = validationCache.get(cacheKey)
-  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-    return { isValid: cached.isValid, errors: cached.isValid ? [] : ['Cached validation failed'] }
-  }
-  
-  const errors: string[] = []
-  
-  // Validación nombre (optimizada)
-  if (!data.nombre || typeof data.nombre !== 'string') {
-    errors.push('El nombre es obligatorio')
-  } else {
-    const nombre = data.nombre.trim()
-    if (nombre.length < 2) errors.push('El nombre debe tener al menos 2 caracteres')
-    else if (nombre.length > 100) errors.push('El nombre no puede exceder 100 caracteres')
-  }
-  
-  // Validación email (optimizada)
-  if (!data.email || typeof data.email !== 'string') {
-    errors.push('El email es obligatorio')
-  } else {
-    const email = data.email.trim()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Ingrese un email válido')
-  }
-  
-  // Validación teléfono (optimizada)
-  if (!data.telefono || typeof data.telefono !== 'string') {
-    errors.push('El teléfono es obligatorio')
-  } else {
-    const telefono = data.telefono.trim()
-    if (!/^[0-9+\-\s()]+$/.test(telefono)) errors.push('Formato de teléfono inválido')
-    else if (telefono.length < 7) errors.push('El teléfono debe tener al menos 7 dígitos')
-  }
-  
-  // Validación empresa (optimizada)
-  if (!data.empresa || typeof data.empresa !== 'string') {
-    errors.push('La empresa es obligatoria')
-  } else if (data.empresa.trim().length > 200) {
-    errors.push('El nombre de la empresa no puede exceder 200 caracteres')
-  }
-  
-  // Validación tipo de producto (optimizada con Set)
-  const validProductos = new Set(['silos-gsi', 'sistemas-secado', 'transportadores', 'sistema-completo', 'otro'])
-  if (!data.tipoProducto || typeof data.tipoProducto !== 'string') {
-    errors.push('Seleccione el tipo de producto')
-  } else if (!validProductos.has(data.tipoProducto)) {
-    errors.push('Tipo de producto inválido')
-  }
-  
-  // Validación ubicación del proyecto (optimizada)
-  if (!data.ubicacionProyecto || typeof data.ubicacionProyecto !== 'string') {
-    errors.push('La ubicación del proyecto es obligatoria')
-  } else if (data.ubicacionProyecto.trim().length > 200) {
-    errors.push('La ubicación no puede exceder 200 caracteres')
-  }
-  
-  // Validación campos opcionales (optimizada)
-  if (data.fechaEstimada && typeof data.fechaEstimada === 'string') {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(data.fechaEstimada)) {
-      errors.push('Formato de fecha inválido')
-    }
-  }
-  
-  if (data.capacidadRequerida && typeof data.capacidadRequerida === 'string' && data.capacidadRequerida.trim().length > 100) {
-    errors.push('La capacidad requerida no puede exceder 100 caracteres')
-  }
-  
-  if (data.tipoCultivo && typeof data.tipoCultivo === 'string' && data.tipoCultivo.trim().length > 100) {
-    errors.push('El tipo de cultivo no puede exceder 100 caracteres')
-  }
-  
-  if (data.condicionesAmbientales && typeof data.condicionesAmbientales === 'string' && data.condicionesAmbientales.trim().length > 1000) {
-    errors.push('Las condiciones ambientales no pueden exceder 1000 caracteres')
-  }
-  
-  const validEnergias = new Set(['electrica', 'gas', 'diesel', 'solar', 'mixta'])
-  if (data.energiaDisponible && typeof data.energiaDisponible === 'string' && !validEnergias.has(data.energiaDisponible)) {
-    errors.push('Tipo de energía inválido')
-  }
-  
-  const validPresupuestos = new Set(['0-50k', '50k-100k', '100k-250k', '250k-500k', '500k+'])
-  if (data.presupuestoAproximado && typeof data.presupuestoAproximado === 'string' && !validPresupuestos.has(data.presupuestoAproximado)) {
-    errors.push('Rango de presupuesto inválido')
-  }
-  
-  if (data.comentariosAdicionales && typeof data.comentariosAdicionales === 'string' && data.comentariosAdicionales.trim().length > 2000) {
-    errors.push('Los comentarios adicionales no pueden exceder 2000 caracteres')
-  }
-  
-  const isValid = errors.length === 0
-  
-  // Guardar en cache
-  validationCache.set(cacheKey, { isValid, timestamp: Date.now() })
-  
-  // Limpiar cache periódicamente
-  if (validationCache.size > 1000) {
-    const now = Date.now()
-    for (const [key, value] of validationCache.entries()) {
-      if (now - value.timestamp > CACHE_DURATION) {
-        validationCache.delete(key)
-      }
-    }
-  }
-  
-  return { isValid, errors }
-}
+  const nombre = requiredString(value, ["nombre"], "nombre", 100, errors);
+  if (nombre && !validateName(nombre)) errors.push("nombre_invalid");
+  const email = normalizeEmail(requiredString(value, ["email"], "email", 254, errors));
+  if (email && !validateEmail(email)) errors.push("email_invalid");
+  const telefono = normalizePhone(requiredString(value, ["telefono", "phone"], "telefono", 30, errors));
+  if (telefono && !validatePhone(telefono)) errors.push("telefono_invalid");
+  const empresa = requiredString(value, ["empresa", "organizacion", "organization"], "empresa", 200, errors);
 
-// Función de sanitización
-function sanitizeQuoteData(data: any): QuoteFormData {
+  const rawProduct = requiredString(value, ["tipoProducto", "tipo_producto"], "tipo_producto", 80, errors);
+  const tipoProducto = normalizedChoice(rawProduct);
+  if (tipoProducto && !LEGACY_QUOTE_PRODUCTS.has(tipoProducto)) errors.push("tipo_producto_invalid");
+  const ubicacionProyecto = requiredString(
+    value,
+    ["ubicacionProyecto", "ubicacion_proyecto", "ubicacion", "municipio"],
+    "ubicacion_proyecto",
+    200,
+    errors,
+  );
+
+  const fechaEstimada = optionalString(value, ["fechaEstimada", "fecha_estimada"], "fecha_estimada", 30, errors);
+  if (fechaEstimada && !isCalendarDate(fechaEstimada)) errors.push("fecha_estimada_invalid");
+  const capacidadRequerida = optionalString(
+    value,
+    ["capacidadRequerida", "capacidad_requerida"],
+    "capacidad_requerida",
+    120,
+    errors,
+  );
+  const tipoCultivo = optionalString(value, ["tipoCultivo", "tipo_cultivo"], "tipo_cultivo", 100, errors);
+  const condicionesAmbientales = optionalString(
+    value,
+    ["condicionesAmbientales", "condiciones_ambientales"],
+    "condiciones_ambientales",
+    1000,
+    errors,
+  );
+  const energiaDisponible = optionalString(
+    value,
+    ["energiaDisponible", "energia_disponible"],
+    "energia_disponible",
+    50,
+    errors,
+  );
+  const presupuestoAproximado = optionalString(
+    value,
+    ["presupuestoAproximado", "presupuesto_aproximado"],
+    "presupuesto_aproximado",
+    120,
+    errors,
+  );
+  const comentariosAdicionales = optionalString(
+    value,
+    ["comentariosAdicionales", "comentarios_adicionales", "mensaje"],
+    "comentarios_adicionales",
+    3000,
+    errors,
+  );
+
+  const website = asAlias(value, "website");
+  if (website !== undefined && typeof website !== "string") errors.push("website_type");
+  const timestamp = asAlias(value, "_timestamp");
+  if (timestamp !== undefined && typeof timestamp !== "string" && typeof timestamp !== "number") {
+    errors.push("timestamp_type");
+  }
+
+  // validate-quote predates the consent checkbox. If a future v2 caller uses it,
+  // enforce consent, but legacy requests remain accepted and are not assigned a
+  // consent column because quote_requests has no such historical field.
+  const consent = asAlias(value, "aceptaPolitica", "acepta_politica");
+  if (consent !== undefined && typeof consent !== "boolean") errors.push("acepta_politica_type");
+  // Legacy requests may omit consent for historical compatibility. An
+  // explicitly false value is different: reject it, and require v2 consent.
+  if (consent === false || (version === 2 && !consentValue(value))) errors.push("acepta_politica_required");
+
+  if (errors.length > 0) return { ok: false, errors };
+
   return {
-    nombre: data.nombre?.trim().replace(/\s+/g, ' ') || '',
-    email: data.email?.trim().toLowerCase() || '',
-    telefono: data.telefono?.trim().replace(/\s+/g, ' ') || '',
-    empresa: data.empresa?.trim().replace(/\s+/g, ' ') || '',
-    tipoProducto: data.tipoProducto || '',
-    ubicacionProyecto: data.ubicacionProyecto?.trim().replace(/\s+/g, ' ') || '',
-    fechaEstimada: data.fechaEstimada || null,
-    capacidadRequerida: data.capacidadRequerida?.trim().replace(/\s+/g, ' ') || null,
-    tipoCultivo: data.tipoCultivo?.trim().replace(/\s+/g, ' ') || null,
-    condicionesAmbientales: data.condicionesAmbientales?.trim().replace(/\s+/g, ' ') || null,
-    energiaDisponible: data.energiaDisponible || null,
-    presupuestoAproximado: data.presupuestoAproximado || null,
-    comentariosAdicionales: data.comentariosAdicionales?.trim().replace(/\s+/g, ' ') || null,
-  }
+    ok: true,
+    errors: [],
+    row: {
+      nombre,
+      email,
+      telefono,
+      empresa,
+      tipo_producto: tipoProducto,
+      ubicacion_proyecto: ubicacionProyecto,
+      fecha_estimada: fechaEstimada || null,
+      capacidad_requerida: capacidadRequerida || null,
+      tipo_cultivo: tipoCultivo || null,
+      condiciones_ambientales: condicionesAmbientales || null,
+      energia_disponible: energiaDisponible || null,
+      presupuesto_aproximado: presupuestoAproximado || null,
+      comentarios_adicionales: comentariosAdicionales || null,
+    },
+  };
 }
 
-// Función de batch processing para cotizaciones
-async function processBatch(supabase: any) {
-  if (batchQueue.length === 0) return
-
-  const batch = batchQueue.splice(0, BATCH_SIZE)
-  
-  try {
-    const insertData = batch.map(item => ({
-      nombre: item.data.nombre,
-      email: item.data.email,
-      telefono: item.data.telefono,
-      empresa: item.data.empresa,
-      tipo_producto: item.data.tipoProducto,
-      ubicacion_proyecto: item.data.ubicacionProyecto,
-      fecha_estimada: item.data.fechaEstimada,
-      capacidad_requerida: item.data.capacidadRequerida,
-      tipo_cultivo: item.data.tipoCultivo,
-      condiciones_ambientales: item.data.condicionesAmbientales,
-      energia_disponible: item.data.energiaDisponible,
-      presupuesto_aproximado: item.data.presupuestoAproximado,
-      comentarios_adicionales: item.data.comentariosAdicionales,
-    }))
-
-    const { data, error } = await supabase
-      .from('quote_requests')
-      .insert(insertData)
-
-    if (error) {
-      console.error('Batch insert error:', error)
-      // Reintroducir elementos fallidos en la cola
-      batchQueue.unshift(...batch)
+export function createQuoteHandler(options: LeadHandlerOptions): (request: Request) => Promise<Response> {
+  return async (request: Request): Promise<Response> => {
+    const origin = request.headers.get("origin");
+    const configured = options.allowedOrigins;
+    if (!isAllowedOrigin(origin, configured)) {
+      return jsonResponse({ error: "Origen no permitido." }, 403, null, configured);
     }
-  } catch (error) {
-    console.error('Batch processing error:', error)
-    // Reintroducir elementos fallidos en la cola
-    batchQueue.unshift(...batch)
-  }
-}
+    if (request.method === "OPTIONS") return emptyResponse(204, origin, configured);
+    if (request.method !== "POST") {
+      return jsonResponse({ error: "Método no permitido." }, 405, origin, configured, { Allow: "POST, OPTIONS" });
+    }
 
-serve(async (req) => {
-  // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
-  }
-  
-  // Solo permite POST
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { 
-      status: 405, 
-      headers: { 'Content-Type': 'application/json', ...corsHeaders } 
-    })
-  }
-  
-  try {
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-    )
-    
-    // IP real del cliente (primer valor de x-forwarded-for)
-    const clientIP = (req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '')
-      .split(',')[0]
-      .trim()
-    
-    // Parsear datos con timeout
-    const timeoutPromise = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Request timeout')), 10000)
-    )
-    
-    const body = await Promise.race([
-      req.json(),
-      timeoutPromise
-    ]) as any
-    
-    // Check honeypot - reject bot submissions silently
+    const parsed = await parseJsonBody(request);
+    if (!parsed.ok) {
+      const message = parsed.error === "too_large"
+        ? "La solicitud es demasiado grande."
+        : "El cuerpo de la solicitud no es JSON válido.";
+      return jsonResponse({ error: message }, 400, origin, configured);
+    }
+    const body = parsed.value;
+
     if (isHoneypotTriggered(body)) {
-      // Return success to not tip off the bot, but don't process
-      return new Response(
-        JSON.stringify({ success: true, message: 'Quote request submitted successfully' }),
-        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      )
+      return jsonResponse({ success: true, accepted: false, bot: true }, 200, origin, configured);
     }
-    
-    // Rate limiting por IP y por email (3/hora, 10/día)
-    const { data: rateLimit, error: rateLimitError } = await supabase.rpc('check_rate_limit', {
-      _action: 'quote',
-      _ip: clientIP,
-      _email: typeof body?.email === 'string' ? body.email : '',
-      _max_per_hour: 3,
-      _max_per_day: 10,
-    })
-    
-    if (rateLimitError) {
-      console.error('Rate limit check failed:', rateLimitError)
-    } else if (rateLimit && rateLimit.allowed === false) {
-      return new Response(
-        JSON.stringify({
-          error: 'Has enviado demasiadas solicitudes. Intenta nuevamente más tarde.',
-          retry_after: rateLimit.retry_after,
-        }),
-        {
-          status: 429,
-          headers: {
-            'Content-Type': 'application/json',
-            'Retry-After': String(rateLimit.retry_after ?? 3600),
-            ...corsHeaders,
-          },
-        }
-      )
+
+    const validation = validateQuotePayload(body);
+    if (!validation.ok || !validation.row) {
+      return jsonResponse(
+        { error: "Revisa los datos ingresados.", details: validationDetails(validation.errors) },
+        400,
+        origin,
+        configured,
+      );
     }
-    
-    
-    // Validar datos con cache
-    const validation = validateQuoteForm(body)
-    if (!validation.isValid) {
-      return new Response(
-        JSON.stringify({ error: 'Validation failed', details: validation.errors }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      )
+
+    let supabase: SupabaseLike;
+    try {
+      supabase = options.getSupabase();
+    } catch {
+      return jsonResponse({ error: "Servicio temporalmente no disponible. Intenta nuevamente más tarde." }, 503, origin, configured);
     }
-    
-    // Sanitizar datos
-    const sanitizedData = sanitizeQuoteData(body)
-    
-    // Agregar a batch queue para procesamiento asíncrono
-    const batchItem: BatchRequest = {
-      id: crypto.randomUUID(),
-      data: sanitizedData,
-      timestamp: Date.now()
+
+    const rateLimit = await checkRateLimit(supabase, "quote", request, String(validation.row.email ?? ""));
+    if (!rateLimit.ok) {
+      return jsonResponse(
+        { error: "No se pudo verificar el límite de solicitudes. Intenta nuevamente más tarde." },
+        503,
+        origin,
+        configured,
+        { "Retry-After": "30" },
+      );
     }
-    
-    batchQueue.push(batchItem)
-    
-    // Procesar batch si llegó al límite o por timeout
-    if (batchQueue.length >= BATCH_SIZE) {
-      EdgeRuntime.waitUntil(processBatch(supabase))
-    } else {
-      // Procesar batch después de timeout
-      setTimeout(() => {
-        if (batchQueue.length > 0) {
-          EdgeRuntime.waitUntil(processBatch(supabase))
-        }
-      }, BATCH_TIMEOUT)
+    if (!rateLimit.allowed) {
+      return jsonResponse(
+        { error: "Has enviado demasiadas solicitudes. Intenta nuevamente más tarde." },
+        429,
+        origin,
+        configured,
+        { "Retry-After": String(rateLimit.retryAfter ?? 3600) },
+      );
     }
-    
-    // Responder inmediatamente
-    return new Response(
-      JSON.stringify({ success: true, message: 'Quote request submitted successfully' }),
-      { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    )
-    
-  } catch (error) {
-    console.error('Server error:', error)
-    return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
-      { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    )
-  }
-})
+
+    const inserted = await insertConfirmed(supabase, "quote_requests", validation.row);
+    if (!inserted) {
+      return jsonResponse({ error: "No se pudo guardar la solicitud. Intenta nuevamente más tarde." }, 503, origin, configured, {
+        "Retry-After": "30",
+      });
+    }
+
+    return jsonResponse({ success: true }, 200, origin, configured);
+  };
+}
+
+const defaultSupabase = (): SupabaseLike => createClient(
+  Deno.env.get("SUPABASE_URL") ?? "",
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+) as unknown as SupabaseLike;
+
+if (import.meta.main || Deno.env.has("DENO_DEPLOYMENT_ID")) {
+  serve(createQuoteHandler({ getSupabase: defaultSupabase }));
+}

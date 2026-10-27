@@ -11,7 +11,7 @@ export default defineMcp({
   title: "Almatec SRL MCP",
   version: "0.1.0",
   instructions:
-    "Herramientas del sitio de Almatec SRL (silos y equipamiento agroindustrial GSI en Bolivia). Usa `list_products` y `get_company_info` para datos del catálogo y contacto; `list_contact_inquiries` y `list_quote_requests` para consultas y cotizaciones recibidas (solo cuentas con permisos).",
+    "Herramientas de Almatec SRL en Bolivia. Usa `list_products` y `get_company_info` para catálogo y contacto público. `list_contact_inquiries` y `list_quote_requests` requieren sesión autenticada con rol admin o sales y devuelven solo campos comerciales explícitos; viewer no recibe filas de leads y solo puede consultar agregados autorizados por el dashboard.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated",

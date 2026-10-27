@@ -1,189 +1,124 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { useNavigate, Link } from 'react-router-dom';
-import { CheckCircle } from 'lucide-react';
-import ProjectsGallery from '@/components/projects/ProjectsGallery';
+import { Link } from 'react-router-dom';
 import NewHero from '@/components/new-hero';
 import SEO from '@/components/seo/SEO';
 import { ALMATEC_SITE_URL } from '@/config/contact';
 
 const Home = () => {
-  const navigate = useNavigate();
+  const productCards = [
+    {
+      title: 'Silos de almacenamiento',
+      description: 'Soluciones para conservar el grano con almacenamiento, aireación y monitoreo adecuados a la operación.',
+      image: '/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp',
+      tab: 'almacenamiento',
+    },
+    {
+      title: 'Sistemas de secado',
+      description: 'Equipos y configuraciones para reducir humedad y proteger la calidad antes del almacenamiento.',
+      image: '/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.webp',
+      tab: 'secado',
+    },
+    {
+      title: 'Manejo de granos',
+      description: 'Recepción, descarga, transporte y despacho coordinados para evitar cuellos de botella.',
+      image: '/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.webp',
+      tab: 'manejo',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
-        <SEO 
-          title="Almatec SRL - Soluciones Agrícolas de Alto Rendimiento"
-          description="Representante oficial de silos GSI en Bolivia. Más de 20 años ofreciendo soluciones integrales de almacenamiento, secado y manejo de granos."
-          url={ALMATEC_SITE_URL}
-        />
-        {/* Nueva Hero Section */}
-        <NewHero />
+      <SEO
+        title="Almatec Agronegocios | Soluciones poscosecha en Bolivia"
+        description="Soluciones poscosecha para almacenar, secar y manejar granos en Bolivia, con orientación para productores, compradores, acopios y agroindustrias."
+        url={ALMATEC_SITE_URL}
+      />
+      <NewHero />
 
-      {/* Sección de Trayectoria */}
-      <section className="py-16 bg-almatec-dark-gray w-full">
+      <section className="w-full bg-almatec-dark-gray py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white leading-tight">
-              Una trayectoria construida con la confianza<br className="hidden md:block" /> del productor.
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 font-montserrat text-sm font-semibold uppercase tracking-[0.18em] text-almatec-yellow">Una mirada técnica a cada operación</p>
+            <h2 className="font-montserrat text-3xl font-bold leading-tight text-white md:text-4xl">
+              La capacidad correcta empieza por entender su grano y su operación.
             </h2>
+            <p className="mx-auto mt-5 font-open-sans text-lg leading-relaxed text-gray-300">
+              Evaluamos necesidad, ubicación, cultivo, volumen y alcance para separar lo esencial de lo que puede crecer después.
+            </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center lg:border-r border-gray-700">
-              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">21</span>
-              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                años brindando tecnología del líder mundial GSI® en Bolivia.
-              </p>
+          <div className="mt-10 grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+            <div className="border-white/15 px-4 sm:border-r">
+              <span className="font-montserrat text-3xl font-bold text-almatec-yellow">+60</span>
+              <p className="mt-2 font-open-sans text-sm text-gray-300">proyectos confirmados por Almatec</p>
             </div>
-            <div className="text-center lg:border-r border-gray-700">
-              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">+60</span>
-              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                proyectos ejecutados en todo el territorio nacional.
-              </p>
+            <div className="border-white/15 px-4 sm:border-r">
+              <span className="font-montserrat text-3xl font-bold text-almatec-yellow">2016</span>
+              <p className="mt-2 font-open-sans text-sm text-gray-300">año de fundación de Almatec SRL</p>
             </div>
-            <div className="text-center lg:border-r border-gray-700">
-              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">3</span>
-              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                marcas líderes integradas en cada solución.
-              </p>
-            </div>
-            <div className="text-center">
-              <span className="font-montserrat font-bold text-6xl text-almatec-yellow">1</span>
-              <p className="font-open-sans text-sm text-gray-300 mt-3 leading-relaxed max-w-[140px] mx-auto">
-                solución completa de Llave en Mano.
-              </p>
+            <div className="px-4">
+              <span className="font-montserrat text-3xl font-bold text-almatec-yellow">Bolivia</span>
+              <p className="mt-2 font-open-sans text-sm text-gray-300">nuestro ámbito de operación</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Servicios Destacados */}
-      <section id="productos" className="py-16 bg-background">
+      <section id="productos" className="bg-background py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-foreground mb-4">
-              Línea de Productos
-            </h2>
-            <p className="font-open-sans text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ofrecemos una amplia gama de productos diseñados para optimizar su producción agroindustrial.
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-montserrat text-3xl font-bold text-foreground md:text-4xl">Soluciones para su operación</h2>
+            <p className="mx-auto max-w-2xl font-open-sans text-lg text-muted-foreground">
+              Conozca las funciones que pueden formar parte de una solución poscosecha, según su escala y sus objetivos.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Servicio 1 */}
-            <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
-              onClick={() => navigate('/productos?tab=almacenamiento')}
-            >
-              <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-foreground">
-                  Silos de Almacenamiento
-                </CardTitle>
-                <CardDescription className="font-open-sans text-muted-foreground">
-                  Diseño e instalación de silos para un almacenamiento eficiente y seguro de granos.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <AspectRatio ratio={16 / 9}>
-                  <img
-                    src="/lovable-uploads/08d599de-6eea-419d-ac32-ea66dec5edf7.webp"
-                    alt="Silos de Almacenamiento"
-                    width={800}
-                    height={450}
-                    loading="lazy"
-                    decoding="async"
-                    className="object-cover rounded-md"
-                  />
-                </AspectRatio>
-              </CardContent>
-            </Card>
-
-            {/* Servicio 2 */}
-            <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
-              onClick={() => navigate('/productos?tab=secado')}
-            >
-              <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-foreground">
-                  Sistemas de Secado
-                </CardTitle>
-                <CardDescription className="font-open-sans text-muted-foreground">
-                  Implementación de sistemas de secado de granos para preservar la calidad y evitar pérdidas.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <AspectRatio ratio={16 / 9}>
-                  <img
-                    src="/lovable-uploads/cb476a95-88e2-4231-8e70-d0f3953b123b.webp"
-                    alt="Sistemas de Secado"
-                    width={800}
-                    height={450}
-                    loading="lazy"
-                    decoding="async"
-                    className="object-cover rounded-md"
-                  />
-                </AspectRatio>
-              </CardContent>
-            </Card>
-
-            {/* Servicio 3 */}
-            <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer hover:scale-105 transition-transform bg-card"
-              onClick={() => navigate('/productos?tab=manejo')}
-            >
-              <CardHeader>
-                <CardTitle className="font-montserrat text-xl text-foreground">
-                  Manejo de Granos
-                </CardTitle>
-                <CardDescription className="font-open-sans text-muted-foreground">
-                  Soluciones integrales para el manejo eficiente de granos, desde el transporte hasta el procesamiento final.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <AspectRatio ratio={16 / 9}>
-                  <img
-                    src="/lovable-uploads/d8a5bf33-184f-481b-add7-e884b002994a.webp"
-                    alt="Manejo de Granos"
-                    width={800}
-                    height={450}
-                    loading="lazy"
-                    decoding="async"
-                    className="object-cover rounded-md"
-                  />
-                </AspectRatio>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {productCards.map((card) => (
+              <Link
+                key={card.tab}
+                to={`/productos?tab=${card.tab}`}
+                className="group block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-almatec-yellow focus-visible:ring-offset-2"
+                aria-label={`Ver soluciones de ${card.title.toLowerCase()}`}
+              >
+                <Card className="h-full bg-card transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <CardHeader>
+                    <CardTitle className="font-montserrat text-xl text-foreground">{card.title}</CardTitle>
+                    <CardDescription className="font-open-sans text-muted-foreground">{card.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <AspectRatio ratio={16 / 9}>
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        width={800}
+                        height={450}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full rounded-md object-cover"
+                      />
+                    </AspectRatio>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
           <div className="mt-12 text-center">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold px-8 py-4 text-lg"
-              onClick={() => navigate('/productos')}
-            >
-              Ver Productos y Soluciones
+            <Button asChild size="lg" className="bg-primary px-8 py-4 font-montserrat text-lg font-semibold text-primary-foreground hover:bg-primary/90">
+              <Link to="/productos">Ver todas las soluciones</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Galería de Proyectos */}
-      <ProjectsGallery />
-
-      {/* CTA Final */}
-      <section id="contacto" className="py-20 bg-gradient-to-r from-muted to-background text-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-8 text-center">
-            ¿Está pensando en ampliar o iniciar su capacidad de almacenamiento?
-          </h2>
-          <p className="font-open-sans text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Cada operación agroindustrial tiene sus propias condiciones y objetivos. Conversemos sobre su proyecto — sin compromiso y con criterio técnico — para identificar juntos la solución más adecuada.
+      <section id="contacto" className="bg-gradient-to-r from-muted to-background py-20 text-foreground">
+        <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="mb-6 font-montserrat text-3xl font-bold md:text-4xl">Cuéntenos qué necesita resolver</h2>
+          <p className="mx-auto mb-8 max-w-2xl font-open-sans text-xl text-muted-foreground">
+            Comparta lo que ya conoce de su operación. Le ayudaremos a ordenar el alcance y los próximos datos técnicos.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold px-8 py-4 text-lg"
-            onClick={() => window.location.href = '/contacto'}
-          >
-            Iniciar una consulta
+          <Button asChild size="lg" className="bg-primary px-8 py-4 font-montserrat text-lg font-semibold text-primary-foreground hover:bg-primary/90">
+            <Link to="/contacto">Contar mi proyecto</Link>
           </Button>
         </div>
       </section>

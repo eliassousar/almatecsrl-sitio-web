@@ -6,7 +6,7 @@ export default defineTool({
   name: "list_contact_inquiries",
   title: "Listar consultas de contacto",
   description:
-    "Lista las consultas recibidas por el formulario de contacto. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+    "Lista campos comerciales explícitos de consultas para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
   inputSchema: {
     limit: z.number().int().min(1).max(100).default(20).describe("Cantidad máxima de registros."),
   },

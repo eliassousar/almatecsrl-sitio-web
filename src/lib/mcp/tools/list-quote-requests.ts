@@ -6,7 +6,7 @@ export default defineTool({
   name: "list_quote_requests",
   title: "Listar solicitudes de cotización",
   description:
-    "Lista las solicitudes de cotización recibidas. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+    "Lista campos comerciales explícitos de cotizaciones para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
   inputSchema: {
     limit: z.number().int().min(1).max(100).default(20).describe("Cantidad máxima de registros."),
   },
@@ -17,7 +17,7 @@ export default defineTool({
     }
     const { data, error } = await supabaseForUser(ctx)
       .from("quote_requests")
-      .select("*")
+      .select("id, created_at, nombre, email, telefono, empresa, tipo_producto, ubicacion_proyecto, fecha_estimada, capacidad_requerida, tipo_cultivo, condiciones_ambientales, energia_disponible, presupuesto_aproximado, comentarios_adicionales")
       .order("created_at", { ascending: false })
       .limit(limit ?? 20);
 

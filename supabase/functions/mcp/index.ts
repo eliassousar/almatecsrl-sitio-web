@@ -337,22 +337,41 @@ import { z as z2 } from "npm:zod@^3.25.76";
 
 // src/lib/mcp/supabase-client.ts
 import { createClient } from "npm:@supabase/supabase-js@^2.50.2";
-function supabaseForUser(ctx) {
-  return createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_PUBLISHABLE_KEY,
-    {
-      global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
-      auth: { persistSession: false, autoRefreshToken: false }
+import process from "node:process";
+function publishableKey() {
+  const explicitKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+  if (explicitKey) return explicitKey;
+  const keysJson = process.env.SUPABASE_PUBLISHABLE_KEYS;
+  if (keysJson) {
+    try {
+      const keys = JSON.parse(keysJson);
+      if (keys && typeof keys === "object" && !Array.isArray(keys)) {
+        const entries = keys;
+        const key = entries.default ?? Object.values(entries).find(
+          (value) => typeof value === "string" && value.startsWith("sb_publishable_")
+        );
+        if (typeof key === "string" && key.startsWith("sb_publishable_")) return key;
+      }
+    } catch {
     }
-  );
+  }
+  return process.env.SUPABASE_ANON_KEY;
+}
+function supabaseForUser(ctx) {
+  const url = process.env.SUPABASE_URL;
+  const key = publishableKey();
+  if (!url || !key) throw new Error("Configuraci\xF3n p\xFAblica de Supabase no disponible");
+  return createClient(url, key, {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
 }
 
 // src/lib/mcp/tools/list-contact-inquiries.ts
 var list_contact_inquiries_default = defineTool3({
   name: "list_contact_inquiries",
   title: "Listar consultas de contacto",
-  description: "Lista las consultas recibidas por el formulario de contacto. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+  description: "Lista campos comerciales expl\xEDcitos de consultas para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
   inputSchema: {
     limit: z2.number().int().min(1).max(100).default(20).describe("Cantidad m\xE1xima de registros.")
   },
@@ -378,7 +397,7 @@ import { z as z3 } from "npm:zod@^3.25.76";
 var list_quote_requests_default = defineTool4({
   name: "list_quote_requests",
   title: "Listar solicitudes de cotizaci\xF3n",
-  description: "Lista las solicitudes de cotizaci\xF3n recibidas. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+  description: "Lista campos comerciales expl\xEDcitos de cotizaciones para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
   inputSchema: {
     limit: z3.number().int().min(1).max(100).default(20).describe("Cantidad m\xE1xima de registros.")
   },
@@ -387,7 +406,7 @@ var list_quote_requests_default = defineTool4({
     if (!ctx.isAuthenticated()) {
       return { content: [{ type: "text", text: "No autenticado" }], isError: true };
     }
-    const { data, error } = await supabaseForUser(ctx).from("quote_requests").select("*").order("created_at", { ascending: false }).limit(limit ?? 20);
+    const { data, error } = await supabaseForUser(ctx).from("quote_requests").select("id, created_at, nombre, email, telefono, empresa, tipo_producto, ubicacion_proyecto, fecha_estimada, capacidad_requerida, tipo_cultivo, condiciones_ambientales, energia_disponible, presupuesto_aproximado, comentarios_adicionales").order("created_at", { ascending: false }).limit(limit ?? 20);
     if (error) {
       return { content: [{ type: "text", text: error.message }], isError: true };
     }
@@ -404,7 +423,7 @@ var mcp_default = defineMcp({
   name: "almatec-mcp",
   title: "Almatec SRL MCP",
   version: "0.1.0",
-  instructions: "Herramientas del sitio de Almatec SRL (silos y equipamiento agroindustrial GSI en Bolivia). Usa `list_products` y `get_company_info` para datos del cat\xE1logo y contacto; `list_contact_inquiries` y `list_quote_requests` para consultas y cotizaciones recibidas (solo cuentas con permisos).",
+  instructions: "Herramientas de Almatec SRL en Bolivia. Usa `list_products` y `get_company_info` para cat\xE1logo y contacto p\xFAblico. `list_contact_inquiries` y `list_quote_requests` requieren sesi\xF3n autenticada con rol admin o sales y devuelven solo campos comerciales expl\xEDcitos; viewer no recibe filas de leads y solo puede consultar agregados autorizados por el dashboard.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"

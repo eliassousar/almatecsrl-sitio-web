@@ -1,305 +1,226 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import {
+  CONTACT_SUBJECTS,
+  LeadHandlerOptions,
+  SupabaseLike,
+  addStructuredDetails,
+  asAlias,
+  checkRateLimit,
+  consentValue,
+  emptyResponse,
+  formVersion,
+  insertConfirmed,
+  isHoneypotTriggered,
+  isAllowedOrigin,
+  jsonResponse,
+  normalizedChoice,
+  normalizeEmail,
+  normalizePhone,
+  optionalString,
+  parseJsonBody,
+  requiredString,
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../_shared/lead.ts";
 
-// CORS headers para optimizar preflight requests
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Max-Age': '86400', // Cache preflight por 24 horas
+export interface ContactValidation {
+  ok: boolean;
+  errors: string[];
+  row?: Record<string, unknown>;
 }
 
-// Cache en memoria para validaciones frecuentes
-const validationCache = new Map<string, { isValid: boolean; timestamp: number }>()
-const CACHE_DURATION = 5 * 60 * 1000 // 5 minutos
+const VALIDATION_MESSAGES: Record<string, string> = {
+  form_version_type: "La versión del formulario no es válida.",
+  nombre_required: "El nombre es obligatorio.",
+  nombre_type: "El nombre debe ser texto.",
+  nombre_invalid: "El nombre no es válido.",
+  nombre_too_long: "El nombre es demasiado largo.",
+  email_type: "El correo electrónico debe ser texto.",
+  email_invalid: "El correo electrónico no es válido.",
+  email_too_long: "El correo electrónico es demasiado largo.",
+  telefono_type: "El teléfono debe ser texto.",
+  telefono_invalid: "El teléfono no es válido.",
+  telefono_too_long: "El teléfono es demasiado largo.",
+  contacto_required: "Ingresa un correo electrónico o un teléfono.",
+  empresa_type: "La empresa debe ser texto.",
+  empresa_too_long: "La empresa es demasiado larga.",
+  ubicacion_required: "La ubicación es obligatoria para este formulario.",
+  ubicacion_type: "La ubicación debe ser texto.",
+  ubicacion_too_long: "La ubicación es demasiado larga.",
+  asunto_required: "El asunto es obligatorio.",
+  asunto_type: "El asunto debe ser texto.",
+  asunto_invalid: "El asunto seleccionado no es válido.",
+  asunto_too_long: "El asunto es demasiado largo.",
+  mensaje_type: "El mensaje debe ser texto.",
+  mensaje_too_long: "El mensaje es demasiado largo.",
+  tipo_cultivo_type: "El tipo de cultivo debe ser texto.",
+  tipo_cultivo_too_long: "El tipo de cultivo es demasiado largo.",
+  actividad_type: "La actividad debe ser texto.",
+  actividad_too_long: "La actividad es demasiado larga.",
+  volumen_aprox_type: "El volumen aproximado debe ser texto.",
+  volumen_aprox_too_long: "El volumen aproximado es demasiado largo.",
+  acepta_politica_type: "El consentimiento debe ser válido.",
+  acepta_politica_required: "Debes aceptar la política de privacidad.",
+  website_type: "La solicitud no es válida.",
+  timestamp_type: "La solicitud no es válida.",
+  timestamp_too_long: "La solicitud no es válida.",
+};
 
-// Esquema de validación server-side (replica del frontend)
-interface ContactFormData {
-  nombre: string
-  email: string
-  telefono: string
-  empresa: string
-  asunto: string
-  mensaje: string
-  ubicacion?: string
-  tipoCultivo?: string
-  aceptaPolitica: boolean
-  // Honeypot field - should be empty for real submissions
-  website?: string
+function validationDetails(errors: string[]): string[] {
+  return errors.map((error) => VALIDATION_MESSAGES[error] ?? "Revisa los datos ingresados.");
 }
 
-// Honeypot validation - returns true if submission appears to be from a bot
-function isHoneypotTriggered(data: any): boolean {
-  // If the honeypot field has any value, it's likely a bot
-  if (data.website && data.website.trim() !== '') {
-    console.log('Honeypot triggered - bot detected')
-    return true
-  }
-  
-  // Additional bot detection: check for suspiciously fast submissions
-  // (bots typically fill forms instantly)
-  if (data._timestamp) {
-    const submissionTime = Date.now() - parseInt(data._timestamp, 10)
-    // If form was filled in less than 3 seconds, likely a bot
-    if (submissionTime < 3000) {
-      console.log('Suspicious submission speed - possible bot')
-      return true
-    }
-  }
-  
-  return false
+function validateBooleanField(value: Record<string, unknown>, errors: string[]): void {
+  const raw = asAlias(value, "aceptaPolitica", "acepta_politica");
+  if (raw !== undefined && typeof raw !== "boolean") errors.push("acepta_politica_type");
 }
 
-// Función de validación server-side optimizada con caching
-function validateContactForm(data: any): { isValid: boolean; errors: string[] } {
-  // Crear clave de cache basada en datos críticos
-  const cacheKey = `validation:${JSON.stringify({
-    nombre: data.nombre?.trim(),
-    email: data.email?.trim(),
-    telefono: data.telefono?.trim(),
-    empresa: data.empresa?.trim(),
-    asunto: data.asunto,
-    mensaje: data.mensaje?.trim().substring(0, 100), // Solo primeros 100 chars para cache
-    aceptaPolitica: data.aceptaPolitica
-  })}`
-  
-  // Verificar cache
-  const cached = validationCache.get(cacheKey)
-  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-    return { isValid: cached.isValid, errors: cached.isValid ? [] : ['Cached validation failed'] }
-  }
-  
-  const errors: string[] = []
-  
-  // Validación nombre (optimizada)
-  if (!data.nombre || typeof data.nombre !== 'string') {
-    errors.push('El nombre es obligatorio')
-  } else {
-    const nombre = data.nombre.trim()
-    if (nombre.length < 2) errors.push('El nombre debe tener al menos 2 caracteres')
-    else if (nombre.length > 100) errors.push('El nombre no puede exceder 100 caracteres')
-    else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/.test(nombre)) errors.push('El nombre solo puede contener letras y espacios')
-    else if (nombre.split(' ').length < 2) errors.push('Ingrese su nombre completo (nombre y apellido)')
-  }
-  
-  // Validación email (optimizada)
-  if (!data.email || typeof data.email !== 'string') {
-    errors.push('El email es obligatorio')
-  } else {
-    const email = data.email.trim()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Ingrese un email válido')
-    else if (email.length > 254) errors.push('El email no puede exceder 254 caracteres')
-  }
-  
-  // Validación teléfono (optimizada)
-  if (!data.telefono || typeof data.telefono !== 'string') {
-    errors.push('El teléfono es obligatorio')
-  } else {
-    const telefono = data.telefono.trim()
-    if (!/^[0-9+\-\s()]+$/.test(telefono)) errors.push('Formato de teléfono inválido')
-    else if (telefono.length < 7 || telefono.length > 20) errors.push('El teléfono debe tener entre 7 y 20 caracteres')
-  }
-  
-  // Validación empresa (optimizada)
-  if (!data.empresa || typeof data.empresa !== 'string') {
-    errors.push('La empresa/organización es obligatoria')
-  } else if (data.empresa.trim().length > 200) {
-    errors.push('El nombre de la empresa no puede exceder 200 caracteres')
-  }
-  
-  // Validación asunto (optimizada con Set)
-  const validAsuntos = new Set(['silos-gsi', 'cotizacion', 'servicio-tecnico', 'informacion-general', 'otro'])
-  if (!data.asunto || typeof data.asunto !== 'string') {
-    errors.push('Seleccione un asunto')
-  } else if (!validAsuntos.has(data.asunto)) {
-    errors.push('Asunto inválido')
-  }
-  
-  // Validación mensaje (optimizada)
-  if (!data.mensaje || typeof data.mensaje !== 'string') {
-    errors.push('El mensaje es obligatorio')
-  } else {
-    const mensaje = data.mensaje.trim()
-    if (mensaje.length < 20) errors.push('El mensaje debe tener al menos 20 caracteres')
-    else if (mensaje.length > 2000) errors.push('El mensaje no puede exceder 2000 caracteres')
-  }
-  
-  // Validación campos opcionales (optimizada)
-  if (data.ubicacion && typeof data.ubicacion === 'string' && data.ubicacion.trim().length > 100) {
-    errors.push('La ubicación no puede exceder 100 caracteres')
-  }
-  
-  if (data.tipoCultivo && typeof data.tipoCultivo === 'string' && data.tipoCultivo.trim().length > 100) {
-    errors.push('El tipo de cultivo no puede exceder 100 caracteres')
-  }
-  
-  // Validación política
-  if (data.aceptaPolitica !== true) {
-    errors.push('Debe aceptar la política de privacidad')
-  }
-  
-  const isValid = errors.length === 0
-  
-  // Guardar en cache
-  validationCache.set(cacheKey, { isValid, timestamp: Date.now() })
-  
-  // Limpiar cache periódicamente
-  if (validationCache.size > 1000) {
-    const now = Date.now()
-    for (const [key, value] of validationCache.entries()) {
-      if (now - value.timestamp > CACHE_DURATION) {
-        validationCache.delete(key)
-      }
-    }
-  }
-  
-  return { isValid, errors }
-}
+export function validateContactPayload(value: Record<string, unknown>): ContactValidation {
+  const errors: string[] = [];
+  const version = formVersion(value);
+  if (version === -1) errors.push("form_version_type");
 
-// Función de sanitización
-function sanitizeData(data: any): ContactFormData {
+  const nombre = requiredString(value, ["nombre"], "nombre", 100, errors);
+  if (nombre && !validateName(nombre)) errors.push("nombre_invalid");
+
+  const email = normalizeEmail(optionalString(value, ["email"], "email", 254, errors));
+  if (email && !validateEmail(email)) errors.push("email_invalid");
+
+  const telefono = normalizePhone(optionalString(value, ["telefono", "phone"], "telefono", 30, errors));
+  if (telefono && !validatePhone(telefono)) errors.push("telefono_invalid");
+  if (!email && !telefono) errors.push("contacto_required");
+
+  const empresa = optionalString(value, ["empresa", "organizacion", "organization"], "empresa", 200, errors);
+  const ubicacion = version === 2
+    ? requiredString(value, ["ubicacion", "municipio", "ubicacion_proyecto"], "ubicacion", 200, errors)
+    : optionalString(value, ["ubicacion", "municipio", "ubicacion_proyecto"], "ubicacion", 200, errors);
+  const rawSubject = requiredString(value, ["asunto", "necesidad"], "asunto", 80, errors);
+  const asunto = normalizedChoice(rawSubject);
+  if (asunto && !CONTACT_SUBJECTS.has(asunto)) errors.push("asunto_invalid");
+
+  const mensajeBase = optionalString(value, ["mensaje", "message"], "mensaje", 3500, errors);
+  const tipoCultivo = optionalString(value, ["tipoCultivo", "tipo_cultivo"], "tipo_cultivo", 100, errors);
+  const actividad = optionalString(value, ["actividad", "tipoActividad", "tipo_actividad"], "actividad", 120, errors);
+  const volumen = optionalString(value, ["volumen_aprox", "volumenAprox", "volumen"], "volumen_aprox", 120, errors);
+
+  const website = asAlias(value, "website");
+  if (website !== undefined && typeof website !== "string") errors.push("website_type");
+  const timestamp = asAlias(value, "_timestamp");
+  if (timestamp !== undefined && typeof timestamp !== "string" && typeof timestamp !== "number") {
+    errors.push("timestamp_type");
+  }
+  if (typeof timestamp === "string" && timestamp.length > 40) errors.push("timestamp_too_long");
+
+  validateBooleanField(value, errors);
+  const consent = consentValue(value);
+  if (!consent) errors.push("acepta_politica_required");
+
+  const mensaje = addStructuredDetails(mensajeBase, [
+    ["Actividad", actividad],
+    ["Volumen aproximado", volumen],
+    ["Tipo de cultivo", tipoCultivo],
+  ]);
+
+  if (errors.length > 0) return { ok: false, errors };
+
   return {
-    nombre: data.nombre?.trim().replace(/\s+/g, ' ') || '',
-    email: data.email?.trim().toLowerCase() || '',
-    telefono: data.telefono?.trim().replace(/\s+/g, ' ') || '',
-    empresa: data.empresa?.trim().replace(/\s+/g, ' ') || '',
-    asunto: data.asunto || '',
-    mensaje: data.mensaje?.trim().replace(/\s+/g, ' ') || '',
-    ubicacion: data.ubicacion?.trim().replace(/\s+/g, ' ') || null,
-    tipoCultivo: data.tipoCultivo?.trim().replace(/\s+/g, ' ') || null,
-    aceptaPolitica: data.aceptaPolitica === true
-  }
+    ok: true,
+    errors: [],
+    row: {
+      nombre,
+      email,
+      telefono,
+      empresa,
+      asunto,
+      mensaje,
+      ubicacion,
+      tipo_cultivo: tipoCultivo || null,
+      acepta_politica: true,
+    },
+  };
 }
 
-serve(async (req) => {
-  // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
-  }
-  
-  // Solo permite POST
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { 
-      status: 405, 
-      headers: { 'Content-Type': 'application/json', ...corsHeaders } 
-    })
-  }
-  
-  try {
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-    )
-    
-    // IP real del cliente (primer valor de x-forwarded-for)
-    const clientIP = (req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '')
-      .split(',')[0]
-      .trim()
-    
-    // Parsear datos con timeout
-    const timeoutPromise = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Request timeout')), 10000)
-    )
-    
-    const body = await Promise.race([
-      req.json(),
-      timeoutPromise
-    ]) as any
-    
-    // Check honeypot - reject bot submissions silently
+export function createContactHandler(options: LeadHandlerOptions): (request: Request) => Promise<Response> {
+  return async (request: Request): Promise<Response> => {
+    const origin = request.headers.get("origin");
+    const configured = options.allowedOrigins;
+    if (!isAllowedOrigin(origin, configured)) {
+      return jsonResponse({ error: "Origen no permitido." }, 403, null, configured);
+    }
+    if (request.method === "OPTIONS") return emptyResponse(204, origin, configured);
+    if (request.method !== "POST") {
+      return jsonResponse({ error: "Método no permitido." }, 405, origin, configured, { Allow: "POST, OPTIONS" });
+    }
+
+    const parsed = await parseJsonBody(request);
+    if (!parsed.ok) {
+      const message = parsed.error === "too_large"
+        ? "La solicitud es demasiado grande."
+        : "El cuerpo de la solicitud no es JSON válido.";
+      return jsonResponse({ error: message }, 400, origin, configured);
+    }
+    const body = parsed.value;
+
+    // Only the explicit honeypot is a bot signal. A fast timestamp is not rejection logic.
     if (isHoneypotTriggered(body)) {
-      // Return success to not tip off the bot, but don't process
-      return new Response(
-        JSON.stringify({ success: true, message: 'Contact form submitted successfully' }),
-        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      )
+      return jsonResponse({ success: true, accepted: false, bot: true }, 200, origin, configured);
     }
-    
-    // Rate limiting por IP y por email (3/hora, 10/día)
-    const { data: rateLimit, error: rateLimitError } = await supabase.rpc('check_rate_limit', {
-      _action: 'contact',
-      _ip: clientIP,
-      _email: typeof body?.email === 'string' ? body.email : '',
-      _max_per_hour: 3,
-      _max_per_day: 10,
-    })
-    
-    if (rateLimitError) {
-      console.error('Rate limit check failed:', rateLimitError)
-    } else if (rateLimit && rateLimit.allowed === false) {
-      return new Response(
-        JSON.stringify({
-          error: 'Has enviado demasiadas solicitudes. Intenta nuevamente más tarde.',
-          retry_after: rateLimit.retry_after,
-        }),
-        {
-          status: 429,
-          headers: {
-            'Content-Type': 'application/json',
-            'Retry-After': String(rateLimit.retry_after ?? 3600),
-            ...corsHeaders,
-          },
-        }
-      )
+
+    const validation = validateContactPayload(body);
+    if (!validation.ok || !validation.row) {
+      return jsonResponse(
+        { error: "Revisa los datos ingresados.", details: validationDetails(validation.errors) },
+        400,
+        origin,
+        configured,
+      );
     }
-    
-    
-    // Validar datos con cache
-    const validation = validateContactForm(body)
-    if (!validation.isValid) {
-      return new Response(
-        JSON.stringify({ error: 'Validation failed', details: validation.errors }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      )
+
+    let supabase: SupabaseLike;
+    try {
+      supabase = options.getSupabase();
+    } catch {
+      return jsonResponse({ error: "Servicio temporalmente no disponible. Intenta nuevamente más tarde." }, 503, origin, configured);
     }
-    
-    // Sanitizar datos
-    const sanitizedData = sanitizeData(body)
-    
-    // Función de inserción en background
-    const insertData = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('contact_inquiries')
-          .insert({
-            nombre: sanitizedData.nombre,
-            email: sanitizedData.email,
-            telefono: sanitizedData.telefono,
-            empresa: sanitizedData.empresa,
-            asunto: sanitizedData.asunto,
-            mensaje: sanitizedData.mensaje,
-            ubicacion: sanitizedData.ubicacion,
-            tipo_cultivo: sanitizedData.tipoCultivo,
-            acepta_politica: sanitizedData.aceptaPolitica,
-          })
-        
-        if (error) {
-          console.error('Database error:', error)
-          // Aquí podrías implementar retry logic o queue
-        }
-        
-        return { data, error }
-      } catch (error) {
-        console.error('Insert error:', error)
-        return { data: null, error }
-      }
+
+    const rateLimit = await checkRateLimit(supabase, "contact", request, String(validation.row.email ?? ""));
+    if (!rateLimit.ok) {
+      return jsonResponse(
+        { error: "No se pudo verificar el límite de solicitudes. Intenta nuevamente más tarde." },
+        503,
+        origin,
+        configured,
+        { "Retry-After": "30" },
+      );
     }
-    
-    // Ejecutar inserción en background usando EdgeRuntime.waitUntil
-    const insertPromise = insertData()
-    EdgeRuntime.waitUntil(insertPromise)
-    
-    // Responder inmediatamente sin esperar la inserción
-    return new Response(
-      JSON.stringify({ success: true, message: 'Contact form submitted successfully' }),
-      { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    )
-    
-  } catch (error) {
-    console.error('Server error:', error)
-    return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
-      { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    )
-  }
-})
+    if (!rateLimit.allowed) {
+      return jsonResponse(
+        { error: "Has enviado demasiadas solicitudes. Intenta nuevamente más tarde." },
+        429,
+        origin,
+        configured,
+        { "Retry-After": String(rateLimit.retryAfter ?? 3600) },
+      );
+    }
+
+    const inserted = await insertConfirmed(supabase, "contact_inquiries", validation.row);
+    if (!inserted) {
+      return jsonResponse({ error: "No se pudo guardar la solicitud. Intenta nuevamente más tarde." }, 503, origin, configured, {
+        "Retry-After": "30",
+      });
+    }
+
+    return jsonResponse({ success: true }, 200, origin, configured);
+  };
+}
+
+const defaultSupabase = (): SupabaseLike => createClient(
+  Deno.env.get("SUPABASE_URL") ?? "",
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+) as unknown as SupabaseLike;
+
+if (import.meta.main || Deno.env.has("DENO_DEPLOYMENT_ID")) {
+  serve(createContactHandler({ getSupabase: defaultSupabase }));
+}
