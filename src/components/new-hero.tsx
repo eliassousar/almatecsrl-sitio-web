@@ -22,7 +22,6 @@ const NewHero = () => {
           Soluciones poscosecha para almacenar, secar y manejar granos en Bolivia.
         </h1>
         <p className="mx-auto max-w-3xl font-open-sans text-lg leading-relaxed text-gray-300 md:text-xl">
-          Diseñamos soluciones con productores, compradores de granos, centros de acopio y agroindustrias para cuidar el valor del grano desde la recepción hasta el despacho.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button asChild size="lg" className="w-full bg-almatec-yellow px-7 font-montserrat font-semibold text-almatec-black hover:bg-almatec-yellow/90 sm:w-auto">
