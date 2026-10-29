@@ -16,9 +16,9 @@ const ModernPageHero = ({ title, subtitle }: ModernPageHeroProps) => {
     >
       {/* Contenido Principal */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
         className="z-10 text-center px-4 max-w-4xl mx-auto"
       >
         {/* Título principal */}

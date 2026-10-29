@@ -26,7 +26,7 @@ const NewHero = () => {
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button asChild size="lg" className="w-full bg-almatec-yellow px-7 font-montserrat font-semibold text-almatec-black hover:bg-almatec-yellow/90 sm:w-auto">
             <Link to="/contacto">
-              Contar mi proyecto
+              Quiero mi proyecto
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
