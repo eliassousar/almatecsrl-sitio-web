@@ -118,7 +118,7 @@ const Home = () => {
             Comparta lo que ya conoce de su operación. Le ayudaremos a ordenar el alcance y los próximos datos técnicos.
           </p>
           <Button asChild size="lg" className="bg-primary px-8 py-4 font-montserrat text-lg font-semibold text-primary-foreground hover:bg-primary/90">
-            <Link to="/contacto">Contar mi proyecto</Link>
+            <Link to="/contacto">Quiero mi proyecto</Link>
           </Button>
         </div>
       </section>

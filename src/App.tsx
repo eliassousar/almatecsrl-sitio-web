@@ -11,7 +11,16 @@ import Home from "./pages/Home";
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
 const Productos = lazy(() => import("./pages/Productos"));
 const Servicios = lazy(() => import("./pages/Servicios"));
-const Contacto = lazy(() => import("./pages/Contacto"));
+const loadContacto = () => import("./pages/Contacto");
+const Contacto = lazy(loadContacto);
+
+// Precarga la página de contacto en segundo plano para que abra al instante
+if (typeof window !== "undefined") {
+  const prefetch = () => { loadContacto(); };
+  const w = window as Window & { requestIdleCallback?: (cb: () => void) => void };
+  if (w.requestIdleCallback) w.requestIdleCallback(prefetch);
+  else setTimeout(prefetch, 1500);
+}
 const PoliticaPrivacidad = lazy(() => import("./pages/PoliticaPrivacidad"));
 const TerminosCondiciones = lazy(() => import("./pages/TerminosCondiciones"));
 const FAQ = lazy(() => import("./pages/FAQ"));
