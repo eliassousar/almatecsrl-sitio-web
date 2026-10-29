@@ -64,7 +64,7 @@
       {
         "name": "list_contact_inquiries",
         "title": "Listar consultas de contacto",
-        "description": "Lista las consultas recibidas por el formulario de contacto. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+        "description": "Lista campos comerciales explícitos de consultas para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -89,7 +89,7 @@
       {
         "name": "list_quote_requests",
         "title": "Listar solicitudes de cotización",
-        "description": "Lista las solicitudes de cotización recibidas. Requiere una cuenta con permisos (admin o ventas); RLS filtra el acceso.",
+        "description": "Lista campos comerciales explícitos de cotizaciones para cuentas admin o sales; RLS bloquea a viewer y a cualquier otra cuenta.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
