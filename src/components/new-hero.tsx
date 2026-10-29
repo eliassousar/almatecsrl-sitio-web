@@ -17,7 +17,6 @@ const NewHero = () => {
         className="relative z-10 mx-auto max-w-5xl px-6 py-24 text-center md:px-8"
       >
         <p className="mb-5 font-montserrat text-sm font-semibold uppercase tracking-[0.24em] text-almatec-yellow">
-          Almatec Agronegocios · Bolivia
         </p>
         <h1 className="mb-6 font-montserrat text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-[4rem]">
           Soluciones poscosecha para almacenar, secar y manejar granos en Bolivia.
