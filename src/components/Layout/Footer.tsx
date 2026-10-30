@@ -7,6 +7,7 @@ import {
   ALMATEC_ADDRESS,
   ALMATEC_BUSINESS_HOURS,
   ALMATEC_SOCIAL,
+  ALMATEC_MAP_URL,
 } from '@/config/contact';
 
 const Footer = () => {
@@ -79,14 +80,14 @@ const Footer = () => {
                   <p className="text-white font-medium">{ALMATEC_BUSINESS_HOURS.saturday.hours}</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-2 pt-2 border-t border-gray-700">
+              <a href={ALMATEC_MAP_URL} target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación de Almatec en Google Maps" className="flex items-start space-x-2 pt-2 border-t border-gray-700 hover:text-almatec-yellow">
                 <MapPin className="w-4 h-4 text-almatec-yellow flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-gray-300">{ALMATEC_ADDRESS.line1}</p>
                   <p className="text-gray-300">{ALMATEC_ADDRESS.line2}</p>
                   <p className="text-gray-300">{ALMATEC_ADDRESS.city}</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -128,7 +129,8 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-almatec-yellow hover:text-almatec-black transition-colors cursor-pointer"
-                aria-label="YouTube"
+                aria-label="Canal de YouTube GSI America del Sur, marca representada por Almatec"
+                title="Canal GSI America del Sur, marca representada por Almatec"
               >
                 <Youtube className="w-4 h-4" />
               </a>

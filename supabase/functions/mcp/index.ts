@@ -287,11 +287,11 @@ var ALMATEC_PHONES = [
 ];
 var ALMATEC_PRIMARY_PHONE = ALMATEC_PHONES[0];
 var ALMATEC_EMAILS = {
-  primary: "edson_gsi@hotmail.com",
+  primary: "eliaspereira@almatec.net",
   secondary: "pabloarteaga@almatec.net"
 };
 var ALMATEC_ADDRESS = {
-  line1: "Av. Banzer entre 4to y 5to anillo",
+  line1: "Av. Cristo Redentor entre 4to y 5to anillo",
   line2: "Comercial Plaza Norte, Oficina 46",
   city: "Santa Cruz de la Sierra, Bolivia"
 };
@@ -300,7 +300,7 @@ var ALMATEC_BUSINESS_HOURS = {
   saturday: { label: "S\xE1bados", hours: "8:00 \u2013 12:00" }
 };
 var ALMATEC_SOCIAL = {
-  facebook: "https://www.facebook.com/almatecscz/?locale=es_LA",
+  facebook: "https://www.facebook.com/almatecscz/",
   instagram: "https://www.instagram.com/almatecsrl/",
   linkedin: "https://www.linkedin.com/company/almatec-srl/",
   youtube: "https://www.youtube.com/@GSI.americadelsur"

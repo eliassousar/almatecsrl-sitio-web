@@ -9,6 +9,8 @@ import {
   ALMATEC_PHONES,
   ALMATEC_PRIMARY_PHONE,
   ALMATEC_EMAILS,
+  ALMATEC_ADDRESS,
+  ALMATEC_MAP_URL,
   ALMATEC_BUSINESS_HOURS,
   buildWhatsAppUrl,
 } from '@/config/contact';
@@ -48,8 +50,8 @@ const Contacto = () => {
                 </div>
                 <h3 className="mb-2 font-montserrat font-semibold text-almatec-dark-gray">Correos</h3>
                 <div className="space-y-1">
-                  <p className="font-open-sans text-gray-600">{ALMATEC_EMAILS.primary}</p>
-                  <p className="font-open-sans text-gray-600">{ALMATEC_EMAILS.secondary}</p>
+                  <a href={`mailto:${ALMATEC_EMAILS.primary}`} className="block font-open-sans text-gray-600 hover:text-almatec-dark-gray">{ALMATEC_EMAILS.primary}</a>
+                  <a href={`mailto:${ALMATEC_EMAILS.secondary}`} className="block font-open-sans text-gray-600 hover:text-almatec-dark-gray">{ALMATEC_EMAILS.secondary}</a>
                 </div>
               </CardContent>
             </Card>
@@ -93,11 +95,11 @@ const Contacto = () => {
           <Card className="mx-auto max-w-4xl">
             <CardContent className="p-0">
               <AspectRatio ratio={16 / 9}>
-                <a href="https://maps.app.goo.gl/kHZ2LP4FBZwmb9FC9" target="_blank" rel="noopener noreferrer" className="group flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-gray-200 transition-colors hover:bg-gray-300" aria-label="Abrir ubicación de Almatec en Google Maps">
+                <a href={ALMATEC_MAP_URL} target="_blank" rel="noopener noreferrer" className="group flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-gray-200 transition-colors hover:bg-gray-300" aria-label="Abrir ubicación de Almatec en Google Maps">
                   <div className="text-center">
                     <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-almatec-yellow transition-transform group-hover:scale-110"><span className="text-2xl" aria-hidden="true">📍</span></div>
                     <h3 className="mb-2 font-montserrat font-semibold text-almatec-dark-gray">Ver en Google Maps</h3>
-                    <p className="font-open-sans text-sm text-gray-600">Abra el mapa para consultar la ubicación.</p>
+                    <p className="font-open-sans text-sm text-gray-600">{ALMATEC_ADDRESS.line1}, {ALMATEC_ADDRESS.line2}<br />{ALMATEC_ADDRESS.city}</p>
                   </div>
                 </a>
               </AspectRatio>

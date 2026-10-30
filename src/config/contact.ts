@@ -32,12 +32,12 @@ export const ALMATEC_PHONES: readonly ContactPhone[] = [
 export const ALMATEC_PRIMARY_PHONE = ALMATEC_PHONES[0];
 
 export const ALMATEC_EMAILS = {
-  primary: 'edson_gsi@hotmail.com',
+  primary: 'eliaspereira@almatec.net',
   secondary: 'pabloarteaga@almatec.net',
 } as const;
 
 export const ALMATEC_ADDRESS = {
-  line1: 'Av. Banzer entre 4to y 5to anillo',
+  line1: 'Av. Cristo Redentor entre 4to y 5to anillo',
   line2: 'Comercial Plaza Norte, Oficina 46',
   city: 'Santa Cruz de la Sierra, Bolivia',
 } as const;
@@ -48,11 +48,15 @@ export const ALMATEC_BUSINESS_HOURS = {
 } as const;
 
 export const ALMATEC_SOCIAL = {
-  facebook: 'https://www.facebook.com/almatecscz/?locale=es_LA',
+  facebook: 'https://www.facebook.com/almatecscz/',
   instagram: 'https://www.instagram.com/almatecsrl/',
   linkedin: 'https://www.linkedin.com/company/almatec-srl/',
   youtube: 'https://www.youtube.com/@GSI.americadelsur',
 } as const;
+
+/** Enlace directo al lugar de ALMATEC en Google Maps, sin redirección acortada. */
+export const ALMATEC_MAP_URL =
+  'https://www.google.com/maps/place/ALMATEC+-+GSI/@-17.7442183,-63.1721707,20z/data=!4m6!3m5!1s0x93f1e7ecb9524a11:0xf5fb24b383e8b843!8m2!3d-17.7441873!4d-63.1722687';
 
 export const ALMATEC_SITE_URL = 'https://almatecsrl-sitio-web.lovable.app';
 
